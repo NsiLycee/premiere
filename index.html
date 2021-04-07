@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title> NSI en première </title>
+	<!-- Les deux lignes suivantes permettent d'insérer une icône à coté 
+	     de l'onglet de la page -->
+	<link rel="shortcut icon" href="icone.png" type="image/x-icon"/>
+	<link rel="icon" href="icone.png" type="image/x-icon"/>
+	
+	<script src="./sommaire.js"></script>
+	<script language="JavaScript" src="jodenda.free.fr/JS/moteurQuiz.js"></script>
+	<script language="JavaScript" src="jodenda.free.fr/JS/affichages.js"></script>
+	<script language="JavaScript">
+		var titrePage = "Blog de Joël Dendaletche";
+		var aurevoir = "&Aacute; bientôt, revenez vite !";
+		//var id = setInterval(ma_fontion, 1000);
+		function titre(texte) 
+		{
+			document.title = texte;
+		}
+		function init() 
+		{
+			 // alert("debug init");
+			 construireListeSommaire ();
+		}
+	</script>
+	
+	<meta name="author" content="Joël Dendaletche"/>
+	<meta name="created" content="2019-09-02"/>
+	<meta name="changed" content="2019-09-16"/>
+	<meta name="Company" 
+content="Lycée La Découverte Decazeville Aveyron Occitanie Terre"/>
+	<meta name="description" content="programme NSI première">
+	<meta name="keywords" content="Informatique">
+   <!-- la méta-donnée suivante rafraichit l'écran toute les minutes -->
+	<meta http-equiv="refresh" content="60">
+
+	
+	<!-- feuille de style externe -->
+	<link rel="stylesheet" type="text/css" 
+	      href="jodenda.free.fr/programme NSI/styleProgramme.css">
+<!--    <link rel="stylesheet" type="text/css" href="./CSS/style.css">
+    <link rel="stylesheet" type="text/css" 
+		  href="./CSS/numerotationTitres.css">                       -->
+    <link rel="stylesheet" type="text/css" 
+          href="jodenda.free.fr/CSS/ressourcesCachees.css">
+	<link rel="stylesheet" type="text/css" 
+	      href="jodenda.free.fr/CSS/styleQuiz.css">    
+    <link rel="stylesheet" type="text/css" 
+          href="jodenda.free.fr/CSS/simpleMenuHorizontal.css">
+	<!-- Définition du style local de la page : déconseillé ! -->
+	<style>
+	 /* Styles appliqués aux portions de code */
+		.attribut { color : black;
+			font-weight: bold; }
+		.balise { color : purple; }
+		.texte { color : blue ; }
+		.commentaire { color : green; }
+		div.codeHTML { 
+			border : 2px solid black;
+			padding : 10px;
+			text-align: left;
+			}
+		.caracteristique {
+			color : red;
+			font-weight: bold; 
+		}
+		.valeur {
+		color : orange;
+		}
+		section {
+			display: flex;
+		}
+		article {
+			flex : 4;
+		}
+		section nav {
+			flex : 1;
+		}
+	</style>
+
+</head>
+<!-- la balise body délimite les instructions qui permettront d'afficher 
+le contenu de la page web à l'écran -->
+<body onload="init();" onblur="titre(aurevoir);" 
+	  onfocus="titre(titrePage);">
+	<header>
+		<p>Blog de <abbr title="Joël Dendaletche">jodenda</abbr> </p>
+	</header>
+<!--------------------------------------------------------------------->
+<nav>
+	<ul class="menu">
+		<li><a href="index.html">retour à la page d'accueil</a></li>
+	<ul class="menu">
+		<li><a href="jodenda.free.fr/programmeNSI/cours/themeA/typesBase.html"
+		title="Représentation des données : types et valeurs de base">
+			A : types et valeurs de base</a></li>
+			
+		<li><a href="jodenda.free.fr/programmeNSI/cours/themeB/typesConstruits.html"
+		title="Représentation des données : types construits">
+			B : types construits</a></li> 
+			
+		<li><a 
+		href="jodenda.free.fr/programmeNSI/cours/themeC/traitementDonneesEnTables.html"
+		title="Traitement de données en tables">
+			C : Traitement de données en tables</a></li>
+			
+		<li><a href="jodenda.free.fr/programmeNSI/cours/themeD/web2.0.html"
+		title="Interactions entre l’homme et la machine sur le Web 2.0">
+			D : Web 2.0</a></li>
+			
+		<li><a href="jodenda.free.fr/programmeNSI/cours/themeE/systemeLinux.html">
+			E : architecture système</a></li>		
+		<li><a href="jodenda.free.fr/programmeNSI/quiz/entrainementE3C.html">
+			Quiz d'entraînement</a></li>
+		<li><a href="jodenda.free.fr/programmeNSI/ressources/ressource_0.html">
+			bonnes pratiques</a>
+		</li> 
+
+	</ul>
+</nav>
+</header>
+<!--------------------------------------------------------------------->
+	<section>
+	<article>
+	<h1>Enseignement de Numérique et Science Informatique en première
+	</h1>	
+	
+	<ul style="font-size:150%;">
+		<li>programme de <a 
+href="http://jodenda.free.fr/programmeNSI/programmeNSIpremier_0.html" 
+		                    target="_blank">
+		<abbr title="Numérique Sciences Informatique">NSI</abbr> en 
+		première</a> ;
+		<br/></li>
+	
+		<li>cours de Python : 
+		<a 
+href="https://www.pierre-giraud.com/python-apprendre-programmer-cours/condition-if-elif-else/" 
+		target="_blank">les conditions if else elif </a> dans le code
+		<br/></li>
+		
+
+		<li>cours de Python : 
+		<a 
+href="https://www.pierre-giraud.com/python-apprendre-programmer-cours/boucle-for-while/" 
+		target="_blank">les boucles for et while</a> dans le code
+		<br/></li>
+		
+ 
+ 		<li>règles de <a 
+ 		href="jodenda.free.fr/programmeNSI/ressources/ressource_0.html" 
+ 		target="_blank">bonnes pratiques</a> en 
+ 		codage
+ 		<br/></li>
+		
+
+
+
+		<li>projets web <a 
+		href="jodenda.free.fr/programmeNSI/projets/index.html">ici</a>
+		</li>
+
+	</ul>
+
+	</article>
+	
+	<nav id="listeSommaire" >
+		
+	<!-- Le sommaire sera écrit ici au chargement de la page par une 
+	routine en javascript -->
+	
+	</nav>
+	</section>
+	<footer>
+		<p>Liens utiles :</p>
+		<ul class="menu">
+			<li><a href="https://www.w3schools.com" target="_blank">
+				tutoriel w3school pour HTML, CSS, JS, Python ;</a></li>
+			<li><a href="https://www.w3schools.com/css/css_howto.asp" 
+			target="_blank">section "how to" du tutoriel w3school pour 
+			<strong title="Cascade Style Sheet">CSS</strong> ;</a></li>
+			<li><a href="https://icon-icons.com" target="_blank">
+				bibliothèque d'icones et images libres.</a></li>
+			
+		</ul>
+	</footer>
+	
+</body>
+</html>
