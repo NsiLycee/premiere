@@ -1,0 +1,50 @@
+/*
+		Auteur : Joël Dendaletche
+		Contenu : feuille de style pour les portions de codes HTML, CSS, JS, Python
+		Date de création : 14 / 11 /2020
+ */
+ 	 /* Styles appliqués aux portions de code */
+		.attribut { color : black;
+			font-weight: bold; }
+		.balise { color : purple; }
+		.texte { color : blue ; }
+		.commentaire { color : green; }
+		div.codeHTML {
+			border : 2px solid black;
+			padding : 10px;
+			text-align: left;
+			}
+		.caracteristique {
+			color : red;
+			font-weight: bold;
+		}
+		.valeur {
+		color : orange;
+		}
+		section {
+			display: flex;
+		}
+		article {
+			flex : 4;
+		}
+		section nav {
+			flex : 1;
+		}
+		.15percent { width : 15%; }
+		code {
+			width 		:	80%					;
+			display 	: 	block           	;
+			border 		: 	groove 5px black	;
+			color		: 	white				;
+			background	:	black				;
+			padding		:	15px				;
+			}
+		.test {
+			font-size : 200%;
+			background : lightgray;
+			width 		: 20%;
+		}
+		abbr {
+			font-weight : bold;
+
+		}

@@ -1,0 +1,99 @@
+	 /* Styles appliqués aux portions de code */
+		.attribut { color : black;
+			font-weight: bold; }
+		.balise { color : purple; }
+		.texte { color : blue ; }
+		.commentaire { color : green; }
+		div.codeHTML {
+			border : 2px solid black;
+			padding : 10px;
+			text-align: left;
+			}
+		.caracteristique {
+			color : red;
+			font-weight: bold;
+		}
+		.valeur {
+		color : orange;
+		}
+		code b { //astuce pour colorer en pourpre les balises dans le code
+			color : purple;
+			text-decoration: none; // supprime gras souligné etc ...
+		}
+
+
+		/* attention ces instructions sont exécutées dans l'ordre chronologique ; l'effet en cascade ne tient compte que du dernier ordre ; la preuve : */
+body {
+  background-color: red;
+}
+body {
+  background-color: lightyellow; // c'est cette dernière instruction qui est prioritaire sur la précédente !
+}
+tbody>tr:nth-child(2n+1) {
+  background-color: #99dddd;
+}
+thead>tr:nth-child(2n+1) {
+  background-color: #0099dd;
+}
+thead>tr:nth-child(odd) {
+  color: blue;
+}
+thead>tr:nth-child(even) {
+  color: orange;
+}
+tr:nth-child(2n+2) {
+  background-color: #0099dd;
+}
+tr:nth-child(2n+2):hover {
+  background-color: #eeeeee;
+}
+td:nth-child(3n+1):hover { //cellules de la première colonne du tableau à trois colonnes
+  background-color: red;
+  color: green;
+}
+td:nth-child(3n+2):hover { //cellules de la première colonne du tableau à trois colonnes
+  background-color: green;
+  color: red;
+}
+td:nth-child(3n+3) { //cellules de la première colonne du tableau à trois colonnes
+  background-color: lightgrey;
+  color: black;
+  text-align : center;
+}
+tfoot>tr>th:nth-child(3n+1), tfoot>tr>th:nth-child(3n+2) {
+  background-color: blue;
+  color: orange;
+}
+tfoot>tr>th:nth-child(3n+3):hover {
+  background-color: black;
+  color: white;
+}
+caption:hover {
+  font-size:120%;
+  border : dashed 2px yellow;
+  background-color: darkgrey;
+  color: lightblue;
+}
+caption:active {
+  font-size:200%;
+  background-color: black;
+  color: white;
+}
+	.resultat:hover {
+		background-color: black;
+		color: white;
+		}
+#incognito {
+	color:white;
+	text-decoration : none;
+	}
+	svg, canvas {
+		border : solid 2px red;	background : rg(20,20,50);}
+#canvas1, #canvas2, #canvas3 {
+	position : absolute;
+	top : 3500px;
+	left :0;
+	width : 90%;
+	height : 400px;
+	z-index : -1;
+}
