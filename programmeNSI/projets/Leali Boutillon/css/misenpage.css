@@ -1,0 +1,121 @@
+
+h1  {
+	color: black;				/**couleur d'écriture **/
+	text-align: center;			/**centrer le texte **/
+	background-color: white;	/**fond du texte **/
+	width: 650px;				/**largeure de la marge **/
+	margin: auto;				/**utilisées pour créer de l'espace autour des éléments**/
+	}
+
+
+p   {
+	color: black;
+	background-color: white;
+	text-align: center;
+	width: 650px;
+	margin: auto;
+	
+	}
+	
+div   {
+	color: black;
+	background-color: white;
+	text-align: center;
+	width: 650px;
+	margin: auto;
+	
+	}
+
+ol.c {
+  list-style-type: upper-roman;
+  background-color: white;
+  text-align: center;
+}
+
+ul.d {
+  list-style-type: circle;
+  text-align: center;
+  background-color: white;
+}
+
+h2  {
+	color: purple;
+	text-align: center;
+	background-color: black;
+	width: 650px;
+	margin: auto;
+	}
+	
+h3  {
+	color: blue;
+	text-align: center;
+	background-color: black;
+	width: 650px;
+	margin: auto;
+	}
+	
+button {
+  margin: 1px 10px 0px 1150px;
+}
+
+input {
+  margin: 1px 10px 0px 1150px;
+}
+
+
+	table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td, th {
+  border: 1px solid #dddddd;	/**Taille des bors **/
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){
+  background-color: lightblue;
+}
+
+tr:nth-child(odd) {
+  background-color: lightblue;
+}
+
+body {
+  margin: 0;
+}
+
+ul.a {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 11%;				
+  background-color: black;	/**couleur du fond du sommaire**/
+  position: fixed;			/**position du sommaire**/
+  height: 100%;
+  overflow: auto;
+}
+
+
+
+li a {
+  display: block;
+  color: white;			/**couleur de l'écriture dans le sommaire**/
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a.active {
+  background-color: lightblue;
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+
+
