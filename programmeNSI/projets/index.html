@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title> revue des projets web 2020 </title>
+	<!-- Les deux lignes suivantes permettent d'insérer une icône à coté 
+	     de l'onglet de la page -->
+	<link rel="shortcut icon" href="icone.png" type="image/x-icon"/>
+	<link rel="icon" href="icone.png" type="image/x-icon"/>
+	
+	<script src="../../sommaire.js"></script>
+	<script language="JavaScript">
+		var titrePage = "Blog de Joël Dendaletche";
+		var aurevoir = "&Aacute; bientôt, revenez vite !";
+		//var id = setInterval(ma_fontion, 1000);
+		function titre(texte) 
+		{
+			document.title = texte;
+		}
+		function init() 
+		{
+			 // alert("debug init");
+			 construireListeSommaire ();
+		}
+	</script>
+	
+	<meta name="author" content="Joël Dendaletche"/>
+	<meta name="created" content="2020-03-02"/>
+	<meta name="changed" content="2020-03-02"/>
+	<meta name="Company" content="Lycée La Découverte Decazeville 12300 Aveyron Occitanie France Terre"/>
+	<meta name="description" content="revue des projets we 2020">
+	<meta name="keywords" content="Informatique">
+	<!-- la méta-donnée suivante rafraichit l'écran toute les minutes -->
+	<meta http-equiv="refresh" content="60">
+
+	
+	<!-- feuille de style externe -->
+	<link rel="stylesheet" type="text/css" href="../styleProgramme.css">
+	<!-- Définition du style local de la page : déconseillé ! -->
+	<style>
+	 /* Styles appliqués aux portions de code */
+		.attribut { color : black;
+			font-weight: bold; }
+		.balise { color : purple; }
+		.texte { color : blue ; }
+		.commentaire { color : green; }
+		div.codeHTML { 
+			border : 2px solid black;
+			padding : 10px;
+			text-align: left;
+			}
+		.caracteristique {
+			color : red;
+			font-weight: bold; 
+		}
+		.valeur {
+		color : orange;
+		}
+	</style>
+</head>
+<!-- la balise body délimite les instructions qui permettront d'afficher le contenu de la page web à l'écran -->
+<body onload="init();" onblur="titre(aurevoir);" onfocus="titre(titrePage);">
+	<header>
+		<h1>Revue des projets we 2020 </h1>
+	</header>
+	<section>
+	<article>
+	<h1>Enseignement de Numérique et Science Informatique en première
+	: partie web</h1>
+  <details><summary><h2>projets de l'année 2019-2020 :</h2></summary>
+    <ul>
+      <li><a href="./Jarod Albertini/html/index.html">Jarod et les chèvres</a></li>
+      <li><a href="./Robin/index.html">Robin et les pompiers</a></li>
+      <li><a href="./Leali Boutillon/index.html">Léali</a></li>
+      <li><a href="./Da Silva Benjamin/page d'accueil.html">Benjamin</a></li>
+      <li><a href="./Eric Lantuejoul/index.html">Éric</a></li>
+      <li><a href="./Kilian Moutardier/onePiece.html">Kilian</a></li>
+      <li><a href="./Alexandre Pascal/index.html">Alexandre</a></li>
+    </ul>
+  </details>
+    
+ <details><summary><h2>projets de l'année 2020-2021 :</h2></summary>
+   <table><caption></caption>
+     <tbody>
+       <tr>
+         <th>prénom</th><th colspan="2">site Web</th><th colspan="2">Projet de fin d'année</th>
+       </tr>
+       <tr>
+          <td>Simon</td>
+         <td></td><td></td>
+         <td><a href="https://github.com/SyberSim/Projet_jeu_de_cartes" target="_blank" title=""></a>
+          </td><td></td>
+       </tr>
+       
+       <tr>
+          <td>Charlotte</td>
+         
+         <td><a href="https://github.com/englishstudentinfrance/Cours/" target="_blank" title="dépôt">dépôt</a>
+          </td><a href="https://englishstudentinfrance.github.io/Cours/"target="_blank" title="site du cours de Charlotte">cours de Charlotte</a><td></td>
+         <td></td><td></td>
+       </tr>
+       <tr>
+          <td>Gaël</td>
+         
+         <td><a href="https://gael-taillade.github.io/projetNsi/" target="_blank" title="">dépôt github</a>
+          </td><td></td>
+         <td><a href="https://github.com/gael-taillade/projetnsi/" target="_blank" title="">le site de cours de Gaël</a></td><td></td>
+       </tr>
+     </tbody>
+   </table>
+    
+  </details>
+	<p id="adresse">&nbsp;</p>
+	</article>
+	<nav id="listeSommaire" >
+		
+	<!-- Le sommaire sera écrit ici au chargement de la page par une routine en javascript -->
+	
+	</nav>
+	</section>
+	<footer>
+		<h2>Liens utiles :</h2>
+		<ul>
+			<li><a href="https://www.w3schools.com" target="_blank">tutoriel w3school pour HTML, CSS, JS, Python ;</a></li>
+			<li><a href="https://www.w3schools.com/css/css_howto.asp" target="_blank">section "how to" du tutoriel w3school pour <strong title="Cascade Style Sheet">CSS</strong> ;</a></li>
+			<li><a href="https://icon-icons.com" target="_blank">bibliothèque d'icones et images libres.</a></li>
+			
+		</ul>
+	</footer>
+	
+</body>
+</html>
