@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html> <!-- cette balise indique où commence le code html de la page -->   <!-- -->
+<head> <!-- ceci est la balise qui délimite l'entête de la page qui traite les paramètres d'environnement de la page web -->
+	<!-- meta est une balise précisant une méta donnée ; une meta donnée est une donnée sur les données  -->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<meta name="author" content="Robin Alonzo"/>
+	<meta name="created" content="19/01/202"/>
+	<meta name="changed" content="date de révision"/>
+	<meta name="Company" content="Lycée La Découverte Decazeville 12300 Aveyron Occitanie France Terre"/>
+	<meta name="keywords" content="référencement, SEO, balise meta keywords" />
+
+	<!-- Définition du style de la page qui se trouve dans un fichier externe qui s'appelle monStyle.css -->
+	<link rel="stylesheet" href="css/monStyle.css" />
+	<link rel="shortcut icon" href="img/logodcpj.ico" type="image/x-icon"/>
+    <link rel="icon" href="img/logodcpj.ico" type="image/x-icon"/>
+
+    <title>BSPP des Studios DCPJ</title>
+
+    <script src="exemple.js"> </script> <!-- Cette ligne permet d'inclure un code en java script qui est dans le fichier exemple.js -->
+	<script> var moi = "Robin" ; // ne pas oublier le point virgule 
+	
+	function afficheMonNom ( nom, nb )
+	{ //ceci defini le début du bloc d'instruction
+		var phrase = " " ;
+		for (var i=0 ; i<nb;i++) {
+			phrase += nom + " " ;
+		}
+		alert("Bienvenue sur le site de" + phrase ) ; 
+	} // le + permet de concaténer deux textes = sting ou chaine de caractères 
+		
+		// ici j'utilise la foncton
+		afficheMonNom (moi, 1) ;
+	</script>
+	
+</head>
+
+<!-- Début du corps de page --> 
+<body>
+	<header>
+		<h1>La BSPP des Studios DCPJ</h1>
+		<img src="img/logodcpj.jpg" height="100" width="100" style="float:left";/>
+		<img src="img/logo.png" height="100" width="100" style="float:right";/>
+    </header>
+	
+		<article>
+			<h2><u>Caserne de Champerret</u></h2>
+				<p style="color:black">La Caserne de champerret ce trouve dans le 20ème arrondissement de Paris, elle est consitué de nombreux véhicules de secours et acceuille les officiers de la brigade.</p>
+				</br>
+				<p style="color:black">	Cliquer sur l'image pour découvrir les hommes de cette Caserne ainsi que les véhicules qu'elle contient</p>										
+				<a href="champerret.html" target="_blank"><img src="img/cschamp.jpg"/> </a>
+			<h2><u>Caserne de Port Royal</u></h2>
+				<p style="color:black">	La Caserne de Port Royal ce trouve dans le 13ème arrondissement de Paris, elle est consitué de nombreux véhicules de secours et acceuille les Sous officiers et les hommes du rang.</p>
+				</br>
+				<p style="color:black">	Cliquer sur l'image pour découvrir les hommes de cette Caserne ainsi que les véhicules qu'elle contient</p>
+				<a href="portroyal.html" target="_blank"><img src="img/cspr.jpg"/> </a>
+		</article>
+	<footer>
+		<p>Copyright &copy; 2020 Robin Alonzo</p>
+    </footer>
+</body>
+</html>
