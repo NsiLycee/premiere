@@ -1,0 +1,142 @@
+/* Style Sheet */
+
+/* Police d'écriture */
+
+body    {
+          font-family: Arial, Helvetica, sans-serif                         ;   /** Changement de la police d'écriture, de la taille ainsi que de la façon (majuscules) **/
+          font-variant: small-caps                                          ;
+          font-size:   30px                                                 ;
+        }
+.question {
+            color: white                                         ;
+          }
+.titre {
+          color: whitesmoke ;
+       }
+
+a      {
+          color: whitesmoke                                                 ;
+       }
+a:hover {
+          color: black                                                       ;
+        }
+/* Fond */
+
+body    {
+          background: url("../img/fond/a.jpg") no-repeat fixed center;
+        }
+
+header  {
+          color:					black				                           ;
+          border:solid    white	                                 ;
+          background:     snow                                   ;
+          padding:        10px                                   ;
+        }
+
+.title       {
+          color:					black				                           ;
+          background:     snow                                   ;
+          padding-left:   -10px                                  ;
+          padding-right:  -10px                                  ;
+          border:solid    white	                                 ;
+        }
+.Chevre {
+          color:          black                                  ;
+          background:     WhiteSmoke                             ;
+          border:solid    WhiteSmoke                             ;
+          font-size:      65px                                   ;
+        }
+.Chevre:hover {
+                font-size: 70px                                  ;
+
+              }
+
+p {
+  color:					snow				                           ;                                   ;
+  border-radius:  5px                                    ;
+  padding-left:   -10px                                  ;
+  padding-right:  -10px                                  ;
+  border:solid    DimGrey	                                 ;
+  }
+
+footer {
+              background: snow;
+              color: black;
+          }
+
+
+/* Nav bar*/
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: black;
+  background-color: snow;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: DimGrey;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px #8c8c8c;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #8c8c8c;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.active {
+          color: white;
+          background-color: DimGrey;
+        }
+.active:hover {
+                  background-color: #333333 ;
+                  color: black ;
+
+              }
+
+/* Listes */
+
+.romain {
+            display: block;
+            list-style-type: upper-roman ;                                      /* Changement du type de liste en les modifiant */ 
+            margin-top: 1em;
+            margin-bottom: 1em;
+            margin-left: 0;
+            margin-right: 0;
+            padding-left: 40px;
+        }

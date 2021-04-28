@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+	  <!-- rajouté par J Dendaletche -->
+<meta charset="utf-8" />
+<!-- fin ajout -->
+    <link rel = "icon" href = "../img/icone/onglet.png" type = "image/x-icon">
+    <link rel = "stylesheet" type = "text/css" href = "../css/style.css">
+    <script>
+      function redirect()                                                           //Fonction qui sert à rediriger vers une autre page
+        {
+          location.replace("index.html")
+        }
+
+      function zoomImg(x)                                                           //Fonction qui aggrandit une image
+        {
+          x.style.width = "140px";
+        }
+
+      function nrmlImg(x)                                                           //Fonction qui réduit une image
+        {
+          x.style.width = "130px";
+        }
+    </script>
+
+    <title>
+      YAGI - Accueil
+    </title>
+
+  </head>
+
+  <body>
+    <header class = "Chevre">
+      <center>
+        <table>
+          <tr>
+            <td><img src = "../img/misc/8bd22bc2.png" width = "130" ; onclick = "redirect()"> <!-- On crée l'entête du site -->
+            </td>
+            <td>
+              <strong onclick = "redirect()"><i>YAGI</strong></i>
+            </td>
+          </tr>
+        </center>
+      </table>
+    </header>
+    <nav class = "navbar navbar-default">                                                    <!-- On crée une barre de navigation interne au site-->
+      <ul class = "navbar">
+        <li><a href = "./page.html"><img src = "../img/icone/home.png" width = "35"></a></li>
+        <li><a href = "./origines.html"> Origine </a></li>
+        <li class = "dropdown">
+          <a href = "./races/races.html" class = "drop-btn"> Les Races </a>
+          <div class = "dropdown-content">
+            <a href = "./races/calpine.html"> Chèvre Alpine </a>
+            <a href = "./races/races_suisses.html"> Races Suisses </a>
+            <a href = "./races/races_françaises.html"> Races françaises </a>
+            <a href = "./races/races_other.html"> Races d'autres pays </a>
+            <a href = "./races/typespe.html"> Types spécifiques </a>
+          </div>
+        </li>
+        <li class = "dropdown">
+          <a href = "./products/products.html" class="dropbtn">Produits</a>
+          <div class="dropdown-content">
+            <a href = "./products/lait.html"> Lait </a>
+            <a href = "./products/fromage.html"> Fromage </a>
+            <a href = "./products/viande.html"> Viande </a>
+            <a href = "./products/peau.html"> Peau </a>
+            <a href = "./products/toison.html"> Toison </a>
+          </div>
+        </li>
+        <li style="float:right"><a class="active" href="./about.html">&Agrave; propos...</a></li>
+    </ul>
+      </ul>
+    </nav>
+    <section>
+      <article>
+        <center>
+          <h1 class = "titre">
+            <strong>
+              <u>
+                <i>
+                  YAGI
+                </i>
+              </u>
+            </strong>
+          </h1>
+        </center>
+      </article>
+      <article>
+        <ul>
+          <li class = "question">
+            <u>
+              Qu'est-ce donc que YAGI ?
+            </u>
+          </li>
+          <br/>
+          <p>
+            YAGI est un site d'informations sur les chèvres. Comportant plusieurs catégories comme l'origine de la chèvre, les races actives de chèvres ainsi que ses produits.  <br/>
+            Et oui, une sorte de "Wiki" portant sur les chèvres dans un style plus moderne et plus plaisant que le grand site Wikipédia.
+          </p>
+          <li class = "question">
+            <u>
+              Que signifie donc YAGI ?
+            </u>
+          </li>
+          <br/>
+          <p>
+            YAGI est la traduction littérale du terme "Chèvre" en japonais. YAGI peut également s'écrire sous la forme de katakanas tels que ヤギ.
+          </p>
+          <li class = "question">
+            <u>
+              Pourquoi YAGI ?
+            </u>
+          </li>
+          <br/>
+          <p>
+            &Eacute;tant passionné de chèvres depuis tout petit, je me suis dis que créer ce site d'informations en rapport avec elles, pourrait être un projet sympathique.
+          </p>
+        </ul>
+      </article>
+    </section>
+  </body>
+
+</html>

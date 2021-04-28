@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <link rel = "icon" href = "../../img/icone/onglet.png" type = "image/x-icon">
+      <link rel = "stylesheet" type = "text/css" href = "../../css/style.css">
+
+      <title>
+        YAGI - Le Lait
+      </title>
+      <script>
+        function redirect()                                                           //Fonction qui sert à rediriger vers une autre page
+          {
+            location.replace("../index.html")
+          }
+        function redirect1()                                                           //Fonction qui sert à rediriger vers une autre page
+          {
+              location.replace("products.html")
+          }
+
+
+        function zoomImg(x)                                                           //Fonction qui aggrandit une image
+          {
+            x.style.width = "140px";
+          }
+
+        function nrmlImg(x)                                                           //Fonction qui réduit une image
+          {
+            x.style.width = "130px";
+          }
+      </script>
+  </head>
+  <body>
+    <header class = "Chevre">
+      <div>
+        <center>
+          <table>
+            <tr>
+              <td><img src = "../../img/misc/8bd22bc2.png" width = "130" ; onclick = "redirect()">
+              </td>
+              <td>
+                <strong onclick = "redirect()"><i>YAGI</strong></i>
+              </td>
+            </tr>
+        </center>
+      </table>
+    </header>
+    <nav class = "navbar navbar-default">
+      <ul class = "navbar">
+        <li><a href = "../page.html"><img src = "../../img/icone/home.png" width = "35"></a></li>
+        <li><a href = "../origines.html"> Origine </a></li>
+        <li class = "dropdown">
+          <a href = "../races/races.html" class = "drop-btn"> Les Races </a>
+          <div class = "dropdown-content">
+            <a href = "../races/calpine.html"> Chèvre Alpine </a>
+            <a href = "../races/races_suisses.html"> Races Suisses </a>
+            <a href = "../races/races_françaises.html"> Races françaises </a>
+            <a href = "../races/races_other.html"> Races d'autres pays </a>
+            <a href = "../races/typespe.html"> Types spécifiques </a>
+          </div>
+        </li>
+        <li class = "dropdown">
+          <a href = "./products.html" class = "dropbtn">Produits</a>
+          <div class="dropdown-content">
+            <a href = "./lait.html"> Lait </a>
+            <a href = "./fromage.html"> Fromage </a>
+            <a href = "./viande.html"> Viande </a>
+            <a href = "./peau.html"> Peau </a>
+            <a href = "./toison.html"> Toison </a>
+          </div>
+        </li>
+        <li style = "float:right"><a class="active" href = "../about.html">&Agrave; propos...</a></li>
+    </ul>
+      </ul>
+    </nav>
+    <section>
+      <center>
+        <h2 class = "titre">
+          <u>
+            <strong>
+              <i>
+                Le Lait de Chèvre
+              </i>
+            </strong>
+          </u>
+        <h2>
+      </center>
+      <article>
+        <p>
+          Le lait de chèvre est le lait que produit la femelle de la Chèvre domestique <i>(Capra hircus hircus)</i> et qui est généralement consommé par les chevreaux.
+          <br/>
+          Moins utilisé en alimentation humaine que le lait de vache, il est notamment employé pour la fabrication de fromage de chèvre.
+          <br/>
+          La bonne digestibilité des laits de chèvre pourrait s’expliquer en partie par leur teneur en acides gras courts, par la petite taille des globules gras qui les composent, mais également par leur richesse en triglycérides à chaîne moyenne et courte.
+          <br/>
+          La réputation d’innocuité du lait de chèvre en matière d’allergie mérite en revanche d’être fortement relativisée.
+          <br/>
+        </p>
+        <table>
+          <tr>
+            <td>
+              <img src = "../../img/misc/19.jpg">
+            </td>
+            <td>
+              <img src = "../../img/misc/20.jpg">
+            </td>
+          </tr>
+        </table>
+
+      </article>
+    </section>
+    <footer>
+      <center>
+        <input type = "button" onclick = "redirect1()" value = "Revenir aux différents produits de Chèvre">
+      </center>
+    </footer>
+  </body>
+
+</html>

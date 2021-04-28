@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel = "icon" href = "../../img/icone/onglet.png" type = "image/x-icon">
+      <link rel = "stylesheet" type = "text/css" href = "../../css/style.css">
+      <title>
+        YAGI - Races Suisses
+      </title>
+  <script>
+    function redirect()                                                           //Fonction qui sert à rediriger vers une autre page
+      {
+        location.replace("../index.html")
+      }
+    function redirect1()                                                           //Fonction qui sert à rediriger vers une autre page
+      {
+        location.replace("races.html")
+      }
+  </script>
+
+  </head>
+  <body>
+    <header class = "Chevre">
+      <div>
+        <center>
+          <table>
+            <tr>
+              <td><img src = "../../img/misc/8bd22bc2.png" width = "130" ; onclick = "redirect()">
+              </td>
+              <td>
+                <strong onclick = "redirect()"><i>YAGI</strong></i>
+              </td>
+            </tr>
+        </center>
+      </table>
+    </header>
+    <nav class = "navbar navbar-default">
+      <ul class = "navbar">
+        <li><a href = "../page.html"><img src = "../../img/icone/home.png" width = "35"></a></li>
+        <li><a href = "../origines.html"> Origine </a></li>
+        <li class = "dropdown">
+          <a href = "./races/races.html" class = "drop-btn"> Les Races </a>
+          <div class = "dropdown-content">
+            <a href = "./calpine.html"> Chèvre Alpine </a>
+            <a href = "./races_suisses.html"> Races Suisses </a>
+            <a href = "./races_françaises.html"> Races françaises </a>
+            <a href = "./races_other.html"> Races d'autres pays </a>
+            <a href = "./typespe.html"> Types spécifiques </a>
+          </div>
+        </li>
+        <li class = "dropdown">
+          <a href = "../products/products.html" class="dropbtn">Produits</a>
+          <div class="dropdown-content">
+            <a href = "../products/lait.html"> Lait </a>
+            <a href = "../products/fromage.html"> Fromage </a>
+            <a href = "../products/viande.html"> Viande </a>
+            <a href = "../products/peau.html"> Peau </a>
+            <a href = "../products/toison.html"> Toison </a>
+          </div>
+        </li>
+        <li style="float:right"><a class="active" href="../about.html">&Agrave; propos...</a></li>
+    </ul>
+      </ul>
+    </nav>
+    <section>
+      <center>
+        <h2 class = "titre">
+          <u>
+            <strong>
+              <i>
+                Les Races de Chèvres - Les Races Suisses
+              </i>
+            </strong>
+          </u>
+        </h2>
+      </center>
+      <a href = "#1">
+        Aller à la partie I. Saanen
+      </a>
+      <br/>
+      <a href = "#2">
+        Aller à la partie II. Toggenbourg
+      </a>
+      <article>
+        <ol class = "romain">
+          <li id = "1" class = "question">
+            <u>
+              Saanen
+            </u>
+          </li>
+          <br/>
+          <p>
+            La Saanen <i>(ou chèvre de Gessenay)</i>, blanche à poils courts, généralement dépourvue de cornes <i>(mais certaines ont une paire de cornes de taille moyenne tournées vers l'arrière)</i>, calme et excellente laitière.
+            <br/>
+            Elle est originaire de la haute vallée de la Sarine.
+            Sa renommée en tant qu'animal de rente a entraîné l'implantation de la race dans de nombreux pays.
+            <br/>
+            On peut considérer aujourd'hui que la Saanen est la race la plus répandue mondialement parmi les races laitières caprines. C'est un animal trapu, solide et paisible, aux qualités très laitières qui s'adapte très bien aux différents modes d'élevage notamment intensifs.
+            <br/>
+            Morphologie : poil court, dense et soyeux ; robe uniformément blanche ; tête avec un profil droit ; poitrine profonde, large et longue, caractérisant une grande capacité thoracique ; épaule large et bien attachée; garrot bien en viande ; aplombs sont corrects et allures régulières ; mamelle globuleuse, bien attachée et larges à la base.
+            <br/>
+            C'est une race à fort développement: 50 kg à 90 kg pour la femelle ; 80 kg à 120 kg pour le mâle.
+            <br/>
+          </p>
+          <center>
+            <img src = "../../img/misc/8.jpg">
+          </center>
+          <li id = "2" class = "question">
+            <u>
+              Toggenbourg
+            </u>
+          </li>
+            <p>
+              La Toggenbourg, excellente laitière, de pelage fauve à sombre, caractérisée par ses deux bandes blanches de l'oreille à la bouche.
+              <br/>
+              Souvent utilisé durant le haut Moyen Âge comme animal sacrificiel pour les rituels de fertilité des fêtes de la Saint-Abondance, elle était ensuite dépecée, et sa peau utilisée pour fabriquer des pagnes qui étaient alors portés par les jeunes hommes entrant dans l'âge adulte, lors des cérémonies de passation des pouvoirs.
+            </p>
+            <center>
+              <img src = "../../img/misc/9.jpg">
+            </center>
+        </ol>
+      </article>
+    </section>
+    <footer>
+      <center>
+        <input type = "button" onclick = "redirect1()" value = "Revenir aux différentes races de Chèvres">
+      </center>
+    </footer>
+  </body>
+</html>

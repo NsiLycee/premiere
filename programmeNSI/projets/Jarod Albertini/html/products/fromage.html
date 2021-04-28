@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <link rel = "icon" href = "../../img/icone/onglet.png" type = "image/x-icon">
+      <link rel = "stylesheet" type = "text/css" href = "../../css/style.css">
+
+      <title>
+        YAGI - Le Fromage
+      </title>
+      <script>
+        function redirect()                                                           //Fonction qui sert à rediriger vers une autre page
+          {
+            location.replace("../index.html")
+          }
+        function redirect1()                                                           //Fonction qui sert à rediriger vers une autre page
+          {
+              location.replace("products.html")
+          }
+
+
+        function zoomImg(x)                                                           //Fonction qui aggrandit une image
+          {
+            x.style.width = "140px";
+          }
+
+        function nrmlImg(x)                                                           //Fonction qui réduit une image
+          {
+            x.style.width = "130px";
+          }
+      </script>
+  </head>
+  <body>
+    <header class = "Chevre">
+      <div>
+        <center>
+          <table>
+            <tr>
+              <td><img src = "../../img/misc/8bd22bc2.png" width = "130" ; onclick = "redirect()">
+              </td>
+              <td>
+                <strong onclick = "redirect()"><i>YAGI</strong></i>
+              </td>
+            </tr>
+        </center>
+      </table>
+    </header>
+    <nav class = "navbar navbar-default">
+      <ul class = "navbar">
+        <li><a href = "../page.html"><img src = "../../img/icone/home.png" width = "35"></a></li>
+        <li><a href = "../origines.html"> Origine </a></li>
+        <li class = "dropdown">
+          <a href = "../races/races.html" class = "drop-btn"> Les Races </a>
+          <div class = "dropdown-content">
+            <a href = "../races/calpine.html"> Chèvre Alpine </a>
+            <a href = "../races/races_suisses.html"> Races Suisses </a>
+            <a href = "../races/races_françaises.html"> Races françaises </a>
+            <a href = "../races/races_other.html"> Races d'autres pays </a>
+            <a href = "../races/typespe.html"> Types spécifiques </a>
+          </div>
+        </li>
+        <li class = "dropdown">
+          <a href = "./products.html" class = "dropbtn">Produits</a>
+          <div class="dropdown-content">
+            <a href = "./lait.html"> Lait </a>
+            <a href = "./fromage.html"> Fromage </a>
+            <a href = "./viande.html"> Viande </a>
+            <a href = "./peau.html"> Peau </a>
+            <a href = "./toison.html"> Toison </a>
+          </div>
+        </li>
+        <li style = "float:right"><a class="active" href = "../about.html">&Agrave; propos...</a></li>
+    </ul>
+      </ul>
+    </nav>
+    <section>
+      <center>
+        <h2 class = "titre">
+          <u>
+            <strong>
+              <i>
+                Le Fromage de Chèvre
+              </i>
+            </strong>
+          </u>
+        <h2>
+      </center>
+      <article>
+        <p>
+          Le lait de chèvre est aussi utilisé pour fabriquer des fromages très populaires comme le cabécou et la féta, bien qu'il puisse aussi être transformé en n'importe quel type de fromage.
+          <br/>
+          On appelle souvent le fromage de chèvre simplement « chèvre ».
+          <br/>
+          Il existe une grande variété de fromages au lait de chèvre.
+          <br/>
+          La France est le premier pays producteur de fromages de chèvre au monde.
+          <br/>
+          La composition du lait de chèvre en acides gras spécifiques contribue au goût caractéristique de ce type de fromage, notamment les acides gras à chaînes moyennes : acide caproïque, acide caprylique et acide caprique.
+          <br/>
+          Ces acides gras tirent leur nom de capra <i>(chèvre en latin)</i> et constituent environ 15 % des acides gras dans le lait de chèvre.
+          <br/>
+          <br/>
+          Dans les pays d'élevage de chèvres, de nombreuses sortes de fromage de chèvre sont fabriquées : fromages frais ou affinés, secs, au raisin, accompagnés d'herbes aromatiques diverses ou d'épices, de miel, conservés par la cendre, par un bain d'huile ou d'alcool.
+          <br/>
+          Mais le terroir est aussi essentiel.
+          <br/>
+          Les fromages de chèvre se consomment frais ou affinés plus ou moins longtemps, accompagnant les salades ou chauds sur du pain comme dans le cas de la salade de chèvre chaud ou également relevés de confitures de fruits.
+          <br/>
+          Très affinés, ils peuvent devenir secs et leur pâte cassante, se délitant en strates comme des ardoises.
+          <br/>
+        </p>
+        <br/>
+        <center>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/gbLSS537jhQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </center>
+        <br/>
+        <table>
+          <tr>
+            <td>
+              <img src = "../../img/misc/23.jpg" width = "500px">
+            </td>
+            <td>
+              <img src = "../../img/misc/21.jpg"  width = "500px">
+            </td>
+            <td>
+              <img src = "../../img/misc/22.jpg" width = "500px">
+            </td>
+          </tr>
+        </table>
+        <br/>
+      </article>
+    </section>
+    <footer>
+      <center>
+        <input type = "button" onclick = "redirect1()" value = "Revenir aux différents produits de Chèvre">
+      </center>
+    </footer>
+  </body>
+
+</html>

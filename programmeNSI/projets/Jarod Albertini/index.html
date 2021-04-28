@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+<!-- rajouté par J Dendaletche -->
+<meta charset="utf-8" />
+<!-- fin ajout -->
+
+    <link rel = "icon" href = "../img/icone/onglet.png" type = "image/x-icon">  <!-- On relie l'icône -->
+    <title>
+      YAGI - Bienvenue
+    </title>
+
+  <link rel = "stylesheet" type = "text/css" href = "../css/style.css">
+  <script>
+
+  function zoomImg(x)                                                           //Fonction qui aggrandit une image
+
+  {
+x.style.width = "510px";
+  }
+
+  function nrmlImg(x)                                                           //Fonction qui réduit une image
+
+  {
+x.style.width = "500px";
+  }
+
+  function redirect()                                                           //Fonction qui sert à rediriger vers une autre page
+  {
+    location.replace("page.html")
+  }
+
+  </script>
+
+
+  </head>
+
+  <body>
+
+    <header>
+      <center>
+        Bienvenue sur <strong>YAGI</strong>, site portant sur les chèvres.
+        <br/>
+      </center>
+    </header>
+
+    <section>
+      <article>
+        <center>
+          <br/>
+          <p class = "title">                                                   <!-- On définit une classe afin de la modifier dans la feuille de style-->
+            Cliquez sur la chèvre pour accéder au site !
+          </p>
+          <br/>
+        </center>
+      </article>
+      <center>
+        <img src = "../img/misc/8bd22bc2.png" width = "500" ; onclick = "redirect()" ; onmouseover = "zoomImg(this)" ; onmouseout = "nrmlImg(this)">
+        </img>
+      </center>
+    </section>
+
+  </body>
+</html>

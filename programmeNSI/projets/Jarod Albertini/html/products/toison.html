@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <link rel = "icon" href = "../../img/icone/onglet.png" type = "image/x-icon">
+      <link rel = "stylesheet" type = "text/css" href = "../../css/style.css">
+
+      <title>
+        YAGI - La Toison
+      </title>
+      <script>
+        function redirect()                                                           //Fonction qui sert à rediriger vers une autre page
+          {
+            location.replace("../index.html")
+          }
+        function redirect1()                                                           //Fonction qui sert à rediriger vers une autre page
+          {
+              location.replace("products.html")
+          }
+
+
+        function zoomImg(x)                                                           //Fonction qui aggrandit une image
+          {
+            x.style.width = "140px";
+          }
+
+        function nrmlImg(x)                                                           //Fonction qui réduit une image
+          {
+            x.style.width = "130px";
+          }
+      </script>
+  </head>
+  <body>
+    <header class = "Chevre">
+      <div>
+        <center>
+          <table>
+            <tr>
+              <td><img src = "../../img/misc/8bd22bc2.png" width = "130" ; onclick = "redirect()">
+              </td>
+              <td>
+                <strong onclick = "redirect()"><i>YAGI</strong></i>
+              </td>
+            </tr>
+        </center>
+      </table>
+    </header>
+    <nav class = "navbar navbar-default">
+      <ul class = "navbar">
+        <li><a href = "../page.html"><img src = "../../img/icone/home.png" width = "35"></a></li>
+        <li><a href = "../origines.html"> Origine </a></li>
+        <li class = "dropdown">
+          <a href = "../races/races.html" class = "drop-btn"> Les Races </a>
+          <div class = "dropdown-content">
+            <a href = "../races/calpine.html"> Chèvre Alpine </a>
+            <a href = "../races/races_suisses.html"> Races Suisses </a>
+            <a href = "../races/races_françaises.html"> Races françaises </a>
+            <a href = "../races/races_other.html"> Races d'autres pays </a>
+            <a href = "../races/typespe.html"> Types spécifiques </a>
+          </div>
+        </li>
+        <li class = "dropdown">
+          <a href = "./products.html" class = "dropbtn">Produits</a>
+          <div class="dropdown-content">
+            <a href = "./lait.html"> Lait </a>
+            <a href = "./fromage.html"> Fromage </a>
+            <a href = "./viande.html"> Viande </a>
+            <a href = "./peau.html"> Peau </a>
+            <a href = "./toison.html"> Toison </a>
+          </div>
+        </li>
+        <li style = "float:right"><a class="active" href = "../about.html">&Agrave; propos...</a></li>
+    </ul>
+      </ul>
+    </nav>
+    <section>
+      <center>
+        <h2 class = "titre">
+          <u>
+            <strong>
+              <i>
+                La Toison de Chèvre
+              </i>
+            </strong>
+          </u>
+        <h2>
+      </center>
+      <article>
+        <p>
+          La toison de la chèvre angora sert à fabriquer le mohair, une sorte de laine.
+          <br/>
+          Sa laine est non seulement un très bon isolant thermique, mais les vêtements fabriqués avec cette matière sont très légers à porter.
+          <br/>
+          On peut aussi en faire des couvertures.
+          <br/>
+          Le mohair est une laine fabriquée à partir de la toison de la chèvre angora, chèvre dont on connaissait l'existence au Tibet 2000 ans av. J.-C. et chez les Sumériens au IVe siècle av. J.-C..
+          <br/>
+          L’appellation de cette chèvre « angora » en français est due à sa présence en Anatolie et à une déformation du nom de la ville d'Ankara.
+          <br/>
+          Elle est caractérisée par l’alliance d'une bonne capacité d'isolant thermique <i>(du froid comme du chaud)</i> et d'une très grande légèreté.
+          <br/>
+          Elle est notamment utilisée avec des fibres synthétiques pour la réalisation de peaux de phoque pour le ski de randonnée.
+          <br/>
+          On s'en sert aussi pour fabriquer des chandails <i>(pull)</i>, des bas, des châles, des foulards, des tuques <i>(bonnet)</i> et des mitaines <i>(gant)</i>.
+          <br/>
+          Elle sert également à fabriquer des couvertures. Le mohair a notamment été utilisé pour la fabrication des teddy bears <i>(ours en peluche)</i> aux États-Unis dès 1903.
+          <br/>
+          Des chèvres angora sont élevées actuellement en France et également au Québec.
+          <br/>
+          La plupart des éleveurs vendent directement le mohair en produits finis.
+          <br/>
+          Une charte de qualité a été instituée : « le mohair des fermes de France ».
+          <br/>
+          Le mohair est aussi utilisé pour créer des perruques pour les poupées anciennes ou pour des poupées plus modernes comme les Pullip ou les BJD.
+          <br/>
+        </p>
+        <table>
+          <tr>
+            <td>
+              <img src = "../../img/misc/30.jpg" width = "500px">
+            </td>
+            <td>
+              <img src = "../../img/misc/31.jpg" width = "500px">
+            </td>
+          </tr>
+        </table>
+
+      </article>
+    </section>
+    <footer>
+      <center>
+        <input type = "button" onclick = "redirect1()" value = "Revenir aux différents produits de Chèvre">
+      </center>
+    </footer>
+  </body>
+
+</html>

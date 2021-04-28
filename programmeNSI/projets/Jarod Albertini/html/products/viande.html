@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <link rel = "icon" href = "../../img/icone/onglet.png" type = "image/x-icon">
+      <link rel = "stylesheet" type = "text/css" href = "../../css/style.css">
+
+      <title>
+        YAGI - La Viande
+      </title>
+      <script>
+        function redirect()                                                           //Fonction qui sert à rediriger vers une autre page
+          {
+            location.replace("../index.html")
+          }
+        function redirect1()                                                           //Fonction qui sert à rediriger vers une autre page
+          {
+              location.replace("products.html")
+          }
+
+
+        function zoomImg(x)                                                           //Fonction qui aggrandit une image
+          {
+            x.style.width = "140px";
+          }
+
+        function nrmlImg(x)                                                           //Fonction qui réduit une image
+          {
+            x.style.width = "130px";
+          }
+      </script>
+  </head>
+  <body>
+    <header class = "Chevre">
+      <div>
+        <center>
+          <table>
+            <tr>
+              <td><img src = "../../img/misc/8bd22bc2.png" width = "130" ; onclick = "redirect()">
+              </td>
+              <td>
+                <strong onclick = "redirect()"><i>YAGI</strong></i>
+              </td>
+            </tr>
+        </center>
+      </table>
+    </header>
+    <nav class = "navbar navbar-default">
+      <ul class = "navbar">
+        <li><a href = "../page.html"><img src = "../../img/icone/home.png" width = "35"></a></li>
+        <li><a href = "../origines.html"> Origine </a></li>
+        <li class = "dropdown">
+          <a href = "../races/races.html" class = "drop-btn"> Les Races </a>
+          <div class = "dropdown-content">
+            <a href = "../races/calpine.html"> Chèvre Alpine </a>
+            <a href = "../races/races_suisses.html"> Races Suisses </a>
+            <a href = "../races/races_françaises.html"> Races françaises </a>
+            <a href = "../races/races_other.html"> Races d'autres pays </a>
+            <a href = "../races/typespe.html"> Types spécifiques </a>
+          </div>
+        </li>
+        <li class = "dropdown">
+          <a href = "./products.html" class = "dropbtn">Produits</a>
+          <div class="dropdown-content">
+            <a href = "./lait.html"> Lait </a>
+            <a href = "./fromage.html"> Fromage </a>
+            <a href = "./viande.html"> Viande </a>
+            <a href = "./peau.html"> Peau </a>
+            <a href = "./toison.html"> Toison </a>
+          </div>
+        </li>
+        <li style = "float:right"><a class="active" href = "../about.html">&Agrave; propos...</a></li>
+    </ul>
+      </ul>
+    </nav>
+    <section>
+      <center>
+        <h2 class = "titre">
+          <u>
+            <strong>
+              <i>
+                La Viande de Chèvre
+              </i>
+            </strong>
+          </u>
+        <h2>
+      </center>
+      <article>
+        <p>
+          La viande de chèvre provient de la chèvre domestique Capra aegagrus hircus ou sauvage Capra aegagrus aegagrus.
+          <br/>
+          Dans de nombreux pays, l'élevage caprin est majoritairement orienté vers la production de viande, bien que celui-ci soit d'un faible rendement, avec 4 à 7 kg de viande par animal.
+          <br/>
+          C'est le cas en 2000 de la Chine, de la Grèce, et de plusieurs pays d'Asie ou d'Afrique car la viande de chèvre y fait partie, à part entière, de l'alimentation carnée.
+          <br/>
+          D'après quelques éleveurs américains, la viande de chèvre représenterait près de 63 % de la viande rouge consommée au monde.
+          <br/>
+          Toutefois, selon la FAO cette consommation de viande se classe loin derrière celles, dans l'ordre, de porc, de volaille ou de bœuf.
+          <br/>
+          L'élevage caprin boucher est comparable à celui des ovins de boucherie.
+          <br/>
+          Dans certains pays d'Asie et d'Afrique, les caprins, jeunes ou matures, sont une source principale de viande, très appréciée notamment, avec celle de mouton, par les peuples de religion musulmane.
+          <br/>
+          La viande de chevreau est prisée des Juifs ; en Asie, la viande de chèvre est très utilisée particulièrement en Chine et en Corée et dans les Caraïbes, surtout en Guadeloupe et en Haïti.
+          <br/>
+          Dans les pays occidentaux où les animaux adultes ne sont pas recherchés de la même façon, et notamment en Europe où la production de cette viande reste marginale, l'élevage concerne essentiellement la production de jeunes sujets, les chevreaux, chèvres juvéniles sous-produits de l'élevage laitier.
+          <br/>
+          Cependant, chez les Grecs, la viande de chèvre est particulièrement présente durant les fêtes de Pâques et de Noël.
+          <br/>
+          Il existe également ce que l'on appelle le chevreau lourd. Le syndicat caprin de la Drôme a annoncé en 2018 travailler en la création d'un label rouge
+          <br/>
+        </p>
+        <br/>
+        <center>
+          <table>
+            <tr>
+              <td>
+                <img src = "../../img/misc/24.jpg" width = "500px">
+              </td>
+              <td>
+                <img src = "../../img/misc/25.jpg"  width = "500px">
+              </td>
+            </tr>
+          </table>
+        </center>
+        <br/>
+      </article>
+    </section>
+    <footer>
+      <center>
+        <input type = "button" onclick = "redirect1()" value = "Revenir aux différents produits de Chèvre">
+      </center>
+    </footer>
+  </body>
+
+</html>

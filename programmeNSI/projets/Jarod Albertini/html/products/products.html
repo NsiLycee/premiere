@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+      <link rel = "icon" href = "../../img/icone/onglet.png" type = "image/x-icon">
+      <link rel = "stylesheet" type = "text/css" href = "../../css/style.css">
+
+      <title>
+        YAGI - Les Produits
+      </title>
+      <script>
+        function redirect()                                                           //Fonction qui sert à rediriger vers une autre page
+          {
+            location.replace("../index.html")
+          }
+        function redirect1()                                                           //Fonction qui sert à rediriger vers une autre page
+          {
+              location.replace("products.html")
+          }
+
+
+        function zoomImg(x)                                                           //Fonction qui aggrandit une image
+          {
+            x.style.width = "140px";
+          }
+
+        function nrmlImg(x)                                                           //Fonction qui réduit une image
+          {
+            x.style.width = "130px";
+          }
+      </script>
+  </head>
+  <body>
+    <header class = "Chevre">
+      <div>
+        <center>
+          <table>
+            <tr>
+              <td><img src = "../../img/misc/8bd22bc2.png" width = "130" ; onclick = "redirect()">
+              </td>
+              <td>
+                <strong onclick = "redirect()"><i>YAGI</strong></i>
+              </td>
+            </tr>
+        </center>
+      </table>
+    </header>
+    <nav class = "navbar navbar-default">
+      <ul class = "navbar">
+        <li><a href = "../page.html"><img src = "../../img/icone/home.png" width = "35"></a></li>
+        <li><a href = "../origines.html"> Origine </a></li>
+        <li class = "dropdown">
+          <a href = "../races/races.html" class = "drop-btn"> Les Races </a>
+          <div class = "dropdown-content">
+            <a href = "../races/calpine.html"> Chèvre Alpine </a>
+            <a href = "../races/races_suisses.html"> Races Suisses </a>
+            <a href = "../races/races_françaises.html"> Races françaises </a>
+            <a href = "../races/races_other.html"> Races d'autres pays </a>
+            <a href = "../races/typespe.html"> Types spécifiques </a>
+          </div>
+        </li>
+        <li class = "dropdown">
+          <a href = "./products.html" class = "dropbtn">Produits</a>
+          <div class="dropdown-content">
+            <a href = "./lait.html"> Lait </a>
+            <a href = "./fromage.html"> Fromage </a>
+            <a href = "./viande.html"> Viande </a>
+            <a href = "./peau.html"> Peau </a>
+            <a href = "./toison.html"> Toison </a>
+          </div>
+        </li>
+        <li style = "float:right"><a class="active" href = "../about.html">&Agrave; propos...</a></li>
+    </ul>
+      </ul>
+    </nav>
+    <section>
+      <center>
+        <h2 class = "titre">
+          <u>
+            <strong>
+              <i>
+                Les Différents Produits de Chèvres
+              </i>
+            </strong>
+          </u>
+        <h2>
+      </center>
+      <article>
+        <p>
+          Dans cette catégorie, vous pouvez accéder à tous les différents produits concernant les chèvres.
+        </p>
+        <a href = "./lait.html"> - Le Lait</a>
+        <br/>
+        <br/>
+        <a href = "./fromage.html"> - Le Fromage</a>
+        <br/>
+        <br/>
+        <a href = "./viande.html"> - La Viande</a>
+        <br/>
+        <br/>
+        <a href = "./peau.html"> - La Peau</a>
+        <br/>
+        <br/>
+        <a href = "./toison.html"> - La Toison</a>
+        <br/>
+        <br/>
+      </article>
+    </section>
+  </body>
+
+</html>

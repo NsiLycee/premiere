@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+	  <!-- rajouté par J Dendaletche -->
+<meta charset="utf-8" />
+<!-- fin ajout -->
+    <link rel = "icon" href = "../img/icone/onglet.png" type = "image/x-icon">
+    <link rel = "stylesheet" type = "text/css" href = "../css/style.css">
+    <script>
+      function redirect()                                                           //Fonction qui sert à rediriger vers une autre page
+        {
+          location.replace("index.html")
+        }
+
+      function zoomImg(x)                                                           //Fonction qui aggrandit une image
+        {
+          x.style.width = "140px";
+        }
+
+      function nrmlImg(x)                                                           //Fonction qui réduit une image
+        {
+          x.style.width = "130px";
+        }
+    </script>
+
+    <title>
+      YAGI - &Agrave; propos...
+    </title>
+
+  </head>
+
+  <body>
+    <header class = "Chevre">
+      <div>
+        <center>
+          <table>
+            <tr>
+              <td><img src = "../img/misc/8bd22bc2.png" width = "130" ; onclick = "redirect()">
+              </td>
+              <td>
+                <strong onclick = "redirect()"><i>YAGI</strong></i>
+              </td>
+            </tr>
+        </center>
+      </table>
+    </header>
+    <nav class = "navbar navbar-default">
+      <ul class = "navbar">
+        <li><a href = "./page.html"><img src = "../img/icone/home.png" width = "35"></a></li>
+        <li><a href = "./origines.html"> Origine </a></li>
+        <li class = "dropdown">
+          <a href = "./races/races.html" class = "drop-btn"> Les Races </a>
+          <div class = "dropdown-content">
+            <a href = "./races/calpine.html"> Chèvre Alpine </a>
+            <a href = "./races/races_suisses.html"> Races Suisses </a>
+            <a href = "./races/races_françaises.html"> Races françaises </a>
+            <a href = "./races/races_other.html"> Races d'autres pays </a>
+            <a href = "./races/typespe.html"> Types spécifiques </a>
+          </div>
+        </li>
+        <li class = "dropdown">
+          <a href = "./products/products.html" class="dropbtn">Produits</a>
+          <div class="dropdown-content">
+            <a href = "./products/lait.html"> Lait </a>
+            <a href = "./products/fromage.html"> Fromage </a>
+            <a href = "./products/viande.html"> Viande </a>
+            <a href = "./products/peau.html"> Peau </a>
+            <a href = "./products/toison.html"> Toison </a>
+          </div>
+        </li>
+        <li style="float:right"><a class="active" href="./about.html">&Agrave; propos...</a></li>
+    </ul>
+      </ul>
+    </nav>
+    <section>
+      <article>
+        <center>
+          <h1 class = "titre">
+            <strong>
+              <u>
+                <i>
+                  &Agrave; propos de YAGI...
+                </i>
+              </u>
+            </strong>
+          </h1>
+        </center>
+      </article>
+      <article>
+        <p>
+          YAGI est un site indépendant s'appuyant sur les informations de Wikipédia afin de fournir un contenu de qualité sous une mise en forme qualitative.
+          <br/>
+          <br/>
+          Toutes les informations tirées de ce site ont été trouvées sur https://fr.wikipedia.org/wiki/Ch%C3%A8vre.
+          <br/>
+          <br/>
+          Toutes les images trouvées sur ce site ont été trouvées sur Wikipédia. (Excepté l'arrière-plan et les icones trouvés respectivement sur https://imgur.com/QVFUaZP ; http://images-et-tubes-pour-tous.i.m.pic.centerblog.net/o/8bd22bc2.png ; https://www.icone-png.com/png/54/53517.png )
+          <br/>
+          <br/>
+          Toutes les vidéos ont été trouvées sur https://www.youtube.com/
+          <br/>
+          <br/>
+          Ce site a été entièrement codé par moi-même à l'aide également de https://www.w3schools.com/
+          <br/>
+          <br/>
+        </p>
+      </article>
+    </section>
+  </body>
+
+</html>
