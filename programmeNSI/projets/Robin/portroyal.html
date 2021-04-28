@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html> <!-- cette balise indique où commence le code html de la page -->   <!-- -->
+<head> <!-- ceci est la balise qui délimite l'entête de la page qui traite les paramètres d'environnement de la page web -->
+	<!-- meta est une balise précisant une méta donnée ; une meta donnée est une donnée sur les données  -->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<meta name="author" content="Robin Alonzo"/>
+	<meta name="created" content="19/01/202"/>
+	<meta name="changed" content="date de révision"/>
+	<meta name="Company" content="Lycée La Découverte Decazeville 12300 Aveyron Occitanie France Terre"/>
+	<meta name="keywords" content="référencement, SEO, balise meta keywords" />
+
+	<!-- Définition du style de la page qui se trouve dans un fichier externe qui s'appelle monStyle.css -->
+	<link rel="stylesheet" href="css/monStyle.css" />
+	<link rel="shortcut icon" href="img/logo.ico" type="image/x-icon"/>
+    <link rel="icon" href="img/logo.ico" type="image/x-icon"/>
+
+    <title>Centre de secours de Port Royal</title>
+
+    <script src="exemple.js"> </script> <!-- Cette ligne permet d'inclure un code en java script qui est dans le fichier exemple.js -->
+	<script> var moi = "Port Royal" ; // ne pas oublier le point virgule 
+	
+	function afficheMonNom ( nom, nb )
+	{ //ceci defini le début du bloc d'instruction
+		var phrase = " " ;
+		for (var i=0 ; i<nb;i++) {
+			phrase += nom + " " ;
+		}
+		alert("Le Centre de Secours de" + phrase ) ; 
+	} // le + permet de concaténer deux textes = sting ou chaine de caractères 
+		
+		// ici j'utilise la foncton
+		afficheMonNom (moi, 1) ;
+	</script>
+	
+</head>
+<body> 
+	<!--Le menu déroulant vient de ce site http://www.frogweb.fr/menu-deroulant-horizontal/  -->
+<ul id="menu-deroulant">
+	<li><a href="#">Sommaire</a>
+		<ul>
+			<li><a href="index.html" target="_blank">Acceuil</a></li>
+			<li><a href="champerret.html" target="_blank">CS Champerret</a></li>
+			<li><a href="portroyal.html" target="_blank">CS Port Royal</a></li>
+		</ul>
+	</li>
+</ul>
+
+	<header>
+		<h1>Le Centre de Secours de Port Royal</h1>
+		<img src="img/logodcpj.jpg" height="100" width="100" style="float:left";/>
+		<img src="img/logo.png" height="100" width="100" style="float:right";/>
+    </header>
+
+    <section>
+			<h2><u>Sommmaire CS Port Royal</u></h2>
+				<ol type="I">
+  					<li><a href="#véhicules">Les véhicules</a></li>
+  						<ol type="1">
+  							<li><a href="#vsav411">VSAV 411</a></li>
+  							<li><a href="#vsav169">VSAV 169</a></li>
+  							<li><a href="#ps227">PSE 227</a></li>
+  							<li><a href="#fa38">FA 38</a></li>
+  							<li><a href="#epa120">EPA 120</a></li>
+  							<li><a href="#cd8">CD 8</a></li>
+  							<li><a href="#spvl">SPVL 551</a></li>
+  						</ol>	
+  					<li><a href="#personnel">Le personnel</a></li>
+				</ol>
+
+				<h2 id="véhicules"><u>Les véhicules</u></h2>
+					<h3 id="vsav411">I.VSAV 411</h3>
+						<img src="img/vsav411.png" height="auto" width="auto"/>		
+					<h3 id="vsav169">II.VSAV 169</h3>
+						<img src="img/vsav169.png" height="auto" width="auto"/>
+					<h3 id="ps227">III.PSE 227</h3>
+						<img src="img/ps227.png" height="auto" width="auto"/>
+					<h3 id="fa38">IV.FA 38</h3>
+						<img src="img/fa29.png" height="auto" width="auto"/>	
+					<h3 id="epa120">V.EPA 120</h3>
+						<img src="img/epa120.png" height="auto" width="auto"/>
+					<h3 id="cd8">VI.CD 8</h3>
+						<img src="img/cd8.png" height="auto" width="auto"/>	
+					<h3 id="spvl">VII.SPVL 551</h3>
+						<img src="img/spvl551.png" height="auto" width="auto"/>			
+				<h2 id="personnel"><u>Le personnel de Port Royal</u></h2>		
+                <table>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>Grade</td>
+                  </tr>
+                  <tr>
+                    <td>Jules Barnier</td>
+                    <td>Major </br><img src="img/major.jpg" height="50" width="50"/></td> 
+                  </tr>
+                  <tr>
+                    <td>Anthony Scofield</td>
+                    <td>Major </br><img src="img/major.jpg" height="50" width="50"/></td> 
+                  </tr>
+                   <tr>
+                    <td>Jules Barnier</td>
+                    <td>Major </br><img src="img/major.jpg" height="50" width="50"/></td> 
+                  </tr>
+                  <tr>
+                    <td>Jules Barnier</td>
+                    <td>Major </br><img src="img/major.jpg" height="50" width="50"/></td> 
+                  </tr>
+                  <tr>
+                    <td>Lucas Henni</td>
+                    <td>Adjudant-Chef</br><img src="img/adc.jpg" height="50" width="50"/></td> 
+                  </tr>
+                  <tr>
+                    <td>Alan Storm</td>
+                    <td>Adjudant-Chef </br><img src="img/adc.jpg" height="50" width="50"/></td> 
+                  </tr>     
+                  <tr>
+                    <td>Alexis Grant</td>
+                    <td>Adjudant</br><img src="img/adj.jpg" height="50" width="50"/></td> 
+                  </tr>
+                   <tr>
+                    <td>Adrien Reg</td>
+                    <td>Adjudant</br><img src="img/adj.jpg" height="50" width="50"/></td> 
+                  </tr>
+                   <tr>
+                    <td>Hugo Mercier</td>
+                    <td>Sergent-Chef</br><img src="img/sch.jpg" height="50" width="50"/></td> 
+                  </tr>
+                   <tr>
+                    <td>Jack Sautain</td>
+                    <td>Sergent-Chef</br><img src="img/sch.jpg" height="50" width="50"/></td> 
+                  </tr>
+                   <tr>
+                    <td>Lucas Wood</td>
+                    <td>Sergent</br><img src="img/sgt.jpg" height="50" width="50"/></td> 
+                  </tr>
+                  <tr>
+                    <td>Rayan Galil</td>
+                    <td>Caporal-Chef</br><img src="img/cch.jpg" height="50" width="50"/></td> 
+                  </tr>
+                  <tr>
+                    <td>Louis Bertemont</td>
+                    <td>Caporal-Chef</br><img src="img/cch.jpg" height="50" width="50"/></td> 
+                  </tr>
+                  <tr>
+                    <td>Robin Moore</td>
+                    <td>Caporal-Chef</br><img src="img/cch.jpg" height="50" width="50"/></td> 
+                  </tr>
+                  <tr>
+                    <td>Ewen Pincemin</td>
+                    <td>Caporal</br><img src="img/cpl.jpg" height="50" width="50"/></td> 
+                  </tr>
+                   <tr>
+                    <td>Curtis Lagrandeborne</td>
+                    <td>Caporal</br><img src="img/cpl.jpg" height="50" width="50"/></td> 
+                  </tr>
+                   <tr>
+                    <td>Alexandre Mary</td>
+                    <td>Sapeur de première classe</br><img src="img/sp1.jpg" height="50" width="50"/></td> 
+                  </tr>
+                   <tr>
+                    <td>Peter Kaylean</td>
+                    <td>Sapeur de seconde classe</br><img src="img/sp2.jpg" height="50" width="50"/></td> 
+                  </tr>
+                </table>
+    </section>    
+	<footer>
+		<p>Copyright &copy; 2020 Robin Alonzo</p>
+    </footer>
+</body>
+</html>
