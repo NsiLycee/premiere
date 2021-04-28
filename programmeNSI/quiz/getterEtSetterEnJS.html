@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title> Quiz E3C NSI </title>
+<!-- ------------------------------------------------------------------>
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/style.css">
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/numerotationTitres.css">
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/ressourcesCachees.css">
+	<link rel="stylesheet" type="text/css" 
+	      href="../../CSS/styleQuiz.css">
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/simpleMenuHorizontal.css">
+	<style>
+    	setfield { border : 10px groove orange; width : 90%;}
+		.sticky {
+		position: -webkit-sticky;
+		position: sticky;
+		top : 0;
+		width : 80%;
+		text-align : center;
+		background-color: rgb(100,100,50);
+		padding: 15px;
+		font-size: 20px;
+		}	
+		details:nth-child(2) {
+			border : green 2px solid;
+		}
+		td {
+			width : 20%;
+		}
+	</style>
+<!-- ------------------------------------------------------------------>
+	<!-- Les deux lignes suivantes permettent d'insérer une icône à coté 
+	     de l'onglet de la page -->
+	<link rel="shortcut icon" href="../../icone.ico" type="image/x-icon"/>
+	<link rel="icon" href="../../icone.ico" type="image/x-icon"/>    
+	
+<!--script language="JavaScript" src="../../JS/moteurQuiz.js"></script
+	<script language="JavaScript" src="../../JS/affichages.js"></script>
+	<script language="JavaScript" src="quizE3C_NSI_global.js"></script> -->
+<script>
+var titrePage = "Getter et Setters sur les objets JS";
+	var aurevoir = "À bientôt, revenez vite !";   //À = Alt + 0192
+	//var id = setInterval(ma_fontion, 1000);
+	
+function titre(texte) 
+{
+	document.title = texte;
+}	
+</script> 
+</head>
+<!-- ------------------------------------------------------------------>
+<!-- ------------------------------------------------------------------>
+<body onload="init();" onblur="titre(aurevoir);" 
+      onfocus="titre(titrePage);">
+
+<h2>JavaScript Getters and Setters</h2>
+
+<p>Perfect for creating counters:</p>
+
+<form>
+<setfield><legend>Actions get et set sur le conteur</legend>
+	<table>
+    	<tr>
+        	<td><label for=""></lable></td><td></td>
+        </tr>
+        <tr>
+        	<td><label for=""></lable></td><td></td>
+        </tr>
+        <tr>
+        	<td><label for=""></lable></td><td></td>
+        </tr>
+    </table>
+</setfield>
+</form>
+<p id="demo"></p>
+
+<script>
+// Define an object
+var obj = {counter:0, affiche: function () {alert("n = " + this.counter)} };
+
+// Define Setters and Getters
+Object.defineProperty(obj, "reset", {
+  get : function () {this.counter = 0;}
+});
+Object.defineProperty(obj, "increment", {
+  get : function () {this.counter++;}
+});
+Object.defineProperty(obj, "decrement", {
+  get : function () {this.counter--;}
+});
+Object.defineProperty(obj, "add", {
+  set : function (value) {this.counter += value;}
+});
+Object.defineProperty(obj, "subtract", {
+  set : function (value) {this.counter -= value;}
+});
+
+// Play with counter:
+obj.reset;
+obj.add = 5;
+obj.subtract = 1;
+obj.increment;
+obj.decrement;
+obj.affiche();
+document.getElementById("demo").innerHTML = obj.counter;
+</script>
+
+</body>
+</html>

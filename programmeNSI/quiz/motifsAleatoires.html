@@ -1,0 +1,287 @@
+<!--
+   motifsAleatoires.html
+   
+   Copyright 2021 Violette <jodenda@gmail.com>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   Modèle objet en détail : 
+   >>>  https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Le_mod%C3%A8le_objet_JavaScript_en_d%C3%A9tails
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//FR"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.36" />
+		<title> Quiz E3C NSI </title>
+<!-- ------------------------------------------------------------------>
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/style.css">
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/numerotationTitres.css">
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/ressourcesCachees.css">
+	<link rel="stylesheet" type="text/css" 
+	      href="../../CSS/styleQuiz.css">
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/simpleMenuHorizontal.css">
+	<style>
+html, body { margin:0; padding:0; background: #111111; cursor: crosshair; }
+body { }
+
+svg { position:fixed; top:10%; left : 5%; width : 90%; height : 70%; }
+fieldset { position:fixed; 
+		   top:82%; left : 5%; width : 80%; height : 10%; 
+		   overflow : auto;}
+path, rect, circle {
+  mix-blend-mode: screen;
+  animation: fadeIn 150ms ease-in;
+}
+svg { border : groove 10px orange; }
+
+@keyframes fadeIn {
+  0%{ 
+    opacity: 0;
+  } 
+  100% {
+    opacity: 1;
+  }
+}
+table { border-collapse : collapse; }
+td, th, fieldset, legend { color : white; }
+td, th { border : white 2px solid; }
+	</style>
+<!-- ------------------------------------------------------------------>
+	<!-- Les deux lignes suivantes permettent d'insérer une icône à coté 
+	     de l'onglet de la page -->
+	<link rel="shortcut icon" href="../../icone.ico" type="image/x-icon"/>
+	<link rel="icon" href="../../icone.ico" type="image/x-icon"/>    
+	
+<!--script language="JavaScript" src="../../JS/moteurQuiz.js"></script-->
+	<script language="JavaScript" src="../../JS/affichages.js"></script>
+	<script language="JavaScript" src="quizE3C_NSI_global.js"></script> 
+<script>
+var titrePage = "Quiz E3C NSI ";
+	var aurevoir = "À bientôt, revenez vite !";   //À = Alt + 0192
+	//var id = setInterval(ma_fontion, 1000);
+	
+function titre(texte) 
+{
+	document.title = texte;
+}
+</script>
+</head>
+
+<!-- ------------------------------------------------------------------>
+
+<body onload="init();" onblur="titre(aurevoir);" 
+      onfocus="titre(titrePage);">
+<!-- ------------------------------------------------------------------>
+<nav>
+	<ul class="menu">
+		<li><a href="../../index.html" target="_blank">retour à la page 
+		d'accueil</a>
+		</li>
+		<li><a href="../../niveau_1.html" target="_blank">retour à la 
+		page NSI</a></li>
+		<li><a href="../../programmeNSI/ressources/ressource_0.html"
+						target="_blank">
+			bonnes pratiques</a>
+		</li> 
+		<li><a href="https://codepen.io/robdimarzo/pen/oNYjQZm" 
+		    title="source de cette page" target="_blank">source de cette 
+				page</a>
+		</li>
+	</ul>
+</nav>
+<header>
+	<p id="titrePrincipal">Génération de motifs de manière aléatoire</p>
+	
+</header>
+
+<!-- ------------------------------------------------------------------>
+<!-- --------------------     zone des questions   -------------------->
+<section>
+	<!--viewBox="the points "seen" in this SVG drawing area. 4 values 
+separated by white space or commas. (min x, min y, width, height)" -->
+	<svg xmlns="http://www.w3.org/2000/svg" id="svg" version="1.1" 
+	width="100%" height="100%" viewBox="0 0 1200 900"></svg>
+
+</section>
+
+<p id="debug">------------ <br/><br/><br/><br/><br/><br/></p>
+
+<footer>
+	<fieldset><legend>Réglages de la viewbox</legend>
+	<table>
+		<tr><th>Paramètre</th><th>valeur</th></tr>
+		<tr><td><label for="xmin">x min</label></td>
+			<td><input type="range" min="0" max ="1200" value="0" 
+				id="xmin"/> valeur = <span id="valXmin" 
+				oninput="modif(this.id);">0</span></td>
+		</tr>
+		<tr><td><label for="ymin">y min</label></td>
+			<td><input type="range" min="0" max ="800" value="0" 
+				id="ymin"/> valeur = <span id="valYmin">0</span></td>
+		</tr>
+		<tr><td><label for="largeur">largeur</label></td>
+			<td><input type="range" min="0" max ="1200" value="500" 
+				id="largeur"/> valeur = <span id="valLargeur">500</span>
+			</td>
+		</tr>
+		<tr><td><label for="hauteur">hauteur</label></td>
+			<td><input type="range" min="0" max ="1200" value="500" 
+				id="hauteur"/> valeur = <span id="valHauteur">500</span>
+			</td>
+		</tr>				
+	</table>
+	</fieldset>
+	
+</footer>
+<!-- --------------------------------------------------------------- -->
+
+</body>
+<script>
+var w = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var h = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+const svg = document.getElementById("svg");
+const colors = ["Red", "Lime", "Blue"];
+const ids = [ "xmin","ymin", "largeur", "hauteur"];
+const [XMIN, YMIN, LARGEUR, HAUTEUR] = [0,1,2,3];
+
+var largeur = w * 0.8, hauteur = h * 0.8;
+var vals = [0,0,500,500], 
+    i;
+
+for(i in ids) {
+	document.getElementById(ids[i]).addEventListener ("click", 	modif(ids[i]) );
+}
+
+//document.getElementById("xmin").addEventListener ("change", 	modif("xmin") );
+
+
+function couleur () {
+	return "rgb("+Math.floor(Math.random()*255)+","+
+			      Math.floor(Math.random()*255)+","+
+			      Math.floor(Math.random()*255)+")";
+}
+function modif(idElt) {
+		//alert("id = " + idElt ); 
+		let param = document.getElementById(idElt),
+		    span  = document.getElementById("val" +  
+									idElt.slice(0,1).toUpperCase() + 
+									idElt.slice(1,idElt.length) );
+		
+		for(i in ids) {
+			vals[i] = document.getElementById(ids[i]).value;
+		}
+		span.innerHTML = "valeur de " + idElt + " = " + param.value;
+		svg.viewBox = ""  + vals[XMIN] + " " + vals[YMIN] + " " + 
+						    vals[LARGEUR] + " " + vals[HAUTEUR]	;
+}
+
+function drawCircle() { 
+  let c = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+  c.setAttribute("r", Math.floor(Math.random() * largeur / 10));
+  c.setAttribute("cx", Math.floor(Math.random() * largeur)); 
+  c.setAttribute("cy", Math.floor(Math.random() * hauteur));
+  c.setAttribute("fill", couleur() ); //colors[Math.floor(Math.random() * colors.length)]);
+  svg.appendChild(c);
+}
+
+function drawSquare() { 
+  let s = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+  let dimension = Math.floor(Math.random() * largeur);
+  let rotate = Math.floor(Math.random() * largeur);
+  s.setAttribute("width", dimension);
+  s.setAttribute("height", dimension);
+  s.setAttribute("x", Math.floor(Math.random() * largeur)); 
+  s.setAttribute("y", Math.floor(Math.random() * 500));
+  s.setAttribute("fill", couleur() ); //colors[Math.floor(Math.random() * colors.length)]);
+  s.style.transform = "rotate(" + rotate + "deg)";
+  svg.appendChild(s);
+}
+
+function drawDash() { 
+  let d = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+  let dimension = Math.floor(Math.random() * 100);
+  let rotate = Math.floor(Math.random() * largeur);
+  d.setAttribute("width", dimension/10);
+  d.setAttribute("height", dimension);
+  d.setAttribute("x", Math.floor(Math.random() * largeur)); 
+  d.setAttribute("y", Math.floor(Math.random() * hauteur));
+  d.setAttribute("fill", couleur() ); //colors[Math.floor(Math.random() * colors.length)]);
+  d.style.transform = "rotate(" + rotate + "deg)";
+  svg.appendChild(d);
+}
+
+function drawRandom( remove = false) { 
+	
+  let intervalleENtreDeuxDessins = 30; // en msec
+  for (i = 0; i < 100; i++) {
+	if (remove) { (svg.firstChild) ?
+		setTimeout( ()=> svg.removeChild(svg.lastChild), 
+		            10*intervalleENtreDeuxDessins			) : "";
+	} 
+	else {
+    setTimeout( function timer(){
+      var n = Math.floor(Math.random() * 3);
+      //console.log(n)
+      switch(n) {
+        case 0: 
+          drawCircle();
+          break;
+        case 1: 
+          drawSquare();
+          break;
+        case 2: 
+          drawDash();
+          break;
+         }
+      }, i * intervalleENtreDeuxDessins );
+    }
+  }
+}
+
+//Remove all SVG shapes from DOM
+function removeAll() {
+  while (svg.firstChild) {
+    svg.removeChild(svg.lastChild);
+  }
+}
+
+//On click, remove all shapes and draw new shapes
+svg.addEventListener("click", () => {   // ()=> équivaut à function () =
+	
+  drawRandom(true)//removeAll();
+  svg.style.backgroundColor = couleur();
+  drawRandom();
+});
+
+//On page load, draw new shapes
+drawRandom();
+</script>
+</html>
+

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title> Quiz E3C NSI </title>
+<!-- ------------------------------------------------------------------>
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/style.css">
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/numerotationTitres.css">
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/ressourcesCachees.css">
+	<link rel="stylesheet" type="text/css" 
+	      href="../../CSS/styleQuiz.css">
+    <link rel="stylesheet" type="text/css" 
+          href="../../CSS/simpleMenuHorizontal.css">
+	<style>
+		.sticky {
+		position: -webkit-sticky;
+		position: sticky;
+		top : 0;
+		width : 80%;
+		text-align : center;
+		background-color: rgb(100,100,50);
+		padding: 15px;
+		font-size: 20px;
+		}	
+		details:nth-child(2) {
+			border : green 2px solid;
+		}
+		td {
+			width : 20%;
+		}
+	</style>
+<!-- ------------------------------------------------------------------>
+	<!-- Les deux lignes suivantes permettent d'insérer une icône à coté 
+	     de l'onglet de la page -->
+	<link rel="shortcut icon" href="../../icone.ico" type="image/x-icon"/>
+	<link rel="icon" href="../../icone.ico" type="image/x-icon"/>    
+	
+<!--script language="JavaScript" src="../../JS/moteurQuiz.js"></script
+	<script language="JavaScript" src="../../JS/affichages.js"></script>
+	<script language="JavaScript" src="quizE3C_NSI_global.js"></script> -->
+<script>
+var titrePage = "Quiz E3C NSI ";
+	var aurevoir = "À bientôt, revenez vite !";   //À = Alt + 0192
+	//var id = setInterval(ma_fontion, 1000);
+	
+function titre(texte) 
+{
+	document.title = texte;
+}	
+
+</script> 
+</head>
+<!-- ------------------------------------------------------------------>
+<!-- ------------------------------------------------------------------>
+<body onload="init();" onblur="titre(aurevoir);" 
+      onfocus="titre(titrePage);">
+
+	<div id="debug"></div>
+	
+</body>
+<!-- ------------------------------------------------------------------>
+<!-- ------------------------------------------------------------------>
+<script language="JavaScript" src="banqueQuestions.js"></script>
+<script>
+	"use strict" // mode qui oblige à déclarer toutes les variables
+var themes = ['A','B','C','D','E','F','G'];
+// Il y a sept thèmes (A à G) donc 7 groupes de 6 séries de questions
+/*var A = 0; 
+var B = 1, C = 2, D = 3, E = 4, F = 5, G = 6; //Ce qui suit en est la 
+* forme compactée */
+const [A,B,C,D,E,F,G] = [0,1,2,3,4,5,6];
+// Dans chacun des sept thèmes il y a 6 séries de questions
+const [S1, S2, S3, S4, S5, S6] = [0,1,2,3,4,5];
+var descriptionThemes = [
+	"types de base: nombres entiers, flottant, string", 
+	"types construits",
+	"données en table",
+	"web 2.0, HTML, CSS et JS",
+	"architecture matérielle et système",
+	"langages de programmation",
+	"algorithmique"];
+var series = ['S1','S2','S3','S4','S5','S6'];
+var questFaites = []; // liste des liste de questions faites
+var totauxParTheme = new Array(themes.length); // liste des totaux de questions faites par thème	
+
+var debug = document.getElementById("debug");
+
+// définition de la class (type) Question
+class Question {
+	// constructeur (obligatoire)
+	constructor(texte = "", propositions = ["","","",""], 
+			corrections = ["","","",""], repartPoints = [0,0,0,1], 
+			bareme = 1, linkImage = "", theme = 1, serie = 0,num = 0) 
+	{			
+    	this.num = num;                           // n° de la question	
+        this.texte = texte;						  // intitulé de la Q
+    	this.linkImage = linkImage;               // url d'une image
+        this.bareme = bareme;                     // nb total max de pts
+        this.propositions = propositions;         // [ propositions ]
+        this.nbRep = propositions.length;		  // nb de réponses
+        this.corrections = corrections;			  // [ corrections ]
+        this.repartPoints = repartPoints;		  // [ répartition barème ]
+        this.theme = theme;                       // 7 thèmes de A à G
+        this.serie = serie;						  // 6 série par thème
+    }
+    ////////////////////////////////////////////////////////////////////
+    // méthodes
+    afficher(tabId = "tableau") { // crée un tableau s'il n'existe pas
+		// affiche les données de la question dans un tableau
+		
+		if (!document.getElementById(tabId) ) {
+			let tableau = document.createElement("table");
+			tableau.id = tabId;		
+			document.body.appendChild(tableau);	
+		}
+		else {
+			let tableau = document.getElementById(tabId);
+		}
+		let ligne = document.createElement("tr");
+		let intitule = document.createElement("td");
+		intitule.colSpan = "3";
+		intitule.innerHTML = "<u>Question de la série " + 
+			series[this.serie] + " du thème "+ themes [this.theme] + 
+			":</u> <br/>" + this.texte;
+		ligne.appendChild(intitule);	
+		tableau.appendChild(ligne);
+		
+		if ( !this.linkImage ) {
+		
+		}
+		
+		let i;
+		for (i in this.propositions) {
+			// crée un sous tableau de 4 lignes et 3 colonnes
+			let ligne = document.createElement("tr");
+			   let proposition = document.createElement("td");
+			   proposition.innerHTML = this.propositions[i];
+			   ligne.appendChild(proposition);
+			   
+			   let corrige = document.createElement("td");
+			   corrige.innerHTML = this.corrections[i];
+			   ligne.appendChild(corrige);
+			   
+			   let bareme = document.createElement("td");
+			   bareme.innerHTML = this.repartPoints[i];
+			   ligne.appendChild(bareme);
+			   
+			tableau.appendChild(ligne);
+		}
+		
+    return true; // tout c'est bien passé
+    }
+    
+    static creerSelect (idForm, options = themes, id = "selectThemes") {
+		if (!document.getElementById(id)) {
+			let select = document.createElement("select");  
+		}
+		else {
+			let select = document.getElementById(id);
+		}
+		let i;
+		for (i in options) {
+				let option = document.createElement("option");
+				option.innerHTML = options[i];
+				select.appendChild(option);
+			}
+		document.getElementById(idForm).appendChild(select);
+	}
+	static creerTabInput (formId, n = 4, tabId = "tabInputQ" ) {
+
+		if (!document.getElementById(tabId) ) {
+			let tableau = document.createElement("table");
+			tableau.id = tabId;		
+			//document.body.appendChild(tableau);	
+		}
+		else {
+			let tableau = document.getElementById(tabId);
+		}
+		// efface l'ancien tableau 
+		tableau.innerHTML = "";
+		
+		let intitule = document.createElement("caption");
+		intitule.innerHTML = "Saisie des propositions de la question de la série " + 
+			series[this.serie] + " du thème "+ themes [this.theme] + 
+			"<br/>" + this.texte;
+		tableau.appendChild(intitule);
+		tableau.innerHTML = "<tr><th>N° proposition</th><th>propositions</th><th>corrigé</th><th>barème</th></tr>";
+		let i;
+		for (i = 0; i < n ; i++) {
+		// crée un tableau de n lignes et 4 colonnes par défaut
+			let ligne = document.createElement("tr");
+			
+			   let numero = document.createElement("td");
+			   numero.innerHTML = i;
+			   numero.style.textAlign = "center";
+			   ligne.appendChild(numero);
+			
+			   let proposition = document.createElement("td");
+			   let inputP = document.createElement("input");
+			   inputP.placeholder = "";
+			   inputP.type = "text";
+			   inputP.id = "inpProp" + i;
+			   proposition.appendChild(inputP);
+			   ligne.appendChild(proposition);		   
+			   
+			   let corrige = document.createElement("td");
+			   let inputC = document.createElement("input");
+			   inputC.placeholder = "";
+			   inputC.type = "text";
+			   inputC.id = "inpCorr" + i;
+			   corrige.appendChild(inputC);			   
+			   ligne.appendChild(corrige);
+			   
+			   let bareme = document.createElement("td");
+			   let inputB = document.createElement("input");
+			   inputB.value = "0.0";
+			   inputB.step="0.25";
+			   inputB.type = "number";
+			   inputB.id = "inpBar" + i;
+			   bareme.appendChild(inputB);	
+			   ligne.appendChild(bareme);
+			   
+			tableau.appendChild(ligne);		
+		}
+		document.getElementById(formId).appendChild(tableau);
+	}
+	static creerSaisie ( id = "formSaisie") {
+		if (!document.getElementById(id) ) {
+			let form = document.createElement("form");
+			form.id = id;	
+			document.body.appendChild(form);	
+			let saisie = document.createElement("textarea");
+			saisie.id = "texteQuestion";
+			let label = document.createElement("label");
+			label.innerHTML = "Intitulé de la question :";
+			label.for = "texteQuestion";
+			form.appendChild(label);
+			form.appendChild(saisie);
+			form.style.border = "10px orange groove";
+			form.style.padding = "10px";
+			
+			let inputN = document.createElement("input");
+			    inputN.type = "number";
+			    inputN.value = 4;	
+			    inputN.id = "nPropositions";
+			//inputN.addEventListener("click", Question.suiteSaisie );
+			form.appendChild(inputN);
+			
+			let inputV = document.createElement("input");
+			    inputV.type = "button";
+			    inputV.value = "Saisir les propositions";	
+			form.appendChild(inputV);
+			    inputV.addEventListener("click", Question.suiteSaisie );
+		}
+		else {
+			//let form = document.getElementById(id);
+		}
+
+	} // fin creerSaisie
+	get attributs () { // renvoie la liste des attributs
+		return Object.getOwnPropertyNames(Question);
+	}
+	//get methodes () {}
+	
+	static suiteSaisie () {
+		
+		//Question.creerSelect("formSaisie");
+		Question.creerTabInput ("formSaisie", document.getElementById("nPropositions").value);
+		
+		let form = document.getElementById("formSaisie");
+		if (!document.getElementById("btnEnregistrer") ) {
+			let inputE = document.createElement("input"); 
+			inputE.type = "button";
+			inputE.id = "btnEnregistrer";
+			inputE.value = "Enregistrer";	
+			form.appendChild(inputE);
+		    inputE.addEventListener("click", Question.enregistrer);
+		} else {
+			// let inputE = document.getElementById("btnEnregistrer")
+		}
+	}
+	static enregistrer () {
+		let texte = document.getElementById("texteQuestion").value, i;
+		
+		//for (i in ) {}1  nn 
+		
+		let Q = new Question(texte, propositions = ["d","e","e","f"], 
+			corrections = ["f","z","r","y"], repartPoints = [-0.5,0,0,1], 
+			bareme = 1, linkImage = "", theme = 4, serie = 5,num = 3);
+		alert(Q.propositions);
+		Q.afficher ();
+		return Q;
+	}
+} // fin class Question
+
+function inventaireBanque () {
+	// liste toutes les questions de Q défini dans banqueQuestions.js
+	let nT, nS, nQ, n;
+	for (nT in Q) {
+		for (nS in Q[nT]) {
+			for (n in Q[nT][nS]) { 
+				let Qact = new Question(Q[nT][nS][n].Question,
+									Q[nT][nS][n].propositions, 
+									Q[nT][nS][n].correction,
+									Q[nT][nS][n].justesse,
+									Q[nT][nS][n].bareme,
+									Q[nT][nS][n].linkImage,
+									nT, nS, Q[nT][nS][n].Num) ;
+				Qact.afficher();
+			}	
+		}
+	}
+}
+// liste toutes les questions de Q défini dans banqueQuestions.js
+//inventaireBanque ();
+
+/*
+let i, j;
+for (i in Q[0][0]) {
+	let obj = Q[0][0][i], texte, listeProp = Object.getOwnPropertyNames(obj);
+	document.getElementById("debug").innerHTML += "<hr/><hr/>";
+	for (j in listeProp) {
+		document.getElementById("debug").innerHTML += "<br/><b><u>" + listeProp[j] + "</u></b> = " + Q[0][0][i][listeProp[j]] + "<hr/>";
+	}
+}
+*/
+
+// déclaration en passant par les arguments du constructeur
+let obj = Q[0][0][1];
+let Q1 = new Question (obj.Question, obj.propositions, obj.correction,obj.justesse, obj.bareme, obj.linkImage, 0, 0, obj.Num);
+Q1.afficher();
+	
+// déclaration d'objet vide
+// puis instanciation
+let Q2 = new Question();
+let obj3 = Q[0][1][0];
+
+Q2.texte=obj3.Question;
+Q2.propositions = obj3.propositions;
+Q2.corrections = obj3.correction;
+Q2.repartPoints = obj3.justesse;
+Q2.bareme = obj3.bareme;
+Q2.linkImage = obj3.linkImage;
+Q2.theme = 0;
+Q2.serie = 1;
+Q2.afficher();
+
+Question.creerSaisie ();
+
+
+</script>
+</html>
