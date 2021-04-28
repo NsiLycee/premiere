@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html data-lt-installed="true">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8"> 
+	<title>NSI Thème E : architectures matérielles et systèmes d’exploitation </title>
+<!-- ------------------------------------------------------------------>
+    <link rel="stylesheet" type="text/css" href="../../../CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="../../../CSS/numerotationTitres.css">
+    <link rel="stylesheet" type="text/css" href="../../../CSS/ressourcesCachees.css">
+	<link rel="stylesheet" type="text/css" href="../../../CSS/styleQuiz.css">
+	<link rel="stylesheet" type="text/css" href="../../../CSS/code.css">
+    <link rel="stylesheet" type="text/css" href="../../../CSS/simpleMenuHorizontal.css">
+
+<!-- ------------------------------------------------------------------>
+	<!-- Les deux lignes suivantes permettent d'insérer une icône à coté 
+	     de l'onglet de la page -->
+	<link rel="shortcut icon" href="http://jodenda.free.fr/BTS%20Biotech/BMGG/icone.ico" type="image/x-icon">
+	<link rel="icon" href="http://jodenda.free.fr/BTS%20Biotech/BMGG/icone.ico" type="image/x-icon">    
+	
+	<script language="JavaScript" src="../../../JS/affichages.js"></script> 
+	<script language="JavaScript">
+		var titrePage = "NSI Thème E : architectures matérielles et systèmes d’exploitation";
+			var aurevoir = "À bientôt, revenez vite !";   //À = Alt + 0192
+			//var id = setInterval(ma_fontion, 1000);
+			
+		function titre(texte) 
+		{
+			document.title = texte;
+		}
+		function init () { 
+		}	
+	</script>
+	<style>
+	</style>
+</head>
+
+<body 	onload="init();" onblur="titre(aurevoir);" 
+		onfocus="titre(titrePage);">
+<!-- ------------------------------------------------------------------>
+<header>
+<nav>
+	<ul class="menu">
+		<li><a href="../../../niveau_1.html">retour à la page NSI</a>
+		</li>
+
+		<li><a href="../../../programmeNSI/cours/themeA/typesBase.html"
+		title="Représentation des données : types et valeurs de base">
+			A : types et valeurs de base</a></li>
+			
+		<li><a 
+		href="../../../programmeNSI/cours/themeB/typesConstruits.html"
+		title="Représentation des données : types construits">
+			B : types construits</a></li> 
+			
+		<li><a 
+	   href="../../../programmeNSI/cours/themeC/traitementDonneesEnTables.html"
+		title="Traitement de données en tables">
+			C : Traitement de données en tables</a></li>
+			
+		<li><a href="../../../programmeNSI/cours/themeD/web2.0.html"
+		title="Interactions entre l’homme et la machine sur le Web 2.0">
+			D : Web 2.0</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeE/systemeLinux.html">
+			E : architecture système</a></li>
+			
+		<li>
+<a href="../../../programmeNSI/cours/themeF/langagesProgrammation.html">
+			F : langages de programmation</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeG/algorithmique.html">
+			G : algorithmique</a></li>
+			
+		<li><a href="../../../programmeNSI/quiz/entrainementE3C.html">
+			Quiz d'entraînement</a></li>
+		<li><a href="../../../programmeNSI/ressources/ressource_0.html">
+			bonnes pratiques</a>
+		</li> 
+
+	</ul>
+</nav> 
+
+</header>
+<!-- ------------------------------------------------------------------>
+<section>
+
+<!-- ------------------------------------------------------------------>
+<article>
+	<p id="titrePrincipal">NSI Thème E : architectures matérielles et 
+							systèmes d’exploitation</p>
+	<h1>Installation de linux</h1>
+	<p><mark>linux</mark> est un sytème d'exploitation libre ; c'est à 
+	dire qu'il est distribué gratuitement et développé par ses 
+	utilisateurs ; il est dérivé du système propriétaire Unix. <br/>
+	Linux représente un ensemble de programmes nécessaires et suffisant 
+	pour
+	gérer l'ensemble des fonctions de lecture, écriture des fichiers, 
+	exécution des programmes avec gestion des processus (tâches 
+	parallèles), des droits de lecture, écriture, bref tout ce que fait
+	le système microsoft Window (mais qui est payé quand un PC est
+	acheté !).</p>
+	<!-- ------------------<a href="" title="" target="_blank"></a>-------------------------------------------->
+	<details><summary>étapes de l'installation</summary>
+	<h2>à partir du site cygwin.com</h2>
+		
+			<figure><figcaption>Aller sur le site <a href="cygwin.com" title="site cygwin.com" 
+			target="_blank">cygwin.com</a></figcaption>
+			<img src="./installCygwin.png" alt="" title="" />
+			</figure>
+				
+			<figure><figcaption>puis ... </figcaption>
+				<img src="./installCygwin02.png" alt="" title="" />
+			</figure>
+
+			<figure><figcaption>puis ... </figcaption>
+				<img src="./installCygwin03.png" alt="" title="" />
+			</figure>
+			
+			<figure><figcaption>puis ... </figcaption>
+				<img src="./installCygwin04.png" alt="" title="" />
+			</figure>
+			
+			<figure><figcaption>puis ... </figcaption>
+				<img src="./installCygwin05.png" alt="" title="" />
+			</figure>
+			
+			<figure><figcaption>puis ... </figcaption>
+				<img src="" alt="" title="" />
+			</figure>
+			
+						
+	</details>
+	
+	<h1>Navigation dans l'arborescence des fichiers</h1>
+	<p>Obtenir la <b><u>liste</u></b> des fichiers et dossiers du 
+	répertoire courant (celui où l'on est) :</p>
+	<p>commande <mark>ls</mark> (sous MS-DOS ce serait dir)</p>
+	<p>Aide : ls --h ou ls -- help pour affiner l'affichage</p>
+	
+	<h2>Manipuler des fichiers</h2>
+	<p>Essayez les commandes suivantes (puis = entrée ou retour à la 
+			ligne):</p>
+	<ul>
+		<li>ls puis <mark>touch fic.txt </mark> puis ls 
+		<details><summary>qu'est-ce que cela fait ?</summary>
+			<p>ls liste les dossiers et fichiers du dossier actuel,
+			fic.txt n'existe pas encore. touch le crée, ls le prouve.</p>
+		</details>
+		</li>
+		<li>ls puis <mark>cp fic.txt fic2.txt</mark> puis ls 
+		<details><summary>qu'est-ce que cela fait ?</summary>
+			<p>ls liste les dossiers et fichiers du dossier actuel, cp
+			duplique fic.txt en fic2.txt, ls le prouve.</p>
+		</details>
+		</li>	
+		<li>ls puis <mark>mv fic.txt essai.txt</mark> puis ls 
+		<details><summary>qu'est-ce que cela fait ?</summary>
+			<p>ls liste les dossiers et fichiers du dossier actuel, mv
+			renomme fic.txt en essai.txt, ls le prouve.</p>
+		</details>
+		</li>		
+	</ul>
+
+	<h2>Manipuler des dossiers (<em>DIRerctory in english</em>)</h2>
+	<p>Les dossiers permettent de classer les fichiers dans une
+	<mark>arborescence</mark> de dossiers et sous dossiers ...</p>
+	<p>Le dossier <mark title="root">racine</mark> est symbolisé par /</p>
+	<p>Le dossier <mark title="root">racine</mark> de votre compte perso
+	(que j'appelle ici monCompte) se situe dans /home/monCompte , on 
+	peut le symboliser par le caractère tilde : ~ (<kbd>AltGr 2</kbd>).
+	</p>
+	
+	<p>Essayez les commandes suivantes (puis = entrée ou retour à la 
+			ligne):</p>
+	<ul>
+		<li>ls puis <mark>cd . </mark> puis ls 
+		<details><summary>qu'est-ce que cela fait ?</summary>
+			<p>. est le répertoire courant, donc ici rien ne se passe, 
+			mais que fait cd ?</p>
+		</details>
+		</li>
+		<li>ls puis <mark>cd ..</mark> puis ls 
+		<details><summary>qu'est-ce que cela fait ?</summary>
+			<p>.. est le chemin pour remonter d'un niveau dans 
+			l'arborescence. Si on est dans monCompte, cd .. nous ramène
+			dans son dossier parent soit home.</p>
+		</details>
+		</li>	
+		<li>ls puis <mark>cd /home/monCompte </mark> puis ls 
+		<details><summary>qu'est-ce que cela fait ?</summary>
+			<p>cd signifie change directory, ici le chemin est de type
+			absolu ; c'est à dire que le chemin est donné en entier 
+			depuis la racine (c'est dangereux, surtout pour naviguer 
+			entre les dossiers d'un site sur un serveur	web) ;
+			il vaut mieux utiliser des chemins relatifs. </p>
+		</details>
+		</li>		
+	</ul>
+	
+	<p>traiter ensuite mkdir, rmdir</p>
+	
+	<h2>gestion des droits</h2>
+	
+	<ul>
+		<li>
+	<a href="https://drive.google.com/open?id=1J7Olv7bnxI5FAXf95EAP_xrqYwtxGDmn" 
+	target="_blank">cours en vidéo</a></li>
+		<li><a href="https://www.commentcamarche.net/faq/3603-securite-droits-d-acces-gnu-linux#1-chmod" 
+	target="_blank">Cours en texte</a></li>
+	</ul>
+	<h3>Exemple 1 : activer un script bash</h3>
+	<p>Le but est de pouvoir exécuter un script que l'on va appeler
+	essai.sh ; le problème est qu'il faut ajouter des droits d'exécution
+	à ce fichhier, sinon on ne pourra pas s'en servir.</p>
+	<ol>
+		<li><code>touch essai.sh</code> crée le fichier script ; son
+		extension sh permet au système de savoir que c'est un script
+		en langage bash exécutable ;</li>
+		<li>le fichier est vide, on peut l'éditer avec 
+		<code>nano essai.sh</code> qui permet de l'éditer (lire et 
+		modifier). On va faire simple et écrire <code>echo "coucou c'est 
+		nous !"</code> puis <kbd>Ctrl + O</kbd> puis <kbd>entrée</kbd>
+		pour enregistrer les modifications et <kbd>Ctrl + X</kbd> pour 
+		sortir de l'éditeur (nano).</li>
+		<li><code>cat essai.sh</code> permet de vérifier que l'on a bien
+		modifié le fichier</li>
+		<li><code>ls -l</code> produit la liste des fichiers du dossier 
+		courant avec les droits exprimés sous la forme d'un enchaînement 
+		de r w x et - représentant respectivement les droits de lecture 
+		(r = read), écriture (w = write) et exécution (x = eXecute) ; 
+		par exemple vous verrez probablement apparaître -rw-r--r-- au 
+		tout début de la ligne concernant essai.sh ; le premier tiret
+		signifie que essai.sh n'est pas un dossier, rw- siginie que le
+		propriétaire (vous) du fichier peut lire et écrire mais pas 
+		exécuter le fichier, les r-- qui suivent signifient que le 
+		groupe principal auquel vous appartenez et toutes les autres
+		personnes connectées sur le réseau n'ont qu'un accès en lecture.
+		<br/> taper :<br/><code> ./essai.sh</code> <br/>et le système 
+		affiche<br/> <code>bash: ./essai.sh: Permission non accordée
+		</code></li>
+		<li>en tapant <code>chmod 744 essai.sh</code> on affecte à
+		essai.sh des droits d'exécution pour le propriétaire que vous
+		êtes. Les droits avant d'exécuter cette commande étaient 644</li>
+		<li>si vous tapez <code>essai.sh</code> l'erreur vient du fait 
+		que le système prend votre fichier pour une commmande et il
+		ne la comprend pas, puisque ce n'en est pas une !</li>
+		<li>taper <code>./essai.sh</code> et ça marche !</li>
+	</ol>
+	<!-- -------------------------------------------------------------->
+	<h3>exemple 2 : donner des droits d'exécution à un script qui sera
+	exécuté en python</h3>
+	<p><a 
+href="https://www.commentcamarche.net/faq/4627-executer-un-script-shell" 
+		target="_blank">cours en ligne</a> sur le sujet.</p>
+	<p>si votre script commence par #! suivi du chemin absolu de votre
+	interpréteur python (éxécutable en binaire), alors votre script sera
+	interprété en python ! Cela vous évitera de créer des scripts 
+	compliqués en langage bash, faites les en python !</p>
+	<p>exemple : sur mon PC linux, le chemin absolu vers mon 
+	interpréteur python est <br/><b>
+	/home/dendaletche/anaconda3/bin/python3.7</b>, voici donc ce que 
+	cela donne :</p>
+	<code><pre>
+#!/home/dendaletche/anaconda3/bin/python3.7
+
+#exécution d'un script python
+n = int(input("Donner un petit nombre entier :"))
+for i in range(n) :
+    print ( i, " : coucou c'est nous", " en PYTHON")	
+	</pre></code>
+	<p>Pour simplifier encore, après avoir porté les droits à 744, on
+	peut renommer le fichier essai.py avec : <br/>
+	</p>
+	<code>mv essai.sh essai.py</code>
+	<p>puis l'exécuter :</p>
+	<code>./essai.py</code>
+	<p>Et c'est tout !</p>
+	
+	
+	<h1>Comparaison Unix / Window (DOS)</h1>
+	<p>Page présentant un tableau comparant certaines commandes 
+	courantes entre DOS et Linux : 
+	<a href="./differenceCommandesDosVsLinux.html" target="_blank">
+		cliquer 	ici</a></p>
+	
+	
+</article>
+<!-- ------------------------------------------------------------------>
+<aside>
+	
+</aside>
+</section>
+<!-- ------------------------------------------------------------------>
+<!-- ------------------------------------------------------------------>
+<footer>
+	<p> <u>Sources et liens utiles :</u></p>
+	<ul class="menu">
+		<li><a href="cygwin.com" target="_blank">site d'installation de 
+		cygwin</a> 
+		</li>
+		<li><a href="https://fr.wikihow.com/cr%C3%A9er-ou-%C3%A9diter-un-fichier-texte-dans-un-terminal-sous-Linux" 
+		target="_blank">tuto sympa</a> 
+		</li>
+		<li><a href="http://www.commandeslinux.fr/" target="_blank">
+			www.commandeslinux.fr</a></li>
+		<li><a href="systemeCommandes.html" target="_blank">
+			programme sur la partie E</a></li>
+	</ul>
+</footer>
+
+<!-- --------------------------------------------------------------- -->
+<!-- --------------     -------------- -->
+
+<article id="agenda" class="ressourceCachee" onkeydown="if (event.keyCode == 27) voir('agenda');">
+	<button class="btnQuitter" onclick="voir('agenda');">X
+	</button>
+	<iframe src="Cours%20sur%20l'expression%20des%20g%C3%A8nes_fichiers/embed.html" style="border: 0" scrolling="no" width="800" height="600" frameborder="0"></iframe>
+
+</article>
+
+</body>
+</html>

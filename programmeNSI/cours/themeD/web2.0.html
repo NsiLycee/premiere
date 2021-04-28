@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title> NSI en première </title>
+	<!-- Les deux lignes suivantes permettent d'insérer une icône à coté 
+	     de l'onglet de la page -->
+	<link rel="shortcut icon" href="icone.png" type="image/x-icon"/>
+	<link rel="icon" href="icone.png" type="image/x-icon"/>
+	
+	<script src="./sommaire.js"></script>
+	<script language="JavaScript" src="../../../JS/moteurQuiz.js"></script>
+	<script language="JavaScript" src="../../../JS/affichages.js"></script>
+	<script language="JavaScript">
+		var titrePage = "Blog de Joël Dendaletche";
+		var aurevoir = "&Aacute; bientôt, revenez vite !";
+		//var id = setInterval(ma_fontion, 1000);
+		function titre(texte) 
+		{
+			document.title = texte;
+		}
+		function init() 
+		{
+			 // alert("debug init");
+			 construireListeSommaire ();
+		}
+	</script>
+	
+	<meta name="author" content="Joël Dendaletche"/>
+	<meta name="created" content="2019-09-02"/>
+	<meta name="changed" content="2019-09-16"/>
+	<meta name="Company" 
+content="Lycée La Découverte Decazeville Aveyron Occitanie Terre"/>
+	<meta name="description" content="programme NSI première">
+	<meta name="keywords" content="Informatique">
+   <!-- la méta-donnée suivante rafraichit l'écran toute les minutes 
+	<meta http-equiv="refresh" content="60"> -->
+
+	
+	<!-- feuille de style externe -->
+	<link rel="stylesheet" type="text/css" 
+	      href="../../../programme NSI/styleProgramme.css">
+    <link rel="stylesheet" type="text/css" 
+		  href="../../../CSS/style.css">
+    <link rel="stylesheet" type="text/css" 
+		  href="../../../CSS/numerotationTitres.css">                      
+    <link rel="stylesheet" type="text/css" 
+          href="../../../CSS/ressourcesCachees.css">
+	<link rel="stylesheet" type="text/css" 
+	      href="../../../CSS/styleQuiz.css">    
+	<link rel="stylesheet" type="text/css" 
+	      href="../../../CSS/code.css"> 
+    <link rel="stylesheet" type="text/css" 
+          href="../../../CSS/simpleMenuHorizontal.css">
+	<!-- Définition du style local de la page : déconseillé ! -->
+	<style>
+	 /* Styles appliqués aux portions de code */
+		.attribut { color : black;
+			font-weight: bold; }
+		.balise { color : purple; }
+		.texte { color : blue ; }
+		.commentaire { color : green; }
+		div.codeHTML { 
+			border : 2px solid black;
+			padding : 10px;
+			text-align: left;
+			}
+		.caracteristique {
+			color : red;
+			font-weight: bold; 
+		}
+		.valeur {
+		color : orange;
+		}
+		section {
+			display : block;
+		}
+		article {
+			display : block;
+		}
+		a {
+        	border-radius:5px;
+            padding : 10px;
+            margin  : 5px;
+            border:5px black groove;
+        }
+        .invisible {
+        	display : none;
+        }
+        .invisile:hover {
+        	display : inlineblock;
+        }
+	</style>
+
+</head>
+<!-- la balise body délimite les instructions qui permettront d'afficher 
+le contenu de la page web à l'écran -->
+<body onload="init();" onblur="titre(aurevoir);" 
+	  onfocus="titre(titrePage);">
+	<header>
+		<small>Blog de <abbr title="Joël Dendaletche">jodenda</abbr> 
+		</small>
+	</header>
+<!--------------------------------------------------------------------->
+<nav>
+	<ul class="menu">
+		<li><a href="../../../niveau_1.html">retour à la page NSI</a>
+		</li>
+
+		<li><a href="../../../programmeNSI/cours/themeA/typesBase.html"
+		title="Représentation des données : types et valeurs de base">
+			A : types et valeurs de base</a></li>
+			
+		<li><a 
+		href="../../../programmeNSI/cours/themeB/typesConstruits.html"
+		title="Représentation des données : types construits">
+			B : types construits</a></li> 
+			
+		<li><a 
+	   href="../../../programmeNSI/cours/themeC/traitementDonneesEnTables.html"
+		title="Traitement de données en tables">
+			C : Traitement de données en tables</a></li>
+			
+		<li><a href="../../../programmeNSI/cours/themeD/web2.0.html"
+		title="Interactions entre l’homme et la machine sur le Web 2.0">
+			D : Web 2.0</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeE/systemeLinux.html">
+			E : architecture système</a></li>
+			
+		<li>
+<a href="../../../programmeNSI/cours/themeF/langagesProgrammation.html">
+			F : langages de programmation</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeG/algorithmique.html">
+			G : algorithmique</a></li>
+			
+		<li><a href="../../../programmeNSI/quiz/entrainementE3C.html">
+			Quiz d'entraînement</a></li>
+		<li><a href="../../../programmeNSI/ressources/ressource_0.html">
+			bonnes pratiques</a>
+		</li> 
+		<li><a href="./exempleFormulaireClient.htm" target="_blank">
+			exemple de modification du style</a>
+		</li> 
+
+	</ul>
+</nav>
+</header>
+<!--------------------------------------------------------------------->
+	<section>
+	<!----------------------------------------------------------------->
+	<article>
+		<h1>Interactions entre l’homme et la machine sur le Web</h1>
+		<details><summary>Programme de la partie D</summary>
+	<p onclick="font-size:200%;background:white;">Lors de la navigation sur le Web, les internautes interagissent avec leur machine par le biais des pages Web.<br/>
+	L’Interface Homme-Machine (IHM) repose sur la gestion d’événements associés à des éléments graphiques munis de méthodes algorithmiques.<br/>
+	La compréhension du dialogue client-serveur déjà abordé en classe de seconde est consolidée, sur des exemples simples, 
+		en identifiant les requêtes du client, les calculs puis les réponses du serveur traitées par le client.<br/>
+	Il ne s’agit pas de décrire exhaustivement les différents éléments disponibles, ni de développer une expertise dans les langages qui permettent 
+		de mettre en œuvre le dialogue tels que PHP ou JavaScript.</p>
+	<table><thead>
+			<tr><th>Contenus</th><th>Capacités attendues</th><th>Commentaires</th><th>liens vers le cours/exercices</th></tr>
+			<tr>
+				<td><p>Modalités de l’interaction entre l’homme et la machine</p><p>Événements</p></td>
+				<td><p>Identifier les différents composants graphiques permettant d’interagir avec une application Web.</p>
+				<p>Identifier les événements que les fonctions associées aux différents composants graphiques sont capables de traiter.</p></td>
+				<td><p>Il s’agit d’examiner le code HTML d’une page comprenant des composants graphiques et de distinguer ce qui relève de la description des composants
+				graphiques en HTML de leur comportement (réaction aux événements) programmé par exemple en JavaScript.</p></td>
+				<td><ul>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td><p>Interaction avec l’utilisateur dans une page Web</p></td>
+				<td><p>Analyser et modifier les méthodes exécutées lors d’un clic sur un bouton d’une page Web.</p></td>
+				<td><p></p></td>
+				<td><ul>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					</ul>
+				</td>				
+			</tr>
+			<tr>
+				<td><p>Interaction client-serveur.</p><p>Requêtes HTTP, réponses du serveur</p></td>
+				<td><p>Distinguer ce qui est exécuté sur le client ou sur le serveur et dans quel ordre.</p>
+					<p>Distinguer ce qui est mémorisé dans le client et retransmis au serveur.</p>
+					<p>Reconnaître quand et pourquoi la transmission est chiffrée.</p></td>
+				<td><p>Il s’agit de faire le lien avec ce qui a été vu en classe de seconde et d’expliquer comment on peut passer des
+					paramètres à un site grâce au protocoleHTTP.</p></td>
+				<td><ul>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td><p>Formulaire d’une page Web</p></td>
+				<td><p>Analyser le fonctionnement d’un formulaire simple.</p><p>Distinguer les transmissions de paramètres par les requêtes POST ou GET.</p></td>
+				<td><p>Discuter les deux types de requêtes selon le type des valeurs à transmettre et/ou leur confidentialité.</p></td>
+				<td><ul>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					<li><a href="" target="_blank" title=""></a></li>
+					</ul>
+				</td>
+			</tr>
+		</thead></table>
+		</details>
+	</article>
+
+	<!----------------------------------------------------------------->
+	<article>
+		<h1>différents composants graphiques permettant d’interagir avec 
+		une application Web</h1>
+		<h2>les boutons et liens</h2>
+		<p>Les boutons et liens sont des éléments qui habituellement 
+		déclenchent des actions en cliquant dessus. Dans les deux cas
+		le déclenchement est lié à un évènement "click" </p>
+		<h3 title="les boutons = élément cliquable">les boutons</h3>		
+		<details><summary>déveloper cette partie ...</summary>
+
+		<p>Il y a deux balises (<em>tag</em>) différentes pour créer 
+		des boutons :</p>
+		<ul>
+			<LI>la balise <mark>button</mark> encadre le texte affiché 
+			sur le bouton. L'évènement click est lié à une méthode en 
+			affectant une fonction ou plusieurs instructions en 
+			javascript à l'attribut onclick de la balise.<br/>Par 
+			exemple : <br/>
+				<code>
+					&lt;button onclick="alert('coucou');" &gt; afficher 
+					le message &lt;/button&gt;
+				</code><br/> donne : 
+		<button onclick="alert('coucou');">afficher le message</button>
+			</LI>
+			<li>la balise orpheline, plus générale <mark>input</mark> 
+			contenant l'attribut type="button" permet d'obtenir le même 
+			résultat, mais la syntaxe est différente :<br/>
+			<code>&lt;input type="button" value="afficher le message" 
+			onclick="alert('coucou');"/&gt;</code> ce qui donne : <br/>
+			<input type="button" value="afficher le message" 
+			onclick="alert('coucou');" /><br/><small>remparque : cette
+			balise est normalement incluse dans un bloc délimité par 
+			une balise <mark>form</mark> et peut en changeant la valeur
+			de l'attribut type donner d'autres types d'éléments actifs.
+			</small></li>
+		</ul>
+		</details>
+		
+		<h3 title="les liens = élément cliquable">les liens</h3>
+		<details><summary>déveloper cette partie ...</summary>
+		<p>exemple de code comparant l'usage du bouton et celui du lien: 
+		</p>
+		
+		<p>
+<a href="https://www.w3schools.com/code/tryit.asp?filename=GERXV2FWSMFT"
+		target="_blank"> code modifiable</a> qui donne :
+		</p>
+		<p id="demo"></p>
+		</details>
+	</article>
+	</section>
+	<article>
+	<h2>Les autres éléments de formulaires</h2>
+	<h3>Rôle et exemples de formulaires</h3>
+	<h4>Le bloc formulaire</h4>
+	<p>Un bloc de formulaire est encadré par la balise form :</p>
+	<code>
+		&lt;form id="formulaire" &gt;<br/>
+		élément 1
+		élément 2
+		...
+		élément n
+		&lt;/form&gt;
+	</code>
+	<h4>Rôles du formulaire</h4>
+	<p>Un formulaire peut soit :</p>
+	<ul>
+		<li>être utilisé uniquement <strong>coté client</strong> comme 
+		zone d'entrées (input) pour rendre interactif la page (création 
+		d'une calculatrice, d'un convertisseur, de dessins, ...) ;</li>
+		<li>permettre d'envoyer des informations au <strong>serveur
+		</strong>, qui en 
+		retour renvoie une nouvelle page web actuallisée (sur mesure).
+		</li>
+	</ul>
+	
+	</article>
+	<footer>
+	<p onmouseover="this.innerHTML='Cliquer le bouton pour afficher un texte de lien hypertexte'"
+   onmouseout="this.innerHTML='Click the button to display a string as a hyperlink.';">
+Click the button to display a string as a hyperlink.
+</p>
+
+<button onclick="myFunction()" onmouseover="this.innerHTML='Cliquer moi !';"
+onmouseout="this.innerHTML='Click me !';">
+Click me !</button>
+<a href="javascript:myFunction();" title="ceci est un  lien avec la balise a">image </a>
+
+
+
+<script>
+function myFunction() {
+  var str = "cours de NSI";
+  var result = str.link("http://jodenda.free.fr");
+  document.getElementById("demo").innerHTML = result;
+}
+
+</script>
+	
+	</footer>
+	
+</body>
+</html>

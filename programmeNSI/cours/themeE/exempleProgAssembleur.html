@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title> NSI en première : thème E architecture matérielle </title>
+	<!-- Les deux lignes suivantes permettent d'insérer une icône à coté
+	     de l'onglet de la page -->
+	<link rel="shortcut icon" href="icone.png" type="image/x-icon"/>
+	<link rel="icon" href="icone.png" type="image/x-icon"/>
+
+
+	<script src="./sommaire.js"></script>
+	<script language="JavaScript" src="../../../JS/moteurQuiz.js"></script>
+	<script language="JavaScript" src="../../../JS/affichages.js"></script>
+	<script src="fonctTypeBase.js"></script>
+
+	<meta name="author" content="Joël Dendaletche"/>
+	<meta name="created" content="2019-09-02"/>
+	<meta name="changed" content="2019-09-16"/>
+	<meta name="Company"
+content="Lycée La Découverte Decazeville Aveyron Occitanie Terre"/>
+	<meta name="description" content="programme NSI première">
+	<meta name="keywords" content="Informatique">
+   <!-- la méta-donnée suivante rafraichit l'écran toute les minutes -->
+	<!-- <meta http-equiv="refresh" content="60"> -->
+
+
+	<!-- feuille de style externe -->
+	<link rel="stylesheet" type="text/css"
+	      href="../../../programme NSI/styleProgramme.css">
+    <link rel="stylesheet" type="text/css"
+		  href="../../../CSS/style.css">
+	<link rel="stylesheet" type="text/css"
+		  href="../../../CSS/code.css">
+    <link rel="stylesheet" type="text/css"
+		  href="../../../CSS/numerotationTitres.css">
+    <link rel="stylesheet" type="text/css"
+          href="../../../CSS/ressourcesCachees.css">
+	<link rel="stylesheet" type="text/css"
+	      href="../../../CSS/styleQuiz.css">
+    <link rel="stylesheet" type="text/css"
+          href="../../../CSS/simpleMenuHorizontal.css">
+	<!-- Définition du style local de la page : déconseillé ! -->
+	<style>
+
+	</style>
+
+</head>
+<!-- la balise body délimite les instructions qui permettront d'afficher
+le contenu de la page web à l'écran -->
+<body onload="init();" onblur="titre(aurevoir);"
+	  onfocus="titre(titrePage);">
+	<header>
+<!--------------------------------------------------------------------->
+<nav>
+	<ul class="menu">
+		<li><a href="../../../niveau_1.html">retour à la page NSI</a>
+		</li>
+
+		<li><a href="../../../programmeNSI/cours/themeA/typesBase.html"
+		title="Représentation des données : types et valeurs de base">
+			A : types et valeurs de base</a></li>
+
+		<li><a
+		href="../../../programmeNSI/cours/themeB/typesConstruits.html"
+		title="Représentation des données : types construits">
+			B : types construits</a></li>
+
+		<li><a
+	   href="../../../programmeNSI/cours/themeC/traitementDonneesEnTables.html"
+		title="Traitement de données en tables">
+			C : Traitement de données en tables</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeD/web2.0.html"
+		title="Interactions entre l’homme et la machine sur le Web 2.0">
+			D : Web 2.0</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeE/systemeLinux.html">
+			E : architecture système</a></li>
+
+		<li>
+<a href="../../../programmeNSI/cours/themeF/langagesProgrammation.html">
+			F : langages de programmation</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeG/algorithmique.html">
+			G : algorithmique</a></li>
+
+		<li><a href="../../../programmeNSI/quiz/entrainementE3C.html">
+			Quiz d'entraînement</a></li>
+		<li><a href="../../../programmeNSI/ressources/ressource_0.html">
+			bonnes pratiques</a>
+		</li>
+		<li><a href="../../../programmeNSI/cours/themeA/conversion.html"
+			target="_blank">
+			convertisseur base à base</a>
+		</li>
+	</ul>
+</nav>
+	</header>
+<!--------------------------------------------------------------------->
+	<section>
+	<!----------------------------------------------------------------->
+	<article>
+
+<pre><code>
+      INP R0,2      // premier   nombre en entrée (INPut) stocké dans le registre 0
+      INP R1,2      // deuxième  nombre en entrée (INPut) stocké dans le registre 1
+      INP R2,2      // troisième nombre en entrée (INPut) stocké dans le registre 2
+      CMP R1,R0     // comparaison de la valeur dans R1 (opérande 1 : op1) et de la valeur dans R2 (opérande 2 : op2)
+      BGT HIGHER    // branchement si op1 > op2 (GT : Greater Than) vers le sous programme d'étiquette HIGHER
+      CMP R2, R0    // comparaison de la valeur dans R2 (op1) et de la valeur dans R0 (op2)
+      BGT 2HIGER    // branchement si op1 > op2 vers le sous programme d'étiquette 2HIGHER
+      OUT R0,4      // sortie à l'affichage de la valeur de R0
+      B DONE        // fin
+HIGHER:             // étiquette HIGHER : destination du premier branchement de ce programme (BGT ci-dessus)
+      CMP R1, R2    // comparaison de la valeur dans R1 (op1) et de la valeur dans R2 (op2)
+      BGT 3HIGER    // branchement si op1 > op2 vers le sous programme d'étiquette 3HIGHER
+      OUT R2,4      // sortie à l'affichage de la valeur de R2
+      B DONE        // fin
+2HIGER:
+      out R2, 4     // sortie à l'affichage de la valeur de R2
+      B DONE        // fin
+3HIGER:
+      out R1, 4     // sortie à l'affichage de la valeur de R1
+      B DONE        // fin
+DONE:
+      HALT
+      // Input three numbers and output the higher
+</code></pre>
+    </article></section>
+</body>
+</html>

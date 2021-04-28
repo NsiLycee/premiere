@@ -1,0 +1,1382 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-language" content="fr">
+    
+    <title>cours NSI première : traitement des données en table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="../../CSS/styleCode.css">
+    <link rel="stylesheet" href="../../CSS/numerotationTitres.css">
+    <link rel="stylesheet"   href="../../CSS/ressourcesCachees.css">
+    <link rel="stylesheet"   href="../../CSS/colSyntaxiquePython.css">
+
+ 	<script src="../../JS/affichages.js"></script>
+	<script src=""></script>
+    <style>
+		.droptarget {
+			width : 10%;
+			height : 40px;
+			flex : 1;
+			border : red 1px dashed;
+			text-align : center;
+		}
+		.origin {
+			width : 10%;
+			flex : 1;
+			border : green 1px dashed;
+			text-align : center;
+		}
+		table {
+				width : 100%;
+		}
+		table td:nth-child(4n+1) {
+				width : 15%;
+		}
+    </style>
+</head>
+<body onload="init();"><!-- à = à ; è = è ; é = é ; ' = ' ; -->
+	<section><article title="Éléments du programme de première NSI">
+<p>Éléments du programme de première NSI</p>
+
+<h1>Traitement de données en tables</h1>
+
+<p>Les données organisées en table correspondent à une 
+liste de p-uplets nommés qui partagent les mêmes 
+<span title="appelés champs ou clefs dans une base de 
+données et clefs 
+dans un dictionnaire en python"><strong><u>descripteurs</u></strong>
+</span>. 
+La mobilisation de ce type de structure de données permet de préparer 
+les élèves à aborder la notion de 
+<strong title="une base de données est un ensemble de tables 
+liées par 
+des relations"><u>base de données</u></strong> qui ne sera 
+présentée qu'en classe <strong title="les bases de données 
+ne seront vues que par ceux qui poursuivent la spécialités 
+en terminale"><u>terminale</u></strong>. Il s'agit d'utiliser un tableau 
+doublement indexé ou un tableau de p-uplets, dans un langage de 
+programmation ordinaire et non dans un système de gestion de bases de 
+données.</p>
+
+
+<table class="">
+	<thead>
+		<tr>
+		<th class="">Contenus</th><th>Capacités attendues</th>
+		<th>Commentaires</th><th>Applications</th>
+		</tr>
+	</thead>
+ <tbody>
+  <tr>
+   <td class="">
+   <p>Indexation de tables</p>
+   </td>
+   <td>
+   <p>Importer une table depuis un fichier texte tabulé ou un fichier 
+   CSV.</p>
+   </td>
+   <td>
+   <p>Est utilisé un tableau doublement indexé ou un tableau de p-uplets 
+   qui partagent les mêmes descripteurs.</p>
+   </td>
+   <td>
+		<ul>
+			<li><a href="javascript:voir('rappelsListes');" 
+			title="rappels sur les propriétés des listes" 
+				>rappels sur les listes</a></li>
+			<li><a href="javascript:voir('manipulerDesFichiers');" 
+			title="comment manipuler des fichiers" target="_self">
+			manipulation des fichiers</a></li>
+			<li><a href="#lireCSV" title="lire pas à pas un 
+			fichier CSV" >lire pas à pas un 
+			fichier CSV</a></li>
+			<li><a href="javascript:voir('rappelsSurLesDictionnaires');" 
+			title="rappels sur les dictionnaires" 
+				>rappels sur les dictionnaires</a></li>
+			<li><a href="javascript:voir('exercicesApplication');" 
+			       title="" target="">Exercices d'application
+			    </a>
+			</li>
+			<li><a href="javascript:afficheTailleEcran();" 
+			       title="affiche la taille de l'écran" 
+			       target="">affiche la taille de l'écran
+			    </a>
+			</li>
+			<li>téléchargement du fichier exemple
+				<a href="./BasesDeDonnees/BDD.csv" 
+				   title="téléchargement du fichier exemple BDD.csv" 
+				   target="_self">
+				 BDD.csv</a>
+			</li>    
+			<li>téléchargement du fichier avec <mark>doublons</mark>
+				<a href="./BasesDeDonnees/BDDdbl.csv" 
+				   title="téléchargement du fichier BDDdbl.csv avec doublons" 
+				   target="_self">
+				 BDDdbl.csv</a> 
+				 
+			</li>    
+		</ul>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   <p>Recherche dans une table</p>
+   </td>
+   <td>
+   <p>Rechercher les lignes d'une table vérifiant des critères exprimés 
+   en logique propositionnelle.</p>
+   </td>
+   <td>
+   <p>La recherche de doublons, les tests de cohérence d'une table 
+   sont présentés.</p>
+   </td>
+   <td>Deux enregistrements (ici ce sera des dictionnaires) sont des 
+   doublons si tous les items des deux dictionnaires sont égaux deux à 
+   deux, il suffit qu'un des items soit différent pour une même clef 
+   pour que les deux dictionnaires soient différents et ne soient pas 
+   des doublons.
+   <br/>Exemple : <br/>dic[1] = { "nom" : "Doe", "Prenom" : "John", "age" 
+	   : 15 } n'est pas le doublon de 
+   dic[2] = { "nom" : "Doe", "Prenom" : "John", "age" : 35 }, il s'agit 
+   d'enregistrements d'homonymes d'âges différents
+   <hr/>Une table est cohérente sssi <a href="javascript:voir('exercicesApplication');">
+	   elle ne contient pas de doublons !</a>
+   </td>
+  </tr>
+  <tr>
+   <td>
+   <p>Tri d'une table</p>
+   </td>
+   <td>
+   <p>Trier une table suivant une colonne.</p>
+   </td>
+   <td>
+   <p>Une fonction de tri intégrée au système ou à une bibliothèque 
+   peut être utilisée.</p>
+   </td>
+   <td>La table BDD est une liste de dictionnaires. Pour une clef donnée
+   , la liste des valeurs correspondantes à cette clefs sera extraite à
+   partir du parcours de chaque ligne de cette table. Puis la méthode 
+   sort() sera aplliquée à cette liste. Cette liste sera ensuite 
+   parcourue pour recontriure une table triée selon l'ordre croissant
+   des valeurs associées à cette clef. Pour un ordre décroissant, la 
+   liste triée sera inversée par le <i>slice</i> listeTriee[::-1] qui
+   inverse en place la liste (cf. 
+   <a href="javascript:voir('exercicesApplication');"> exercice 6</a>).   
+   </td>
+  </tr>
+  <tr>
+   <td>
+   <p>Fusion de tables</p>
+   </td>
+   <td>
+   <p>Construire une nouvelle table en combinant les données de deux 
+   tables.</p>
+   </td>
+   <td>
+   <p>La notion de domaine de valeurs est mise en évidence.</p>
+   </td>
+   <td> La fusion de deux tables est simple lorsque leur différence 
+   ne porte que sur leur contenu et que celui ci est constitué de 
+   dictionnaires de même format (même nombre d'items et même liste
+   de clefs.<br/>Elle se complique, lorsque les deux tables ne 
+   contiennent pas des dictionnaires de même format. Si la fusion
+   est réalisée, cela entrainera la création d'items de valeur 
+   <mark>None</mark> associées aux clefs qui sont nouvelles pour 
+   certains dictionnaires.<br/>
+   Les deux tables mettront en communs leurs clefs et valeurs, cela 
+   entraînera peut être la création de doublons mais indétectables 
+   s'il n'y    a pas de <mark>clef primaire</mark> pour les détecter 
+   dans des dictionnaires de format et de contenus légèrement différents.
+   </td>
+  </tr>
+ </tbody>
+</table>
+
+</article>
+<article>
+<p>Les <mark>données en tables</mark> ou tableaux permettent de 
+synthétiser des sommes importantes d'information récoltées à l'aide de 
+formulaires.<br />
+Python permet d'écrire, de lire ces données sous forme de fichier au 
+format CSV et autre et de les traiter</p>
+
+<h2>Recueil des données dans un tableur et exportation en fichier csv</h2>
+<details><summary><h3 style="display:inlineblock;">Utilisation d'un formulaire</h3>
+		</summary>
+
+
+<h4>Les formulaires en ligne : balises spécifiques des formulaires</h4>
+
+<p>La balise HTML form permet de délimiter un plage de formulaire ; elle 
+contiendra un certain nombre d'éléments permettant de recueillir des 
+informations :</p>
+
+<ul>
+ <li>la balise input dans laquelle il faut préciser le type d'input avec 
+ l'attribut type='' permet de saisir la plupart des entrées possibles :
+ <ul>
+  <li>button</li>
+  <li>checkbox : cases à cocher (toutes si on le souhaite) ;</li>
+  <li>radio : choix unique !</li>
+  <li>number : nombre</li>
+  <li>range : curseur qui varie dans un intervalle fixe</li>
+  <li>password : mot de passe (les entrées sont masquées)</li>
+  <li>text : du texte (type string) ;</li>
+  <li>color : choix d'une couleur dans la palette ;</li>
+  <li>file : ouvrir un fichier</li>
+  <li>email : reccueil d'une adresse de courriel ;</li>
+  <li>time : heure ;&nbsp;</li>
+  <li>url ;</li>
+  <li>week ;&nbsp;</li>
+  <li>date ;</li>
+  <li>datetime-local ;</li>
+  <li>month ;</li>
+  <li>image ;</li>
+  <li>tel ;&nbsp;</li>
+  <li>reset : bouton qui réinitialise le <b>for</b> mulaire = remise à zéro ou 
+  état initial ;</li>
+  <li>search ;</li>
+  <li>submit : à cliquer quand on désire envoyer les in<b>for</b> mations saisies 
+  dans le <b>for</b> mulaire au serveur&nbsp;;</li>
+  <li>hidden : caché (provisoirement &hellip;) ;</li>
+ </ul>
+ </li>
+</ul>
+
+<h4>Exemple de formulaire en ligne : google form</h4>
+
+<p>exercice : dans drive, créer un nouveau <strong>formulaire 
+d'inscription en première pour les élèves de seconde</strong>&nbsp;qui 
+recueillera :</p>
+
+<ul>
+ <li>Prénom ;</li>
+ <li>Nom ;</li>
+ <li>date de naissance ;</li>
+ <li>Adresse (sans code postal) ;</li>
+ <li>Code Postal ;</li>
+ <li>Ville ;</li>
+ <li>Cases à cocher avec (quelques exemples) les spécialités du bac 
+ général et les séries technologiques ;</li>
+</ul>
+
+<p>Les formulaires seront envoyés à vos camarades et vous devrez tous y 
+répondre rapidement. Les données peuvent être recueillis dans un tableau (google sheet) et ensuite devront être téléchargées au format CSV et ods.</p>
+</details>
+<details><summary><h3 style="display:inlineblock;">Le format 
+<abbr title="acronyme de  : comma separated value">CSV
+</abbr></h3></summary>
+
+<h4>Définition</h4>
+
+<p><a href="https://fr.wikipedia.org/wiki/Comma-separated_values">
+	wikipedia</a></p>
+
+<p>Le <b>for</b> mat '<em>Comma separated Value</em>' est une mise en <b>for</b> me 
+standardisées des données de tableaux codés en texte simple (utf-8) :
+</p>
+
+<ul>
+ <li>la première ligne du tableau contient les titres des colonnes (ou 
+ <mark>champs</mark> ou <mark>clefs</mark>) ;</li>
+ <li>les autres lignes contiennent un semble de données ou fiche ou 
+ enregistrement ;</li>
+ <li>chaque ligne du fichier CSV contient les données séparées par des 
+ virgules&nbsp; (<em>comma</em> en anglais).</li>
+</ul>
+
+<h4>Ouverture/écriture d'un fichier en python</h4>
+
+<p>Python permet de lire et écrire (et modifier) très facilement des 
+fichiers. Il crée un objet de type itérateur (parcouru une seule fois !) 
+; ici cet objet sera arbitrairement appelé 'fichier'.</p>
+
+<p>Il y a deux méthodes de lecture/écriture d'un fichier en python, par 
+défaut un fichier est lu sans être modifié (lecture seule : 'r' = <em>
+	read</em>)&nbsp;:</p>
+
+<ol>
+ <li>avec la<a href="https://www.w3schools.com/python/python_file_handling.asp"> 
+	 fonction prédéfinie fichier = open</a>('nomFichier.csv','r')&nbsp; 
+	 dans laquelle la variable appelée&nbsp;fichier représente le contenu 
+	 du fichier texte (objet itérateur). Une lecture de l'objet fichier 
+	 peut ensuite être réalisée lignes par lignes ; le fichier devra être 
+	 fermé par la méthode fichier.<strong>close</strong>() ;</li>
+ <li>avec le mot clef <b>with :</b> qui définit un bloc 
+ d'instructions relatives au&nbsp; traitement du fichier ; l'avantage est 
+ que la sortie du bloc ferme automatiquement le fichier ; 
+ <a href="https://www.python<b>for</b> beginners.com/files/with-statement-in-python">
+	 exemple de code simple</a>.</li>
+</ol>
+
+<h5>Sources utiles :</h5>
+
+<p><a href="https://www.python<b>for</b> beginners.com/files/reading-and-writing-files-in-python">
+	https://www.python for beginners.com/files/reading-and-writing-files-in-python
+	</a></p>
+
+<p><a href="https://www.w3schools.com/python/python_file_write.asp">
+	https://www.w3schools.com/python/python_file_write.asp</a></p>
+</details>
+<details><summary><h5>lecture globale</h5></summary>
+
+<p>fichier.read() extrait tout le contenu du fichier ; une fois lu, 
+l'itérateur est vide !</p>
+
+<p>essayer :&nbsp;</p>
+
+<code> <b>print</b>(fichier.<strong>read()</strong>) //deux fois de suite !</code>
+
+<p>Remarque à écrire dans votre cours : effet du premier et du second 
+affichage de l'itérateur complet</p>
+
+<h6>lecture ligne par ligne</h6>
+
+<code><b>for</b>  ligne <b>in</b> fichier :<br/>
+
+&nbsp; &nbsp; &nbsp; &nbsp;  <b>print</b>(ligne)</code>
+</details>
+<details><summary><h4 id="lireCSV">traitement des données du fichier CSV
+</h4></summary>
+
+<h5>Recueil des données</h5>
+
+<h6>Conversion des lignes en listes de clefs ou données</h6>
+
+<p>Un objet de type string (mot, phrase ou texte) peut être 
+divisé grâce à la méthode split dont l'argument 
+est le séparateur (ici la virgule) : </p>
+<code>listeDonnées = ligne.split(',')</code>
+
+<h6>Conversion du fichier en tableau à deux dimensions (liste de liste)
+</h6>
+
+<p>Avant de lire le fichier CSV, une <strong>variable de type liste
+</strong> est créée et initialisée :</p>
+
+<code>tableau = []&nbsp;&nbsp;&nbsp;&nbsp; // type(tableau) renvoie &lt;
+class 'list'&gt;</code>
+
+<h6>Conversion du fichier CSV en liste de dictionnaires</h6>
+<p>Le fichier CSV sera ouvert en lecture et lu ligne par ligne :</p>
+<code>
+	with :<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;fichier = <b>open</b> (<q>"tableau.csv"</q>,<q>"rt"</q>)<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;compteur = 0  <i># voir plus loin &hellip;</i><br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;<b>for</b>  ligne <b>in</b> fichier :
+	
+</code>
+<p>La première ligne du fichier CSV contient les titres des colonnes 
+du tableau qui devientront les clefs de dictionnaires correspondant à 
+chaque ligne de données du tableau. Cette ligne sera lue la première, 
+il faut donc utiliser un compteur (variable initialisée à zéro qui sera
+incrémenté de un après chaque tour de boucle) pour savoir quand il
+faudra stocker les clefs (quand compteur == 0).</p>
+
+<code>
+	<b>if</b> compteur == 0 :<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;listeClefs = ligne.<strong>split</strong>(<b>','</b>)<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;N = <strong>len</strong> (listeClefs)  <i># compte le nombre de 
+	clefs</i><br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;n = <strong>len</strong> (listeClefs[N-1]) <i>#taille de la 
+	dernière clef</i><br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;listeClefs[N-1] = listeClefs[N-1][:n-2]  <i># 
+	les deux caractères \n de fin de ligne sont enlevés à la dernière clef </i>
+	<br/>&nbsp;&nbsp;&nbsp; compteur += 1 
+	<br/>
+	<b>else</b> :   <i># les autres lignes fournissent les données pour construire les 
+	dictionnaires</i><br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;dico = {} <i>#initialisation du dictionnaire</i><br/>
+	&nbsp;&nbsp;&nbsp; listeDonnees = ligne.<strong>split</strong>(<b>','</b>)<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;<b>for</b>  i <b>in</b> <strong>range</strong>(N) :<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp; <strong>if</strong> i == N-1 : <br/>&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; n = <strong>len</strong> (listeDonnees[N-1]) #taille de la 
+	dernière donnée<br/>&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listeDonnees[i] = listeDonnees [i][:n-2]
+	<br/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; dico[listeClefs[i]] = listeDonnees [i]
+	<br/>&nbsp;&nbsp;&nbsp; tableau.<strong>append</strong>(dico)
+	     </code>
+</details>
+<hr />
+<h3>Ressources et liens utiles :</h3>
+
+<ul>
+ <li><a href="https://docs.python.org/fr/3/library/csv.html">
+	 documentation</a> en français ;</li>
+ <li><a href="http://jodenda.free.fr/programme%20NSI/programmeNSIpremier_5.html">
+	 éléments du programme</a> de première de NSI.</li>
+</ul>
+
+<p>&nbsp;</p>
+</article>
+</section>
+<!--------------------------------------------------------------------->
+<!-- Ce qui suit constitue l'ensemble des ressources cachées -->
+<article id="rappelsListes" class="ressourceCachee">
+	<h1>Rappels sur les listes</h1>
+	<button class="btnQuitter" onclick="voir('rappelsListes');">X</button>
+	<h2>Définition, initialisation</h2>
+	<details>
+		<summary>les objets de type liste</summary>
+			<ul>
+				<li><dfn> syntaxe : maListe = [ premierObjet, 
+									deuxièmeObjet, &hellip; ]<br>
+				 l'objet peut être un entier (int), un nombre à virgule
+				 (float), une liste, un dictionnaire, un ensemble (set)
+				 , un objet quelquonque !</dfn></li>
+			<li>c'est l'équivallent d'un tableau à une dimension</li>
+			<li>le séparateur d'items est la virgule.</li>
+				
+			</ul>
+	</details>
+	<h2>Opérations et méthodes</h2>
+	<details>
+		<summary>opérations</summary>
+			par exemple avec : liste = [ 3, "coucou", [1,2,3] ]
+			<ul class="normal">
+				<li>accès : liste [ 1 ] affiche "coucou" ; 
+				liste [ 0 ] affiche 3</li>
+				<li><mark>addition</mark> de listes : liste + liste affiche [ 3, 
+				"coucou", [1,2,3] , 3, "coucou", [1,2,3] ]</li>
+				<li><mark>répétition</mark> :  3 <mark>*</mark> liste affichera [3, 'coucou', 
+				[1, 2, 3], 3, 'coucou', [1, 2, 3], 3, 'coucou', 
+				[1, 2, 3]]
+			</li>
+			<li><u>Les tranches : 'slice' (pas au programme)</u></li>
+			<li>liste [ 1 : ] affiche [ "coucou", [1,2,3] ] </li>
+			<li>liste [ 1 : 2 ] affiche [ "coucou" ] </li>
+			<li>liste [ 0 : 2] affiche [ 3, "coucou" ] </li>
+			<li>liste [ 1 : ] affiche [ "coucou", [1,2,3] ] </li>
+			<li>liste[::-1] affichera la liste à l'envers !</li>
+			<li> <u>remarque</u> : slice et range fonctionnent de manière 
+			semblable : <dl><dt>range (1,n,pas) crée un itérateur de 1 à 
+			n-1 qui prendra les valeurs 1 ; 1+pas ; 1 + 2*pas ; &hellip; jusqu'à une dernière valeur 
+			p + k x pas &tl; n</dt>
+				<dt>liste[1:n:k] extrait une sous liste 
+				commençeant à l'index 1 et dont les index sont 
+				inférieurs à n et se succèdent par ajout de la 
+				valeur entière k à l'index actuel pour passer 
+				à l'index suivant.</dt></dl>
+			</li>
+				
+			</ul>
+	</details>
+	<details>
+		<summary>méthodes (= fonctions aplicables à l'objet) </summary>
+			par exemple avec : liste = [ 3, "coucou", [1,2,3] ]
+			<ul class="normal">
+				<li>tri : liste.<strong>sort</strong>()ordonne &hellip; </li>
+			<li>retrait : liste.<strong>pop</strong>(1) enlève l'élément "coucou" </li>
+			<li>ajout : liste.<strong>append</strong>(2) ajoute 2 en position 3 </li>
+			<li>tout effacer : list.<strong>clear</strong>() ; et d'autres &hellip;</li>
+			<li><a href="https://www.w3schools.com/python/python_ref_list.asp" 
+			target="_blank">pour en savoir plus</a></li>
+				
+			</ul>
+	</details>
+</article>
+<!--------------------------------------------------------------------->
+<article id="manipulerDesFichiers" class="ressourceCachee">
+	<h1>Ouvrir, Créer, Lire des fichiers</h1>
+	<button class="btnQuitter" onclick="voir('manipulerDesFichiers');">X
+	</button>
+	<h2>ouvrir un fichier</h2>
+	<details>
+		<summary>avec <b>open</b> et <b>close</b></summary>
+			<ul>
+				<li>Une variable de type itérateur est créée à 
+				l'ouverture du fichier ; ici par exemple, la variable 
+				s'appelera <var>fichier</var> :
+				<code>fichier = <strong>open</strong>(<q>"exemple.CSV"</q>, <q>"rt"</q>)</code></li>
+				<li>le premier argument de la fonction open doit être le 
+				nom du fichier, les autres arguments sont optionnels 
+				mais précisent de quelle manière sera utilisé ce fichier ; 
+				par exemple, <q>"rt"</q> signifie en lecture (r de <strong>read</strong>) 
+				et sous forme de texte (t) </li>
+				<li>le fichier est fermé par la méthode <strong>close</strong> : fichier.<strong>close</strong>()
+				</li>
+				<li><a href="https://www.w3schools.com/python/python_file_handling.asp" 
+			target="_blank">pour en savoir plus</a></li>	
+			</ul>
+	</details>
+	<details>
+		<summary>avec <b>with</b></summary>
+			<ul>
+				<li><dfn><b>with</b> est un mot clef qui défini un bloc 
+				d'instructions qui commence par l'ouverture du fichier, 
+				à la sortie du bloc le fichier est fermé 
+				automatiquement !</dfn></li>
+				<li>exemple : <code><br/><b>with</b> : <br/> &nbsp;&nbsp;&nbsp;
+				&nbsp; fichier = <b>open</b>(<q>"monFichier.csv"</q>,<q>"rt"</q>)<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				 <b>print</b>(fichier.<strong>read</strong>())  <i># affiche le contenu du fichier</i>
+				<br/><i># en sortie de bloc le fichier est fermé !</i>
+				 </code></li>
+			</ul>
+	</details>
+</article>
+<!--------------------------------------------------------------------->
+<article id="rappelsSurLesDictionnaires" class="ressourceCachee">
+	<h1>Rappels sur les dictionnaires</h1>
+	<button class="btnQuitter" 
+	        onclick="voir('rappelsSurLesDictionnaires');">X</button>
+	<h2>Définition, initialisation</h2>
+	<details>
+		<summary>les objets de type dictionnaire</summary>
+			<ul>
+				<li>
+					<dfn> un <mark>dictionnaire</mark> est une 
+				structure de donnée qui
+				ressemble à une liste mais dans lequel les données 
+				sont indexées par mots qui sont
+				nommés les <mark>clefs</mark>.
+				    </dfn> Par exemple : 
+				<br/>
+				avec liste = [ 2, "coucou", (1,2), [3,4,5] ] et <strong>len</strong> (liste) 
+				donne 4 <br/>
+				&nbsp;&nbsp;&nbsp;&nbsp; et dic = { "num" : 2, 
+			"message" : "coucou", "tuple" : (1,2), "liste" : [3,4,5]} et 
+			<strong>len</strong> (dic) donne 4 
+				<dl>
+					<dt>pour appeler le deuxième élément de liste et dico 
+					on écrira :
+					</dt>
+					<dd>liste[1] qui renverra "coucou" ;<br/>
+					dic["message"] qui renverra "coucou"
+					</dd>
+					<dt>pour appeler le troisième élément de liste et dico 
+					on écrira :
+					</dt>
+					<dd>liste[2] qui renverra (1,2) ;<br/>
+					dic["tuple"] qui renverra (1,2)
+					</dd>
+				</dl>
+				<br/> 
+				</li>
+				<li><u>remarques : </u>
+				    <ol><li>l'indexation par clef 
+				permet de donner plus de sens dans l'accès aux données 
+				et débouche naturellement sur son utilisation dans le 
+				contexte des bases de données relationnelles.
+						</li>
+						<li>pour accéder à l'élément de clef "message", 
+						il y a en fait deux manières de faire : soit 
+						dic["message"], soit dic.get("message"), c'est 
+						équivalent.
+						</li>
+				   </ol>
+				</li>
+				<li><u>syntaxe :</u> monDico = { "clef1" : premierObjet, 
+									  "clef2" :deuxièmeObjet, &hellip; }<br>
+				 l'objet peut être un entier (int), un nombre à virgule
+				 (float), une liste, un dictionnaire, un ensemble (set)
+				 , un objet quelquonque ! En revanche, <mark>la clef
+				 </mark> est <mark>toujours un chaîne de caractères</mark> (type str) !
+				 </li>
+			    <li>Un dictionnaire est équivallent à une liste dans 
+			    laquelle les éléments sont indexés par des objets de 
+			    type str = <i>string</i> appelés clefs.
+			    </li>
+			    <li>le <mark>séparateur d'items</mark> est la <mark>
+					virgule	</mark>. Dans un dictionnaire, ce sont les 
+					accolades {} qui encadrent la liste des couples 
+					clefs : donnée : dic = { "clef1" : donnée1, "clef2"
+					: donnée2, "clef3" : donnée3, &hellip;	}
+				</li>
+			</ul>
+	</details>
+	<h2>Opérations et méthodes</h2>
+	<details>
+		<summary>modifier, agir sur les dictionnaires</summary>
+			<p>Par exemple nous prendrons pour ce qui suit :<br/>
+			<code>dic = { "num" : 2, "message" : "coucou", "tuple" : (1,2), 
+				"liste" : [3,4,5]} </code></p>
+			<ul>
+				<li> la <mark>copie</mark> n'est pas automatique !<br/>
+				<code>d1 = d2</code> dupplique le nom du même 
+				dictionnaire ; si on modifie d1 cela modifie d2 puisque 
+				d1  est d2 (en Python d1 is d2 vaut <strong>True</strong> !)<br/>Pour 
+				copier il faut employer la méthode copy(), par exemple :
+				<br/>
+				<code>d1 = dic.copy()</code><br/>
+				<code>d1 == dic</code> renvoie <strong>True</strong> car ils ont le même 
+				contenu mais<br/>
+				<code>d1 is dic</code> renvoie <strong>False</strong> car ce sont deux 
+				objets différents,
+				autrement dit ils occupent des espaces mémoire différents
+				de nom différent !<br/>Modifions d1 :
+				<code>d1["num"] = 3</code><br/>
+				<code>d1 == dic</code> renvoie alors <strong>False</strong> ! (<abbr 
+				title="Ce qu'il fallait démontrer">CQFD</abbr>)
+				</li>
+				<li>pour <mark>ajouter</mark> un élément, il suffit de le décrire, 
+				exemple :<br/>
+				<code>dic["nouvelleInfo"]="j'ai un scoop !"</code> donne
+				<code>dic = { "num" : 2, "message" : "coucou", "tuple" : 
+				(1,2), "liste" : [3,4,5], "nouvelleInfo":"j'ai un scoop !"}
+				</code> ; <br/>cela positionne souvent le nouvel élément 
+				en dernier, mais ce n'est pas systématique car python 
+				optimise l'accès aux éléments du dictionnaire et il
+				peut les placer dans un désordre apparent. La position 
+				apparente des éléments d'un dictionnaire n'empèche pas
+				d'accéder directement à chacun puisque l'accès se fait
+				non pas par un index numérique mais pas une clef !<br/>
+				Dans une liste l[2] est situé juste après l[1] dans la
+				liste l, dans un dictionnaire dic["nom"] n'est ni avant
+				ni après dic["age"], car cela n'a aucun sens !<br/>
+				Pour en dire plus, un dictionnaire est un objet 
+				<i>hachable</i>, c'est à dire que ses éléments sont 
+				accessibles grâce à une 
+				<a href="https://fr.wikipedia.org/wiki/Fonction_de_hachage" 
+				target="_blank">fonction de hachage</a> qui calcule 
+				l'adresse mémoire d'une valeur du dictionnaire en 
+				fonction de la clef donnée &hellip;
+				</li>
+				<li> pour <mark>supprimer</mark> un élément du 
+				dictionnaire dic, il faut utiliser : 
+					<dl>
+						<dt>soit la méthode :<mark><strong>pop</strong></mark> qui élimine un terme 
+						en fonction 
+						de la clef spécifiée, exemple :
+						</dt>
+						<dd> <code>
+							val = dic.<strong>pop</strong>(<q>"message"</q>)
+							 <b>print</b>(<q>"dic ="</q>, dic, <q>" val éjectée = "</q>, val)
+							</code>
+							renvoie<br/>
+							<code>
+dic = { <q>"num"</q> : 2, <q>"tuple"</q> : (1,2), <q>"liste"</q> : [3,4,5]} val éjectée = coucou
+							</code>
+						</dd>
+						<dt>soit la méthode :<mark><strong>popitem</strong></mark> qui élimine le 
+						terme qui a été inséré chronologiquement en 
+						dernier, exemple :
+						</dt>
+						<dd> <code>
+							tup = dic.popitem()
+							 <b>print</b>(<q>"dic ="</q>, dic, <q>" couple ejecté : "</q>, tup)
+							</code>
+							renvoie<br/>
+							<code>
+		dic = { <q>"num"</q> : 2, <q>"message"</q> : <q>"coucou"</q>, <q>"tuple"</q> : (1,2)} couple ejecté : (<q>"liste"</q> : [3,4,5])
+							</code>
+						</dd>
+					</dl>
+				</li>
+			<li><mark>parcourir</mark> les items du dictionnaire est 
+			rendu possible par trois méthodes qui construisent des 
+			itérateurs utilisables dans des boucles <b>for</b>  :
+			<ol>
+				<li>la méthode <mark>keys()</mark> de l'objet dict 
+				constuit un itérateur sur les clefs, par exemple le code
+				suivant :
+				<code>
+					<pre>
+listeDesClefs = []
+<b>for</b>  k <b>in</b> dic.<strong>keys</strong>() :
+    listeDesClefs.<strong>append</strong>(k)
+ <b>print</b>(listeDesClefs)					
+					</pre>
+				</code>
+				renvoie<br/>
+				<code>[<q>'num'</q>, <q>'message'</q>, <q>'tuple'</q>, <q>'liste'</q>]</code>
+				</li>
+				<li>la méthode <mark>values()</mark> de l'objet dict 
+				constuit un itérateur sur les valeurs, par exemple le 
+				code suivant :
+				<code>
+					<pre>
+listeDesValeurs = []
+<b>for</b>  k <b>in</b> dic.<strong>values</strong>() :
+    listeDesValeurs.<strong>append</strong>(k)
+ <b>print</b>(listeDesValeurs)					
+					</pre>
+				</code>
+				renvoie<br/>
+				<code>[2, <q>'coucou'</q>, (1, 2), [3, 4, 5]]</code>
+				</li>				
+				<li>la méthode <mark>items()</mark> 
+				de l'objet dict constuit un itérateur sur les tuples 
+				constitués par les couples (clefs, valeurs) par exemple 
+				le code	suivant :
+				<code>
+					<pre>
+listeDesItems = []
+<b>for</b>  k <b>in</b> dic.<strong>items</strong>() :
+    listeDesItems.<strong>append</strong>(k)
+ <b>print</b>(listeDesItems)
+# ce qui est équivalent à :
+listeDesItems = []
+<b>for</b>  key, val <b>in</b> dic.<strong>items</strong>() :
+    listeDesItems.<strong>append</strong>((key, val))
+ <b>print</b>(listeDesItems)	
+# k est donc équivalent au tuple (key, val) éléments de l'itérateur dic.<strong>items</strong>()				
+					</pre>
+				</code>
+				renvoie<br/>
+				<code>[(<q>'num'</q>, 2), (<q>'message'</q>, <q>'coucou'</q>), (<q>'tuple'</q>, (1, 2)), (<q>'liste'</q>, [3, 4, 5])]</code>
+				</li>				
+			</ol>
+			</li>
+			<li><a href="https://www.w3schools.com/python/python_dictionaries.asp" 
+			target="_blank">pour en savoir plus</a></li>		
+			</ul>
+	</details>
+	<p>Les méthodes sont des fonctions associées aux objets. Ici, elles 
+	sont associées aux objets de type dictionnaire.</p>
+	<details>
+		<summary>Tableau des méthodes (d'après <a 
+		href="https://www.w3schools.com/python/python_ref_dictionary.asp" 
+		target="_blank">
+			w3school</a> et en anglais !</summary>
+		<table>
+			<tr><th>Method</th><th>Description</th></tr>
+			<tr><td><strong>clear</strong>()</td><td title="le dictionnaires est vidé">
+				Removes all the elements from the 
+			dictionary : grand nettoyage !</td></tr>
+			<tr><td><strong>copy</strong>()</td><td title="permet de vraiment copier">
+				Returns a copy of the dictionary : copy profonde </td>
+			</tr>
+			<tr><td><strong>fromkeys</strong>()</td><td>Returns a dictionary with the 
+			specified keys and value</td></tr>
+			<tr><td><strong>get</strong>()</td><td>Returns the value of the specified key
+			</td></tr>
+			<tr><td><strong>items</strong>()</td><td>Returns a list containing a tuple 
+			for  each key value pair</td></tr>
+			<tr><td><strong>keys</strong>()</td><td>Returns a list containing the 
+			dictionary's keys</td></tr>
+			<tr><td><strong>pop</strong>()</td><td 
+			title="dic.pop('nom') enlève l'élément de clef 'nom'">
+			Removes the element with the 
+			specified key</td></tr>
+			<tr><td><strong>popitem</strong>()</td><td>Removes the last inserted 
+			key-value pair</td></tr>
+			<tr><td><strong>setdefault</strong>()</td><td>Returns the value of the 
+			specified key. if the key does not exist: insert the key, 
+			with the specified value</td></tr>
+			<tr><td><strong>update</strong>()</td><td>Updates the dictionary with the 
+			specified key-value pairs</td></tr>
+			<tr><td><strong>values</strong>()</td><td>Returns a list of all the values 
+			in the dictionary</td></tr>
+		</table>
+	</details>
+</article>
+<!--------------------------------------------------------------------->
+<div id="debug">DEBUG</div>
+<article id="exercicesApplication" class="ressourceCachee">
+	<h1>Exercices d'application sur les tables <sub>ou liste de 
+	dictionnaires</sub></h1>
+	<button class="btnQuitter" 
+	        onclick="voir('exercicesApplication');">X</button>
+	<h2>Exercices de difficulté croissance et corrigés</h2>
+	<ol>
+	<li><details> <!-- exo 1 -->
+		<summary>lire un fichier et ranger ses lignes dans une liste</summary>
+		<p>lire et afficher les résultats obtenus avec fichierCSV="BDD.csv"<br/>
+		Télécharger <a href="./BasesDeDonnees/BDD.csv" 
+			 title="téléchargement du fichier BDD.csv avec doublons" 
+		     target="_self">
+				 BDD.csv</a> et <a href="./BasesDeDonnees/BDDdbl.csv" 
+			title="téléchargement du fichier BDDdbl.csv avec doublons" 
+			target="_self">
+				 BDDdbl.csv</a> 
+		</p>
+		<p>Pensez à afficher le résultat avec la fonction print. <br/>
+		Aide, utiliser :</p>>
+		<code>
+<pre>
+fichierCSV = "BDD.csv"
+<b>with</b> <b>open</b>(fichierCSV, <q>'r'</q>) <b>as</b> fichier :  <i># le bloc with ferme le fichier dès que le bloc est terminé</i>
+    <b>for</b>  ligne <b>in</b> fichier :    <i># à vous de faire le reste &hellip;</i>
+        xxxxxxxxxxxxx
+        xxxxxxxxxx
+        xxxxxxxxx
+        xxxxxxxxxxx
+    <b>return</b> ListeDeDic
+</pre>
+		</code>
+		<details>
+		<summary>proposition de corrigé</summary>
+		<code>
+<pre><b>with</b> <b>open</b>(<q>'BDD.csv'</q>, <q>'r'</q>) <b>as</b> fichier :  <i># le bloc with ferme le fichier dès que le bloc est terminé</i>
+		table = []
+		<b>for</b>  ligne <b>in</b> fichier :    <i># à vous de faire la suite</i>
+		    table.<strong>append</strong>(ligne)
+		    
+      <i># avec with ce n'est pas la peine d'écrire fichier.close() quand la lecture de l'itérateur fichier est terminée</i>
+</pre>		
+		</code>
+		</details>
+	</details></li>
+	<li><details> <!-- exo 2 -->
+		<summary>lire un fichier CSV et ranger ses lignes dans une liste
+		de dictionnaires</summary>
+			<details>
+			<summary>proposition de corrigé</summary>
+			<code>cf. corrigé exo 3</code>
+			</details>
+	    </details></li>
+	<li><details> <!-- exo 3 fonction qui renvoie une liste de 
+		dictionnaire en lisant un fichier csv en entrée -->
+		<summary>transformer votre code (exo 2) en une fonction 
+		lireCSV(fichierCSV) qui retourne une liste de dictionnaires ; lire 
+		et afficher les résultats obtenus avec fichierCSV=<q>"BDD.csv"</q> et 
+		fichierCSV =<q>"BDDdbl.csv</q>"</summary>
+		<p>Pour voir le résultat :</p>
+		<code><pre>
+listeDic = lireeCSV(<q>"BDD.csv"</q>)    <i># par exemple</i>
+<b>print</b> (listeDic)
+<b>print</b> (<b>len</b> (<q>"Nombre de lignes de données = "</q>, <b>len</b> (listeDic))
+		</pre></code>
+		<details>
+		<summary>proposition de corrigé</summary>
+		<code><pre>
+<mark>def lireCSV(pathFichier</mark> , clefPrim = <strong>False</strong>) :
+    <i>"""
+    Fonction qui <mark>lit un fichier csv</mark> et renvoie <mark>une liste de dictionnaires</mark>
+    clefPrim est un booleen qui par défaut vaut <strong>False</strong>
+    si clefPrim = <strong>True</strong>, une clef primaire numérique unique est ajoutée à chaque
+    dictionnaire
+    """</i>
+     <i># vérifications de la conformité de pathFichier</i>
+    longueurFichier = <b>len</b> (pathFichier)
+     <i># l'expression : assert (test logique) , "message si c'est faux"</i>
+     <i># permet de traquer les erreurs (bugs)</i>
+    <b>assert</b> <b>type</b>(pathFichier) == <b>str</b> , <q>"Erreur : le format du fichier doit être du texte"</q>
+    <b>assert</b> pathFichier[longueurFichier-4:longueurFichier] == <q>'.csv'</q> <b>or</b> pathFichier[longueurFichier-4:longueurFichier] == <q>'.CSV'</q> , <q>"Erreur : le format du fichier doit finir par .csv ou .CSV"</q>
+
+    <b>try</b>  :  <i># essaye d'ouvrir le fichier et si cela ne fonctionne pas </i>
+         <i># renvoie un message d'erreur explicatif -&gt; cf. except IOError = erreur d'entrée sortie (IO = In/Out)</i>
+        <strong>with</strong> <strong>open</strong>(pathFichier, <q>'r</q>') <strong>as</strong> fichier : <i># le bloc with ferme le fichier dès que le bloc est terminé</i>
+            BDD = []   <i> #la table de base de données sera une liste de dictionnaires</i>
+            n = 0       <i> #compteur de lignes</i>
+
+            <b>for</b>  ligne <b>in</b> fichier:
+                <b>if</b> n == 0 : <i>#lecture de la première ligne qui contient les clefs des dictionnaires</i>
+                    clefs = ligne.<strong>split</strong>(<q>','</q>)
+                    nChamps = <b>len</b> (clefs)    <i>#nombre de valeurs (et de clefs) dans chaque dictionnaire</i>
+                    l = <b>len</b>(clefs[nChamps-1]) <i># longueur de la dernière clef</i>
+                    clefs[nChamps-1] = clefs[nChamps-1][0:l-1]  <i>#enlève le dernier caractère '\n' de retour à la ligne en fin de ligne</i>
+                <b>else</b> : 
+                    dictionnaire = {}   <i># le dictionnaire est initialisé</i>
+                <i># https://www.w3schools.com/python/python_strings.asp</i>
+                <i># pour voir les méthodes associées aux objets de type string</i>
+                    enregistrement = ligne.<strong>split</strong>(<q>','</q>)
+                    m = 0
+                <i>#création d'une clef primaire</i>
+                    <strong>if</strong> clefPrim : dictionnaire [<q>"clefPrim"</q> ] = n
+                    <b>for</b>  valeur <b>in</b> enregistrement :
+                        <strong>if</strong> m == nChamps - 1 :
+                            l = <b>len</b> (valeur) <i># longueur de la dernière valeur</i>
+                            valeur = valeur[0:l-1] <i>#enlève le dernier caractère '\n' de retour à la ligne en fin de ligne</i>
+
+                        dictionnaire [clefs [m] ] = valeur <i># ajoute au dictionnaire le couple : clefs [m] : valeur</i>
+                        m += 1
+                    BDD.<strong>append</strong>(dictionnaire)
+                    <b>print</b>(<q>"Enregistrement n° "</q> , n+1, <q>" : "</q>, dictionnaire)
+                n += 1  <i># compte les lignes lues</i>
+        <mark>return BDD</mark> <i>#renvoi la liste de dictionnaires = BDD</i>
+    
+    <b>except</b> <strong>IOError</strong> :
+         <b>print</b>(<q>'An error occured trying to read the file : \n une erreur est survenue en essayant de lire le fichier "</q>,pathFichier,<q>" (absent ou ayant un autre nom).'</q>)
+    
+    <b>except</b> <strong>ValueError</strong> :
+         <b>print</b>(<q>'Non-numeric data found in the file.'</q>)
+
+    <b>except</b> <strong>ImportError</strong> :
+        print (<q>"NO module found"</q>)
+        
+    <b>except</b> <strong>EOFError</strong> :
+         <b>print</b>(<q>'Why did you do an EOF on me?'</q>)
+
+    <b>except</b> <strong>KeyboardInterrupt</strong> :
+         <b>print</b>(<q>'You cancelled the operation.'</q>)
+
+    <b>except</b> :
+         <b>print</b>(<q>'An error occured.'</q>)
+    
+BDD = lireCSV(<q>"BDD.csv"</q>)
+    
+ <b>print</b>(<q>"La table contient "</q>, <b>len</b> (BDD), <q>"lignes ou fiches ou enregistrements."</q>)
+<i># permet de vérifier que la liste de dictionnaire est 
+# bien créée à partir de la lecture du fichier, sinon cela renvoie un 
+# message d'erreur et affiche None (le retour de la fonction)	</i>	
+		</pre></code>
+		</details>
+	</details></li>
+	<li><details> <!-- exo 4 -->
+		<summary>écrire une fonction qui affiche le tableau de données
+		</summary>
+		<ol>
+			<li>écrire une fonction qui prend en entrée la table (liste 
+			de dictionnaires), et retourne en sortie un tuple comprenant 
+			:<ol>
+				<li>la liste des longueurs de la plus grande clef ou de 
+				la plus grande donnée (valeur). Autrement dit, cette 
+				fonction renvoie la largeur minimale de chaque colonne 
+				dans le tableau à afficher;
+				</li>
+				<li> la liste des clefs pour les afficher sur la 
+				première ligne comme titre de chaque colonne.
+				</li>
+			</ol>
+			
+			<details>
+				<summary>proposition de corrigé</summary>
+				<code><pre>
+		def formaterColonnes (table) :
+			""" Fonction qui renvoie un tuple :
+			1) liste des clefs de la table ;
+			2) taille du plus long élément de chaque 
+			colonne sous forme d'une liste.
+			Exemple pour : 
+			table = [{"Nom" : "Doe"  , "Prenom" : "John"},
+					 {"Nom" : "Po"  ,  "Prenom" : "Edgard"},
+					 {"Nom" : "Ricki", "Prenom" : "Pictydirai"}]  
+			La fonction renvoie : ["Nom", "Prenom"], [5, 10]"""
+			listeformatsColonnes = []
+			nC = <strong>len</strong> (table[0])  <i># nombre de colonnnes</i>
+			#source : https://www.science-emergence.com/Articles/Obtenir-une-liste-des-cl%C3%A9s-dun-dictionnaire-sous-python/
+			listeClefs = list(table[0].keys())  <i># liste des clefs de chaque dictionnaire de la table</i>
+			nF = <strong>len</strong> (table)     <i># nombre de fiches</i>
+			<b>for</b>  col <b>in</b> range(nC) :
+				# <b>print</b>("\nPour : ",listeClefs[col], "\n")
+				taille = 0
+				<b>for</b>  numF <b>in</b> range(nF) :
+					t = <strong>len</strong> (table[numF][listeClefs[col]])
+					# <b>print</b>(table[numF][listeClefs[col]], " de taille ", t)
+					if t &gt; taille : taille = t
+				tailleClef = <strong>len</strong> (listeClefs[col])
+				if taille &lt; tailleClef : taille = tailleClef
+				listeformatsColonnes.append(taille)
+				# <b>print</b>("Taille max de ", listeClefs[col] ," = ", taille)
+			return listeClefs, listeformatsColonnes    
+        				
+				</pre></code>
+				</details>
+			</li>
+			<li> écrire une fonction qui prend en <mark>entrée</mark> un 
+			<mark>nombre n entier</mark> et renvoie (retourne) <mark>en 
+			sortie un chaîne de n espaces</mark>
+				<details>
+				<summary>proposition de corrigé</summary>
+				<code><pre>
+		<i>########################################################################
+		# fonction qui renvoie une chaîne de n espaces</i>
+		<b>def</b> espaces(n) :
+			espace = ""
+			<b>for</b>  i <b>in</b> <b>range</b>(n) : espace += " "
+			<b>return</b> espace
+		<i>########################################################################
+		# sinon on a le droit d'écrire en python</i>
+		
+		n * " " <i># et cela produit le même effet ! </i>
+		par exemple 3 * " " donne "   " ou <mark>3 * "cou"</mark> donne <mark>"coucoucou"</mark>
+		Cette fonction ou cette expression permettront de rajouter des 
+		espaces pour les clefs ou valeurs de taille inférieure à la 
+		largeur maximale de colonne
+				</pre></code>
+				</details>
+			</li>
+			<li> écrire une fonction qui affichera la table sous forme 
+				de tableau avec sur la première ligne en titre les clefs
+				et sur chaque ligne les données de chaque fiche ou 
+				enregistrement.
+				Donner dans un deuxième temps une largeur fixe à chaque 
+				colonne (cf. n° 4)
+				<details>
+				<summary>proposition de corrigé</summary>
+				<code><pre>
+<i># La mauvaise solution c'est :
+########################################################################
+# fonction d'affichage de la table</i>
+<b>def</b> printTable (table) :
+    <i>""" Fonction d'affichage ligne par ligne de la table """</i>
+    n = 0
+    <b>for</b>  fiche <b>in</b> table :
+         <b>print</b>(<q>"Fiche n° "</q>, n, <q>" de la table :"</q>, fiche)
+        n +=1
+<i>########################################################################
+# une des bonnes solutions :
+########################################################################
+# fonction d'affichage simple de la table</i>
+<b>def</b> printTableformatee (table) :
+    <i>""" Fonction d'affichage ligne par ligne de la table 
+    avec un format de type tableau en colonnes de largeur régulière  """</i>
+    
+    listeClefs, listeformatsColonnes = formaterColonnes (table)
+    
+    nC, nF = <b>len</b> (listeClefs), <b>len</b> (table)
+    <i>#nC est le nombre de colonne
+    #nF est le nombre de lignes (ou fiches de données)
+    
+    #affichage de l'entête du tableau avec les noms de colonnes :</i>
+    premiereLigne = <q>"║"</q>      <i># le caractère "║" c'est pour faire joli</i>
+    <b>for</b>  elt <b>in</b> <b>range</b>(nC) :
+        nEspaces = <q>" "</q> * (listeformatsColonnes[elt]-<b>len</b> (listeClefs[elt]))
+        premiereLigne += <q>" "</q> + listeClefs[elt] + nEspaces + <q>" ║"</q>
+    premiereLigne += <q>"\n"</q>     <i># retour à la ligne !</i>
+    
+    <i>#affichage des lignes du tableau</i>
+    n = 0
+    <b>for</b>  fiche <b>in</b> table :
+        ligne = <q>"║"</q>
+        <b>for</b>  elt <b>in</b> <b>range</b>(nC) :
+            valeur = fiche[listeClefs[elt]]
+            nEspaces = <q>" "</q> * (listeformatsColonnes[elt]-<b>len</b> (valeur))
+            ligne += <q>" "</q> + str(valeur) + nEspaces + <q>" ║"</q>
+         <b>print</b>(ligne + <q>"\n"</q>  )
+        n += 1
+<i>########################################################################
+# fonction d'affichage décoratif de la table</i>
+<b>def</b> printTableformateeDeco (table) :
+    <i>""" Fonction d'affichage ligne par ligne de la table 
+    avec un format de type tableau en colonnes de largeur régulière  """</i>
+    
+    listeClefs, listeformatsColonnes = <b>for</b> materColonnes (table)
+    
+    nC, nF = <strong>len</strong> (listeClefs), <b>len</b> (table)
+    <i>#nC est le nombre de colonne
+    #nF est le nombre de lignes (ou fiches de données)</i>
+    
+    premiereLigne = <q>"║"</q>     <i># élément décoratif !</i>
+    <b>for</b>  elt <b>in</b> <b>range</b>(nC) :
+         <i># écriture des bordures haute inter et basse</i>
+        <strong>if</strong> elt == 0 : 
+            bordureHaut  = <q>"╔"</q> + (listeformatsColonnes[elt] + 2)* <q>"═"</q> + <q>"╦"</q>   <i># 2 espaces sont ajoutés, un avant et un après la plus grande largeur</i>
+            bordureInter = <q>"╠"</q> + (listeformatsColonnes[elt] + 2)* <q>"═"</q> + <q>"╬"</q>
+            bordureBasse = <q>"╚"</q> + (listeformatsColonnes[elt] + 2)* <q>"═"</q> +" <q>╩"</q>
+        elif elt &lt; nC - 1 : 
+            bordureHaut  += (listeformatsColonnes[elt] + 2)* <q>"═"</q> + <q>"╦"</q>
+            bordureInter += (listeformatsColonnes[elt] + 2)* <q>"═"</q> + <q>"╬"</q>
+            bordureBasse += (listeformatsColonnes[elt] + 2)* <q>"═"</q> + <q>"╩"</q>
+        <b>else :</b>  
+            bordureHaut  += (listeformatsColonnes[elt] + 2)* <q>"═"</q> + <q>"╗"</q>
+            bordureInter += (listeformatsColonnes[elt] + 2)* <q>"═"</q> + <q>"╣"</q>
+            bordureBasse += (listeformatsColonnes[elt] + 2)* <q>"═"</q> + <q>"╝"</q>
+        
+        nEspaces = <q>" "</q> *(listeformatsColonnes[elt]-<b>len</b> (listeClefs[elt]))
+        premiereLigne += <q>" "</q> + listeClefs[elt] + nEspaces + <q>" ║"</q>
+    <b>print</b>(bordureHaut + <q>"\n"</q> + premiereLigne + <q>"\n"</q> + bordureInter)
+    n = 0
+    <b>for</b>  fiche <b>in</b> table :
+        ligne = <q>"║"</q>
+        <b>for</b>  elt <b>in</b> range(nC) :
+            valeur = fiche[listeClefs[elt]]
+            nEspaces = <q>" "</q> * (listeformatsColonnes[elt]-<b>len</b> (valeur))
+            ligne += <q>" "</q> + str(valeur) + nEspaces + <q>" ║"</q>
+        <strong>if</strong> n &lt; nF - 1 :
+             <b>print</b>(ligne + <q>"\n"</q> + bordureInter )
+        <b>else :</b> 
+             <b>print</b>(ligne + <q>"\n"</q> + bordureBasse )
+        n += 1
+########################################################################				
+				</pre></code>
+				</details>
+			</li>
+		</ol> <!-- fin de la liste numérotée des étapes de l'exercice-->	
+	</details></li>
+	<li><details> <!-- exo 5 -->
+		<summary>Quelques requètes (questions) :</summary>
+		<ol>
+			<li> <!-- exo 5 requète 1 -->
+		<code><pre>
+texte = <q>"Requète : recherche des gens qui habitent dans un département dont le code postal est inférieur à 29990"</q>
+print (<q>"\n\n\n"</q>,texte)
+		</pre></code> 
+			<details>
+				<summary>proposition de corrigé</summary>
+				<code><pre>
+		reponse = [] <i>#initialisation de la liste des réponses attendues</i>
+		
+		<b>for</b>  enregistrement <b>in</b> BDD :
+			<b>if</b> <b>int</b>(enregistrement[<q>"code Postal"</q>]) &lt; 30000 :
+				reponse.<strong>append</strong>(enregistrement)
+				
+		nRep = <b>len</b> (reponse)        <i># nombre de réponses</i>
+		<b>if</b> nRep == 0 :
+			<b>print</b>(<q>"Il n'y a aucun enregistrement qui correspond à la requète"</q>)
+		<b>else</b> :
+			<b>print</b> (<q>"Il y a "</q> + <b>str</b>(nRep) + <q>" réponses : "</q>)
+		printTableformateeDeco (reponse)
+		<b>print</b> ("____________________________________________________________________")
+		<i>########################################################################		</i>
+		
+			</pre></code>
+			</details>
+		    </li>
+		    <li> <!-- exo 5 requète 2 -->
+		    <code><pre>
+<i>########################################################################</i>
+texte = <q>"Requète : pourcentage d'enregistrements dont le numéro de dossier est plus grand que 2000 inclus"</q>
+<b>print</b> (<q>"\n\n\n"</q>,texte)
+			</pre></code>
+			<details>
+				<summary>proposition de corrigé</summary>
+				<code><pre>
+reponse = [] <i>#initialisation de la liste des réponses attendues</i>
+
+<b>for</b>  enregistrement <b>in</b> BDD :
+    <b>if</b> <b>int</b>(enregistrement[<b>"Dossier num"</b>]) >= 2000 :
+        reponse.<strong>append</strong>(enregistrement)
+        
+nRep = <b>len</b> (reponse)        <i># nombre de réponses</i>
+N 	 = <b>len</b> (BDD)
+ <b>print</b>(<q>"Il y a "</q>,nRep / N * 100, <q>"% des enregistrements qui correspondent à la requète : "</q>,
+<q>"\npourcentage d'enregistrements dont le numéro de dossier est plus grand que 2000 inclus"</q>)
+ <b>print</b>(<q>"liste des enregistrements dont le numéro de dossier est &gt;= à 2000"</q>)
+printTableformateeDeco (reponse)
+print (<q>"____________________________________________________________________"</q>)
+########################################################################
+			</pre></code>
+			</details>
+			</li>
+			<li> <!-- exo 5 requète 3 -->
+		    <code><pre>
+<i>########################################################################</i>
+texte = <q>"Requète : pourcentage d'enregistrements dont le nom commence par L"</q>
+<b>print</b> (<q>"\n\n\n"</q>,texte)
+			</pre></code>
+			<details>
+				<summary>proposition de corrigé</summary>
+				<code><pre>
+reponse = [] <i>#initialisation de la liste des réponses attendues</i>
+
+<b>for</b>  enregistrement <b>in</b> BDD :
+    <b>if</b> <b>int</b>(enregistrement[<b>"Nom"</b>]) == "L" :
+        reponse.<strong>append</strong>(enregistrement)
+        
+nRep = <b>len</b> (reponse)        <i># nombre de réponses</i>
+N 	 = <b>len</b> (BDD)
+ <b>print</b>(<q>"Il y a "</q>,nRep / N * 100, <q>"% des enregistrements qui correspondent à la requète : "</q>,
+<q>"\npourcentage d'enregistrements dont le nom commence par L"</q>)
+ <b>print</b>(<q>"liste des enregistrements dont le nom commence par L"</q>)
+printTableformateeDeco (reponse)
+print (<q>"____________________________________________________________________"</q>)
+########################################################################
+			</pre></code>
+			</details>
+			</li>
+		</ol>
+	</li> 
+	<li id="eliminerDoublons"><p>&Eacute;liminer les doublons (s'il y en a !)</p>
+		    <code><pre>
+<i>########################################################################</i>
+<b>print</b> (<q>"\n\n\n"</q>)  <i># saut de trois lignes</i>
+texte = <q>"Requète : lister les doublons : créer une liste des listes de doublons"</q>
+<b>print</b> (<q>"\n\n\n"</q>,texte, <q>"\n un doublon d'un enregistrement contient rigoureusement les mêmes données"</q>)
+ <b>print</b>(<q>"La table suivante est redondante :"</q>)
+BDD = lireCSV(<q>"BDDdbl.csv"</q>, <b>False</b>)  <i># attention cette fois il y a des doublons !</i>
+			</pre></code>
+			<details>
+				<summary>proposition de corrigé</summary>
+				<code><pre>
+N = <q>len</q> (BDD)  <i># nombres d'enregistrements ou fiches de la table (ou BDD)</i>
+Nitems = <q>len</q> (BDD[0])-1  <i># nombre de colonnes ou de clefs dans la table</i>
+
+nDoublon = 0
+<b>for</b>  n <b>in</b> <b>range</b>(0,N-1) :
+    <b>for</b>  i <b>in</b> <b>range</b>(n+1,N) :
+        <strong>if</strong> BDD[n] == BDD[i] :  <i># and n != i est inutile car i vaut au minimum n+1</i>
+             <b>print</b>(<q>"La fiche "</q>,n, <q>" est le doublon de la fiche "</q>, i)
+            nDoublon += 1
+            
+<b>def</b> pluriel(n) :  <i># fonction pour écrire l'accord du pluriel sur un mot</i>
+    <b>if</b> n > 0 : <b>return</b> "s"
+    <b>else</b> :  <b>return</b> ""
+ <b>print</b>(<q>"\nIl y a "</q>, nDoublon, <q>" doublon"</q>+ pluriel(nDoublon))
+
+ <b>print</b>(<q>"\n\nEssayons de ne créer que des listes de doublons différents !"</q>)
+
+<i>########################################################################</i>
+			</pre></code>
+			</details>				
+		    </li>
+		    <li> <!-- ne pas recompter les doublons identifiés -->
+		    <p>Pour continuer, il va falloir éviter de recompter deux
+		    fois les mêmes doublons ; pour cela, une liste de liste de 
+		    doublons sera créée au fur et à mesure que des doublons 
+		    seront trouvés ; la liste de liste permettra de ne pas
+		    enregistrer comme doublon un enregistrement qui est déjà
+		    dans une des listes. <br/> Commencer par créer une fonction
+		    booléenne (qui fait un test vrai/faux), qui en entrée reçoit
+		    deux arguments : le premier qui est la fiche ou dictionnaire
+		    dont on cherche si c'est un doublon ; le second qui est la
+		    liste de listes de doublons. Pour s'en sortir, travailler
+		    sur papier avec une table très simple comprenant quelques
+		    doublons &hellip;</p>
+				<details>
+				<summary>proposition de corrigé</summary>
+				<code><pre>
+<i>########################################################################</i>
+<b>def</b> inListeDeListes( a ,LL): 
+    <b>for</b>  i <b>in</b> <b>range</b>(<b>len</b> (LL)) :
+        <b>if</b> a <b>in</b> LL[i] : <b>return</b> <b>True</b>
+    return <b>False</b>
+
+<b>def</b> chercherListesDoublons(BDD) :
+    listesDbl = []  <i># initialisation de la liste des listes de doublons</i>
+    <b>for</b>  n <b>in</b> <b>range</b>(0,N-1) :  <i># on va comparer les n-1 éléments de la table avec ...</i>
+        listeD = [BDD[n]]
+        <b>for</b>  i <b>in</b> <b>range</b>(n+1,N) :  <i># un nombre décroissant d'éléments pour ne pas refaire deux fois la même comparaison</i>
+            <b>if</b> BDD[i] <b>in</b> listeD <b>and not</b> inListeDeListes( BDD[i] ,listesDbl) :  <i># and n != i est inutile car i vaut au minimum n+1</i>
+                 <b>print</b>(<q>"La fiche "</q>,n, <q>" est le doublon de la fiche "</q>, i)
+                listeD.append(BDD[i])
+        <q>if</q> <q>len</q> (listeD) > 1 : 
+            listesDbl.<strong>append</strong>(listeD)
+    <b>return</b> listesDbl 
+<i>########################################################################</i>
+            
+listesDbl = chercherListesDoublons(BDD)   
+printTableformateeDeco (listesDbl)    
+
+nDbl = <b>len</b> (listesDbl)
+ <b>print</b>(<q>"\nIl y a "</q>, nDbl), <q>" doublon"</q> + 	pluriel(nDbl)+<q>" :"</q>)
+<i>########################################################################</i>
+
+n = 1
+<b>for</b>  liste <b>in</b> listesDbl :
+     <b>print</b>(<q>"\nDoublon n° "</q>, n, <q>" : "</q>, liste, <q>"\nCette liste contient "</q>, 
+			<strong>len</strong> (liste), <q>" éléments redondants"</q>)
+    n += 1
+<i>########################################################################</i>
+			</pre></code>
+				</details>
+		    </li>
+		    <li> <!-- fonction d'épuration des doublons -->
+				<details>
+				<summary>écrire une fonction qui épure (enlève) les 
+				doublons.</summary>
+				<p>Suggestion : reconstruire une table élément par 
+				élément
+				en vérifiant qu'ils ne sont pas dans la liste des listes 
+				de doublons renvoyée par la fonction 
+				chercherListesDoublons(BDD). Utiliser la fonction 
+				logique inListeDeListes( a ,LL) pour tester si un 
+				enregistrement se retrouve au delà de une fois dans
+				cette liste de listes.</p>
+				
+					<details>
+					<summary>proposition de corrigé</summary>
+					<code><pre>
+<b>def</b> eliminerDoublons (table) :
+    <i>""" eliminerDoublons (table) permet de retourner une table épurée de
+    ses doublons	""" </i>
+    listesDbl = chercherListesDoublons(table)
+    tableEpuree = []
+    <b>for</b>  fiche <b>in</b> table :
+         <i># traduire le test logique qui suit en français vulgarisé</i>
+        <b>if not</b> inListeDeListes(fiche ,listesDbl) <b>or</b> (<b>not</b> fiche <b>in</b> tableEpuree <b>and</b> inListeDeListes(fiche ,listesDbl)):
+            tableEpuree.<strong>append</strong>(fiche)
+    
+    <b>return</b> tableEpuree
+   
+tableEpuree = eliminerDoublons (BDD)
+
+P = <b>len</b> (BDD)
+Q = <b>len</b> (tableEpuree)
+ <b>print</b>(<q>"\nTable épurée des doublons : \n"</q>)
+printTableformateeDeco (tableEpuree)
+ <b>print</b>( "<q>\nCette table contient "</q>, Q, <q>" éléments, soit "</q>, P - Q, <q>" éléments de moins que la table redondante"</q> )
+					</pre></code>
+					</details>
+				</details>
+		    </li>	
+	</li>
+	<li><details id="exo6"> <!-- exo 6 -->
+		<summary>tri de la table en fonction d'une clef donnée</summary>
+		La table BDD est une liste de dictionnaires. Pour une clef donnée
+   , la liste des valeurs correspondantes (à cette clef) sera extraite à
+   partir du parcours de chaque ligne de la table. Puis la méthode 
+   sort() sera apliquée à cette liste. Cette liste sera ensuite 
+   parcourue pour reconstruire une table triée selon l'ordre croissant
+   des valeurs associées à cette clef. Pour un ordre décroissant, la 
+   liste triée sera inversée par le <i>slice</i> listeTriee[::-1] qui
+   inverse en place la liste.
+		<details>
+		<summary>proposition de corrigé</summary>
+		<code><pre>
+<i>########################################################################</i>
+print (<q>"____________________________________________________________________"</q>)
+print (<q>"\n\n\n"</q>)  <i># saut de trois lignes</i>
+texte = <q>"Requète : trier les fiches de la table par ordre croissant des valeurs correspondant à une clef donnée."</q>
+print (<q>"\n\n\n"</q>,texte,<q>"\n\nTable non ordonnée :"</q>)
+printTableformateeDeco (tableEpuree)
+ <b>print</b>(<q>"\nTri croissant pour les éléments 'code Postal'. \nRésultat :"</q>)
+
+<b>def</b> triTable(table, clef, croissant = <b>True</b>) :
+    <i>""" Fonction qui renvoie une table triée en fonction de la clef 
+    spécifiée dans l'ordre croissant ou décroissant
+    on pourrait vérifier si la clef existe dans table"""</i>
+    tab = table.<strong>copy</strong>() <i>#la copie permettra de ne pas toucher à l'original</i>
+
+    listeValeurs = []   <i># initialisation de la liste des valeurs à trier</i>
+    <b>for</b>  fiche <b>in</b> tab :  
+        listeValeurs.<strong>append</strong>(fiche[clef])
+    <i># pour debugguer : <b>print</b>(<q>"Liste des valeurs pour la clef : "</q>,clef, <q>" : "</q>, listeValeurs)</i>
+ 
+     <i># tri de liste</i>
+    listeValeurs.<strong>sort</strong>()    
+    <i># pour debugguer : # <b>print</b>(<q>"Liste des valeurs triées pour la clef : "</q>,clef, <q>" : "</q>, listeValeurs)</i>
+    
+    <b>if not</b> croissant : listeValeurs = listeValeurs[::-1] <i>#inversion</i>
+    <i># pour debugguer : <b>print</b>(<q>"Liste inversée des valeurs triées pour la clef : "</q>,clef, <q>" : "</q>, listeValeurs)</i>
+    
+    tableTriee = []
+    nF = <b>len</b> (tab)       <i># nombre de fiches de la table</i>
+    <b>for</b>  i <b>in</b> <b>range</b>(nF) :
+        trouve = <b>False</b>
+         <i># on cherche :</i>
+        
+        <b>for</b>  fiche <b>in</b> tab :
+            # <b>print</b>(<q>"i = "</q>,i,<q>" n = "</q>, n, <q>" sur "</q>, <b>len</b> (tab))
+            <b>if</b> fiche[clef] == listeValeurs [i] :   
+                # <b>print</b>(<q>"fiche["</q>+clef+<q>"] = "</q> , fiche[clef], <q>"listeValeurs ["</q>+<b>str</b>(i)+<q>"] = "</q>, listeValeurs [i])
+                # <b>print</b>(fiche)
+                tableTriee.<strong>append</strong>(fiche)
+                tab.<strong>remove</strong>(fiche)
+    <b>return</b> tableTriee
+    
+printTableformateeDeco (triTable(tableEpuree,<q>"code Postal"</q>, <b>True</b>))
+
+ <b>print</b>(<q>"\nLe même tri mais dans l'ordre inverse"</q>)
+
+printTableformateeDeco (triTable(tableEpuree,<q>"code Postal"</q>, <b>False</b>))
+
+ <b>print</b>(<q>"\nTri par nom croissant :"</q>)
+
+printTableformateeDeco (triTable(tableEpuree,<q>"Nom"</q>, <b>True</b>))
+
+ <b>print</b>(<q>"\nTri par 'Dossier num' décroissant :"</q>)
+
+printTableformatee (triTable(tableEpuree,<q>'Dossier num'</q>, <b>False</b>))
+		</pre></code>
+		</details>
+	</details>
+	
+</article></section>
+<div id="environnement" hidden></div>
+<footer>
+	
+	<h1>Sources en python et autres fichiers utiles</h1>
+	<ul>
+		<li><a href="./Bases de donnees/generateurAleaBDD.ods">
+			générateur de base de tableaux office calc</a></li>
+		<li><a href="./Bases de donnees/BDD.csv">table à télécharger</a> 
+		pour travailler sur les programmes en python</li>
+		<li><a href=
+		    "./Bases de donnees/rechercheDoublonsCoherenceTable.py">
+		    corrigé du dernier code</a></li>
+	</ul>
+
+</footer>
+<script>
+
+
+</script>
+</html>
+</body>

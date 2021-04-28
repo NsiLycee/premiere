@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-language" content="fr">
+    
+    <title>cours NSI première : traitement des données en table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../CSS/style.css">
+    <link rel="stylesheet" href="../../../CSS/styleCode.css">
+    <link rel="stylesheet" href="../../../CSS/numerotationTitres.css">
+    <link rel="stylesheet"   href="../../../CSS/ressourcesCachees.css">
+    <link rel="stylesheet" 
+			type="text/css" href="../../../CSS/simpleMenuHorizontal.css">
+    
+ 	<script src="../../../JS/affichages.js"></script>
+	<script src=""></script>
+    <style>
+		table {
+				width : 100%;
+		}
+		table td:nth-child(4n+1) {
+				width : 15%;
+		}
+    </style>
+</head>
+<body onload="init();"><!-- à = à ; è = è ; é = é ; ' = ' ; -->
+<!-- ------------------------------------------------------------------>
+<header>
+<nav>
+	<ul class="menu">
+		<li><a href="../../../niveau_1.html">retour à la page NSI</a>
+		</li>
+
+		<li><a href="../../../programmeNSI/cours/themeA/typesBase.html"
+		title="Représentation des données : types et valeurs de base">
+			A : types et valeurs de base</a></li>
+			
+		<li><a 
+		href="../../../programmeNSI/cours/themeB/typesConstruits.html"
+		title="Représentation des données : types construits">
+			B : types construits</a></li> 
+			
+		<li><a 
+	   href="../../../programmeNSI/cours/themeC/traitementDonneesEnTables.html"
+		title="Traitement de données en tables">
+			C : Traitement de données en tables</a></li>
+			
+		<li><a href="../../../programmeNSI/cours/themeD/web2.0.html"
+		title="Interactions entre l’homme et la machine sur le Web 2.0">
+			D : Web 2.0</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeE/systemeLinux.html">
+			E : architecture système</a></li>
+			
+		<li>
+<a href="../../../programmeNSI/cours/themeF/langagesProgrammation.html">
+			F : langages de programmation</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeG/algorithmique.html">
+			G : algorithmique</a></li>
+			
+		<li><a href="../../../programmeNSI/quiz/entrainementE3C.html">
+			Quiz d'entraînement</a></li>
+		<li><a href="../../../programmeNSI/ressources/ressource_0.html">
+			bonnes pratiques</a>
+		</li> 
+
+	</ul>
+</nav> 
+
+</header><!-- ------------------------------------------------------------------>
+
+	<h1>Extrait du programme de NSI en première :</h1>
+<section>
+	<article>
+		<h2>Architectures matérielles et systèmes d’exploitation</h2>
+	<p>Exprimer un algorithme dans un langage de programmation a pour 
+	but de le rendre exécutable par une
+	machine dans un contexte donné. La découverte de l’architecture des 
+	machines et de leur système
+	d’exploitation constitue une étape importante.</p>
+	<p>Les circuits électroniques sont au cœur de toutes les machines 
+	informatiques. Les réseaux permettent
+	de transmettre l’information entre machines. Les systèmes 
+	d’exploitation gèrent et optimisent
+	l’ensemble des fonctions de la machine, de l’exécution des 
+	programmes aux entrées-sorties et à la
+	gestion d’énergie.</p>
+	<p>On étudie aussi le rôle des capteurs et actionneurs dans les 
+	entrées-sorties clavier, interfaces graphiques
+et tactiles, dispositifs de mesure physique, commandes de machines, 
+etc.</p>
+	
+	<table><tbody>
+			<tr><th>Contenus</th><th>Capacités attendues</th>
+			<th>Commentaires</th><th>Cours et applications</th></tr>
+			<tr>
+				<td><p>Modèle d’architecture séquentielle (von Neumann)
+				</p></td>
+				<td><p>Distinguer les rôles et les caractéristiques des 
+				différents constituants d’une machine.</p>
+				<p>Dérouler l’exécution d’une séquence d’instructions 
+				simples du type langage machine.</p></td>
+				<td><p>La présentation se limite aux concepts généraux.
+				</p>
+					<p>On distingue les architectures monoprocesseur et 
+					les architectures multiprocesseur.</p>
+					<p>Des activités débranchées sont proposées.</p>
+					<p>Les circuits combinatoires réalisent des 
+					fonctions booléennes.</p>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><p>Transmission de données dans un réseau</p>
+				<p>Protocoles de communication</p><p>Architecture d’un 
+				réseau</p></td>
+				<td><p>Mettre en évidence l’intérêt du découpage des 
+				données en paquets et de leur encapsulation.</p>
+					<p>Dérouler le fonctionnement d’un protocole simple 
+					de récupération de perte de paquets (bit alterné).
+					</p>
+					<p>Simuler ou mettre en œuvre un réseau.</p></td>
+				<td><p>Le protocole peut être expliqué et simulé en mode 
+				débranché.</p>
+					<p>Le lien est fait avec ce qui a été vu en classe 
+					de seconde sur le protocole TCP/IP.</p>
+					<p>Le rôle des différents constituants du réseau 
+					local de l’établissement est présenté.</p></td>
+					<td></td>
+			</tr>
+			<tr>
+				<td><p>Systèmes d’exploitation</p></td>
+				<td><p>Identifier les fonctions d’un système 
+				d’exploitation.</p>
+					<p>Utiliser les commandes de base en ligne de 
+					commande.</p>
+					<p>Gérer les droits et permissions d’accès aux 
+					fichiers.</p>
+					</td>
+				<td><p>Les différences entre systèmes d’exploitation 
+				libres et propriétaires sont évoquées.</p>
+					<p>Les élèves utilisent un système d’exploitation 
+					libre.</p>
+					<p>Il ne s’agit pas d’une étude théorique des 
+					systèmes d’exploitation.</p></td>
+					<td><ul>
+			<li><a href="javascript:voir('installerCygWin');" 
+			title="installer un émulateur linux">
+				installer un émulateur linux</a></li>
+			<li><a href="javascript:voir('exoLinux');" 
+			title="exercices linux">
+				exercices linux</a></li>
+						
+			<li><a href="javascript:voir('exoDOS');" 
+			title="exercices DOS">
+				exercices DOS</a></li>
+						
+						</ul>
+				</td>
+			</tr>
+			<tr>
+				<td><p>Périphériques d’entrée et de sortie</p>
+				<p>Interface Homme-Machine (IHM)</p></td>
+				<td><p>Identifier le rôle des capteurs et actionneurs.
+				</p><p>Réaliser par programmation une IHM répondant à 
+				un cahier des charges donné.</p></td>
+				<td><p>Les activités peuvent être développées sur des 
+				objets connectés, des systèmes embarqués ou robots.</p>
+				</td>
+				<td></td>
+			</tr>
+			
+		</tbody></table>
+	</article>
+</section>
+<!--------------------------------------------------------------------->
+<!-- Ce qui suit constitue l'ensemble des ressources cachées -->
+<article id="installerCygWin" class="ressourceCachee">
+ 	<button class="btnQuitter" 
+ 	onclick="visible='True';voir('installerCygWin');" >X	</button>
+	<details><summary>Installer un émulateur linux sous window</summary>
+ 	<button class="btnQuitter" 
+ 	        onclick="visible='True';voir('installerCygWin');" >X
+	</button>
+	<p>
+	Le site suivant explique comment installer un logiciel window qui 
+	nous permettra de simuler un système libre de type unix/linux :<br/>
+	<a href="http://lavrovo.fr/Cygwin/cygwin.html" target="_blank">
+		cliquer ici</a>
+	
+	</p>
+	
+	</details>
+</article>
+<!--------------------------------------------------------------------->
+<!-- Ce qui suit concerne des exercices sur le système linux -->
+<article id="exoLinux" class="ressourceCachee">
+ 	<button class="btnQuitter" 
+ 	onclick="visible='True';voir('exoLinux');" >X	</button>
+	<details><summary>Ce qui suit concerne des exercices sur le système 
+	linux</summary>
+ 	<button class="btnQuitter" 
+ 	        onclick="visible='True';voir('exoLinux');" >X
+	</button>
+	<h2>Qu'est ce que la ligne de commande ?</h2>
+	<h3>C11Q1 - Type des commandes</h3>
+	<h4>Votre mission :</h4>
+	<p>Indiquer le type des commandes suivantes : awk, echo, cd, cal, 
+	kill, nano :<br/></p>
+	<ul id="listeTypesCommandes">
+		<script>
+			let lstTC = document.getElementById("listeTypesCommandes");
+			let i, txt = "";
+			let lstC = [
+				"awk&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", 
+				"echo&nbsp;&nbsp;&nbsp;&nbsp;", 
+				"cd&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", 
+				"cal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;", 
+				"kill&nbsp;&nbsp;&nbsp;&nbsp;", 
+				"nano&nbsp;&nbsp;&nbsp;&nbsp;"];
+			let lstR = ["Externe", "Interne", "Interne", "Externe", "Interne", "Externe"];
+			
+			for (i=0; i<6; i++) {
+				txt += "<li>" +
+					"<label for='"+lstC[i]+"' id='lbl"+lstC[i]+"'>"+lstC[i]+"</label>"+
+					"<select id='"+lstC[i]+"'>"+
+			  "<option value='interne' "+
+					  "onclick='document.getElementById('lbl"+lstC[i]+"').innerHTML = '"+lstC[i]+" est une commande "+lstR[i]+"';'>interne</option>"+
+			  "<option value='externe' " +
+			          "onclick='document.getElementById('lbl"+lstC[i]+"').innerHTML = '"+lstC[i]+" est une commande "+lstR[i]+"';'>externe</option>"+
+			"</select>" +
+				"</li>";
+				}
+			lstTC.innerHTML =  txt;
+		</script>
+		<details><summary>indices :</summary>
+		<p>Vous avez vu dans la vidéo et le document compagnon qu'il y 
+		a deux types de commandes shell. Les commandes internes au shell 
+		sont incluses dans le programme du shell utilisé et donc 
+		exécutées directement par celui-ci. Pour les commandes dites 
+		externes, le shell doit faire appel à un autre programme pour 
+		exécuter la commande.<br/>
+		La commande type permet de savoir quel est le type d'une 
+		commande. Par exemple l’exécution de la commande type avec type 
+		en argument nous apprend sans surprise que la commande type est 
+		une commande interne au shell.</p>
+		</details>
+		<!--
+		<li>
+			<label for="awk" id="lblAwk">awk</label>
+			<select id="awk">
+			  <option value="interne" 
+					  onclick="document.getElementById('lblAwk').innerHTML = 'awk est une commande externe';">interne</option>
+			  <option value="externe" 
+			          onclick="document.getElementById('lblAwk').innerHTML = 'awk est une commande externe';">externe</option>
+			</select> 
+		</li>
+		<li>
+			<label for="echo" id="lblEcho">echo</label>
+			<select id="echo">
+			  <option value="interne" 
+					  onclick="document.getElementById('lblEcho').innerHTML = 'echo est une commande interne';">interne</option>
+			  <option value="externe" 
+			          onclick="document.getElementById('lblEcho').innerHTML = 'echo est une commande interne';">externe</option>
+			</select> 
+		</li>	-->
+	</ul>
+	
+	
+	
+	
+	
+	<p>
+	xxxxxxxxxxxxxxxxxxxxxx :<br/>
+	<a href="" target="_blank" title="">cliquer ici</a>
+	
+	</p>
+	
+	</details>
+</article>
+<!--------------------------------------------------------------------->
+<!-- Ce qui suit concerne des exercices sur le système linux -->
+<article id="exoDOS" class="ressourceCachee">
+ 	<button class="btnQuitter" 
+ 	onclick="visible='True';voir('exoDOS');" >X 	</button>
+	<details><summary>Ce qui suit concerne des exercices sur le système 
+	MS DOS</summary>
+ 	<button class="btnQuitter" 
+ 	        onclick="visible='True';voir('exoDOS');" >X
+	</button>
+	<h1>Cette partie est hors programme ...</h1><p> 
+		... mais peut être utile pour
+	mettre en évidence les fortes similitudes entre les commandes DOS
+	et Unix. <br/>Par exemple <b><u>pour lister fichiers et dossiers du 
+	répertoire courant</u></b> :</p>
+	<ul>
+		<li>sous DOS la commande est DIR</li>
+		<li>sous Unix la commande est LS</li>
+	</ul>
+	<p>Mais pour un grand nombre d'autres commandes, elles sont 
+	identiques !<br/>exemple :</p>
+	<ul>
+		<li>CD : pour Change Directory ;</li>
+		<li></li>
+	</ul>
+	
+	<p> Le logiciel cmd.exe est fourni avec le système Windows de 
+	Microsoft<br/> Il permet d'afficher une console de commande en ligne
+	semblable à celles des anciens terminaux sous DOS ou aux shell bash
+	sous Unix et les Linux dérivés.
+	
+	http://www.differencebetween.net/technology/software-technology/difference-between-dos-and-unix/
+	<a href="" target="_blank"></a>
+	
+	</p>
+	
+	<h2>pour en savoir plus</h2>
+	<ul>
+		<li><a href="http://www.differencebetween.net/technology/software-technology/difference-between-dos-and-unix/" 
+		target="_blank">différences entre DOS et UNIX</a></li>
+	</ul>
+	
+	</details>
+</article>
+</body>
+</html>

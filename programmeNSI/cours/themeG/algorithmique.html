@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title> NSI en première </title>
+	<!-- Les deux lignes suivantes permettent d'insérer une icône à coté 
+	     de l'onglet de la page -->
+	<link rel="shortcut icon" href="icone.png" type="image/x-icon"/>
+	<link rel="icon" href="icone.png" type="image/x-icon"/>
+	
+	<script src="./sommaire.js"></script>
+	<script language="JavaScript" src="../../../JS/moteurQuiz.js"></script>
+	<script language="JavaScript" src="../../../JS/affichages.js"></script>
+	<script language="JavaScript">
+		var titrePage = "Blog de Joël Dendaletche";
+		var aurevoir = "&Aacute; bientôt, revenez vite !";
+		//var id = setInterval(ma_fontion, 1000);
+		function titre(texte) 
+		{
+			document.title = texte;
+		}
+		function init() 
+		{
+			 // alert("debug init");
+			 construireListeSommaire ();
+		}
+	</script>
+	
+	<meta name="author" content="Joël Dendaletche"/>
+	<meta name="created" content="2019-09-02"/>
+	<meta name="changed" content="2019-09-16"/>
+	<meta name="Company" 
+content="Lycée La Découverte Decazeville Aveyron Occitanie Terre"/>
+	<meta name="description" content="programme NSI première">
+	<meta name="keywords" content="Informatique">
+   <!-- la méta-donnée suivante rafraichit l'écran toute les minutes -->
+	<meta http-equiv="refresh" content="60">
+
+	
+	<!-- feuille de style externe -->
+	<link rel="stylesheet" type="text/css" 
+	      href="../../../programme NSI/styleProgramme.css">
+    <link rel="stylesheet" type="text/css" 
+		  href="../../../CSS/style.css">
+    <link rel="stylesheet" type="text/css" 
+		  href="../../../CSS/numerotationTitres.css">                      
+    <link rel="stylesheet" type="text/css" 
+          href="../../../CSS/ressourcesCachees.css">
+	<link rel="stylesheet" type="text/css" 
+	      href="../../../CSS/styleQuiz.css">    
+    <link rel="stylesheet" type="text/css" 
+          href="../../../CSS/simpleMenuHorizontal.css">
+	<!-- Définition du style local de la page : déconseillé ! -->
+	<style>
+	 /* Styles appliqués aux portions de code */
+		.attribut { color : black;
+			font-weight: bold; }
+		.balise { color : purple; }
+		.texte { color : blue ; }
+		.commentaire { color : green; }
+		div.codeHTML { 
+			border : 2px solid black;
+			padding : 10px;
+			text-align: left;
+			}
+		.caracteristique {
+			color : red;
+			font-weight: bold; 
+		}
+		.valeur {
+		color : orange;
+		}
+		section {
+			display: flex;
+		}
+		article {
+			flex : 4;
+		}
+		section nav {
+			flex : 1;
+		}
+	</style>
+
+</head>
+<!-- la balise body délimite les instructions qui permettront d'afficher 
+le contenu de la page web à l'écran -->
+<body onload="init();" onblur="titre(aurevoir);" 
+	  onfocus="titre(titrePage);">
+	<header>
+		<small>Blog de <abbr title="Joël Dendaletche">jodenda</abbr> 
+		</small>
+	</header>
+<!--------------------------------------------------------------------->
+<nav>
+	<ul class="menu">
+		<li><a href="../../../niveau_1.html">retour à la page NSI</a>
+		</li>
+
+		<li><a href="../../../programmeNSI/cours/themeA/typesBase.html"
+		title="Représentation des données : types et valeurs de base">
+			A : types et valeurs de base</a></li>
+			
+		<li><a 
+		href="../../../programmeNSI/cours/themeB/typesConstruits.html"
+		title="Représentation des données : types construits">
+			B : types construits</a></li> 
+			
+		<li><a 
+	   href="../../../programmeNSI/cours/themeC/traitementDonneesEnTables.html"
+		title="Traitement de données en tables">
+			C : Traitement de données en tables</a></li>
+			
+		<li><a href="../../../programmeNSI/cours/themeD/web2.0.html"
+		title="Interactions entre l’homme et la machine sur le Web 2.0">
+			D : Web 2.0</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeE/systemeLinux.html">
+			E : architecture système</a></li>
+			
+		<li>
+<a href="../../../programmeNSI/cours/themeF/langagesProgrammation.html">
+			F : langages de programmation</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeG/algorithmique.html">
+			G : algorithmique</a></li>
+			
+		<li><a href="../../../programmeNSI/quiz/entrainementE3C.html">
+			Quiz d'entraînement</a></li>
+		<li><a href="../../../programmeNSI/ressources/ressource_0.html">
+			bonnes pratiques</a>
+		</li> 
+
+	</ul>
+</nav>
+</header>
+<!--------------------------------------------------------------------->
+	<section>
+	<!----------------------------------------------------------------->
+	<article>
+
+
+en construction
+	
+	</article>
+	<!----------------------------------------------------------------->
+	<aside>
+	
+	</aside>
+	</section>
+</body>
+</html>

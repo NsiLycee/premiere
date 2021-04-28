@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-language" content="fr">
+    
+    <title>cours NSI première : traitement des données en table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="../../CSS/styleCode.css">
+    <link rel="stylesheet" href="../../CSS/numerotationTitres.css">
+    <link rel="stylesheet"   href="../../CSS/ressourcesCachees.css">
+
+ 	<script src="../../JS/affichages.js"></script>
+	<script src=""></script>
+    <style>
+		table {
+				width : 100%;
+		}
+		table td:nth-child(4n+1) {
+				width : 15%;
+		}
+    </style>
+</head>
+<body onload="init();"><!-- à = à ; è = è ; é = é ; ' = ' ; -->
+	<h1>Extrait du programme de NSI en première :</h1>
+<section>
+	<article>
+		<h2>Architectures matérielles et systèmes d’exploitation</h2>
+	<p>Exprimer un algorithme dans un langage de programmation a pour 
+	but de le rendre exécutable par une
+	machine dans un contexte donné. La découverte de l’architecture des 
+	machines et de leur système
+	d’exploitation constitue une étape importante.</p>
+	<p>Les circuits électroniques sont au cœur de toutes les machines 
+	informatiques. Les réseaux permettent
+	de transmettre l’information entre machines. Les systèmes 
+	d’exploitation gèrent et optimisent
+	l’ensemble des fonctions de la machine, de l’exécution des 
+	programmes aux entrées-sorties et à la
+	gestion d’énergie.</p>
+	<p>On étudie aussi le rôle des capteurs et actionneurs dans les 
+	entrées-sorties clavier, interfaces graphiques
+et tactiles, dispositifs de mesure physique, commandes de machines, 
+etc.</p>
+	
+	<table><tbody>
+			<tr><th>Contenus</th><th>Capacités attendues</th>
+			<th>Commentaires</th><th>Cours et applications</th></tr>
+			<tr>
+				<td><p>Modèle d’architecture séquentielle (von Neumann)
+				</p></td>
+				<td><p>Distinguer les rôles et les caractéristiques des 
+				différents constituants d’une machine.</p>
+				<p>Dérouler l’exécution d’une séquence d’instructions 
+				simples du type langage machine.</p></td>
+				<td><p>La présentation se limite aux concepts généraux.
+				</p>
+					<p>On distingue les architectures monoprocesseur et 
+					les architectures multiprocesseur.</p>
+					<p>Des activités débranchées sont proposées.</p>
+					<p>Les circuits combinatoires réalisent des 
+					fonctions booléennes.</p>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><p>Transmission de données dans un réseau</p>
+				<p>Protocoles de communication</p><p>Architecture d’un 
+				réseau</p></td>
+				<td><p>Mettre en évidence l’intérêt du découpage des 
+				données en paquets et de leur encapsulation.</p>
+					<p>Dérouler le fonctionnement d’un protocole simple 
+					de récupération de perte de paquets (bit alterné).
+					</p>
+					<p>Simuler ou mettre en œuvre un réseau.</p></td>
+				<td><p>Le protocole peut être expliqué et simulé en mode 
+				débranché.</p>
+					<p>Le lien est fait avec ce qui a été vu en classe 
+					de seconde sur le protocole TCP/IP.</p>
+					<p>Le rôle des différents constituants du réseau 
+					local de l’établissement est présenté.</p></td>
+					<td></td>
+			</tr>
+			<tr>
+				<td><p>Systèmes d’exploitation</p></td>
+				<td><p>Identifier les fonctions d’un système 
+				d’exploitation.</p>
+					<p>Utiliser les commandes de base en ligne de 
+					commande.</p>
+					<p>Gérer les droits et permissions d’accès aux 
+					fichiers.</p>
+					</td>
+				<td><p>Les différences entre systèmes d’exploitation 
+				libres et propriétaires sont évoquées.</p>
+					<p>Les élèves utilisent un système d’exploitation 
+					libre.</p>
+					<p>Il ne s’agit pas d’une étude théorique des 
+					systèmes d’exploitation.</p></td>
+					<td><ul>
+			<li><a href="javascript:voir('installerCygWin');" 
+			title="installer un émulateur linux">
+				installer un émulateur linux</a></li>
+			<li><a href="javascript:voir('exoLinux');" 
+			title="exercices linux">
+				exercices linux</a></li>
+						
+			<li><a href="javascript:voir('exoDOS');" 
+			title="exercices DOS">
+				exercices DOS</a></li>
+						
+						</ul>
+				</td>
+			</tr>
+			<tr>
+				<td><p>Périphériques d’entrée et de sortie</p>
+				<p>Interface Homme-Machine (IHM)</p></td>
+				<td><p>Identifier le rôle des capteurs et actionneurs.
+				</p><p>Réaliser par programmation une IHM répondant à 
+				un cahier des charges donné.</p></td>
+				<td><p>Les activités peuvent être développées sur des 
+				objets connectés, des systèmes embarqués ou robots.</p>
+				</td>
+				<td></td>
+			</tr>
+			
+		</tbody></table>
+	</article>
+</section>
+<!--------------------------------------------------------------------->
+<!-- Ce qui suit constitue l'ensemble des ressources cachées -->
+<article id="installerCygWin" class="ressourceCachee">
+	<details><summary>Installer un émulateur linux sous window</summary>
+	<p>
+	Le site suivant explique comment installer un logiciel window qui 
+	nous permettra de simuler un système libre de type unix/linux :<br/>
+	<a href="http://lavrovo.fr/Cygwin/cygwin.html" target="_blank">
+		cliquer ici</a>
+	
+	</p>
+	
+	</details>
+</article>
+<!--------------------------------------------------------------------->
+<!-- Ce qui suit concerne des exercices sur le système linux -->
+<article id="exoLinux" class="ressourceCachee">
+	<details><summary>Ce qui suit concerne des exercices sur le système 
+	linux</summary>
+	<p>
+	xxxxxxxxxxxxxxxxxxxxxx :<br/>
+	<a href="http://lavrovo.fr/Cygwin/cygwin.html" target="_blank">
+		cliquer ici</a>
+	
+	</p>
+	
+	</details>
+</article>
+<!--------------------------------------------------------------------->
+<!-- Ce qui suit concerne des exercices sur le système linux -->
+<article id="exoDOS" class="ressourceCachee">
+	<details><summary>Ce qui suit concerne des exercices sur le système 
+	MS DOS</summary>
+	<p> Le logiciel cmd.exe ...
+	xxxxxxxxxxxxxxxxxxxxxx :<br/>
+	<a href="http://lavrovo.fr/Cygwin/cygwin.html" target="_blank">
+		cliquer ici</a>
+	
+	</p>
+	
+	</details>
+</article>
+</body>
+</html>

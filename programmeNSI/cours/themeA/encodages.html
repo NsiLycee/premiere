@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/> <!-- c'est le standard en HTML 5 : l'unicode utf-8 permet
+    d'afficher sans problème tous les symboles unicode comme :
+    
+    						voir :
+                            https://www.w3schools.com/charsets/default.asp 
+                            https://unicode-table.com/fr/
+                            
+                            
+                            https://translate.google.com/ permet de récupérer un texte
+                            traduit dans les symboles de son écriture
+                            -->
+
+
+<style>
+body {
+  font-size: 20px;
+}
+</style>
+</head>
+<body>
+
+<span style='font-size:100px;'>&#33;</span>
+<p>I will display &#33;</p>
+<p>I will display &#x21;
+&#1272;</p>Ӹ &amp;#127; donne 12&#126;1Ȭ
+<br/>العندليب تغني ليلا ونهارا<br/>
+밤낮으로 노래하는 나이팅게일
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+var c = 0;
+function myFunction() {
+	c += 1;
+  var x = document.getElementsByTagName("META")[0].content;
+  var y = document.getElementsByTagName("META")[1].content;
+  document.getElementById("demo").innerHTML += x + " c = " + c + "<br/> y = " + y;
+  document.getElementsByTagName("META")[1].content += "coucou";
+  x = "text/html; charset='ASCII'"
+}
+</script>
+
+</body>
+</html>

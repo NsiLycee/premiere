@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Conversion des nombres en base 2 à 36</title>
+	<!-- feuille de style externe -->
+	<link rel="stylesheet" type="text/css" 
+	      href="../../../programme NSI/styleProgramme.css">
+    <link rel="stylesheet" type="text/css" 
+		  href="../../../CSS/style.css">
+    <link rel="stylesheet" type="text/css" 
+		  href="../../../CSS/numerotationTitres.css">                      
+    <link rel="stylesheet" type="text/css" 
+          href="../../../CSS/ressourcesCachees.css">
+	<link rel="stylesheet" type="text/css" 
+	      href="../../../CSS/styleQuiz.css">    
+    <link rel="stylesheet" type="text/css" 
+          href="../../../CSS/simpleMenuHorizontal.css">
+	<style>
+			
+	 /* Styles appliqués aux portions balisées par code */
+		.attribut { color : black;
+			font-weight: bold; }
+		.balise { color : purple; }
+		.texte { color : blue ; }
+		.commentaire { color : green; }
+		div.codeHTML { 
+			border : 2px solid black;
+			padding : 10px;
+			text-align: left;
+			}
+		.caracteristique {
+			color : red;
+			font-weight: bold; 
+		}
+		.valeur {
+		color : orange;
+		}
+		section {
+			display: flex;
+		}
+		article {
+			flex : 4;
+		}
+		section nav {
+			flex : 1;
+		}
+		.15percent { width : 15%; }
+		
+		table {
+			border 			:	groove 5px orange	;
+			border-collapse :	collapse			;
+			}
+		tr {
+			border			:	dashed 2px brown	;
+			}
+
+	</style>
+	<script>
+		function calcul() { 
+		
+		// parseInt convertit le texte en entier	
+		var nombre = document.getElementById("nombre").value;
+		var baseOut = parseInt(document.getElementById("baseFinale").value);
+		var baseIn = parseInt(document.getElementById("baseInit").value);
+		var calculDecimal = 0, i, valS;
+		var str = "0123456789abcdefghijklmnopqrstuvwxyz";
+		document.getElementById("lblResultat").innerHTML = "(" + nombre + ")<sub>"+baseIn+"</sub> = ";
+		
+		if (baseIn != 10) // si le nombre n'est pas décimal
+			{
+				var nSymboles = nombre.length;
+				for ( i = 0; i < nSymboles; i++ ) {
+					
+					valS = str.search(nombre[i].toLowerCase());
+					if (valS > baseIn-1) {
+							document.getElementById("demo").innerHTML = "Attention ! " + nombre + " n'est pas en base " + baseIn;
+							document.getElementById("nombreBaseN").innerHTML = "erreur !";
+							return false; // erreur
+						}
+					calculDecimal += valS * Math. pow(baseIn, nSymboles-i-1);
+
+				}
+			} 
+		else { calculDecimal = parseInt(nombre); } // base 10
+		
+		var str = "";
+		
+		str += calculDecimal.toString();
+		
+		document.getElementById("demo").innerHTML = calculDecimal;
+		document.getElementById("nombreBaseN").innerHTML = "(" + 
+			calculDecimal.toString(baseOut) + ")<sub>"+baseOut+"</sub>"; 
+		document.getElementById("demo").innerHTML = 
+			"Valeur décimale = " + calculDecimal + 
+			"  || &nbsp;&nbsp;force : " + 
+			Math.floor(Math.log(calculDecimal)/Math.log(2)+1) + " bits";
+		}
+		function clear() {
+			document.getElementById("nombreBaseN").innerHTML = "(---------)<sub>--</sub>";
+			       document.getElementById("demo").innerHTML = "";
+			document.getElementById("lblResultat").innerHTML = "(---------)<sub>--</sub>";
+		}
+		// fonction neutre comme 'pass' en python
+		function rien () {}
+	</script>
+</head>
+<body>
+<header>
+<!--------------------------------------------------------------------->
+<nav>
+	<ul class="menu">
+		<li><a href="../../../niveau_1.html">retour à la page NSI</a>
+		</li>
+
+		<li><a href="../../../programmeNSI/cours/themeA/typesBase.html"
+		title="Représentation des données : types et valeurs de base">
+			A : types et valeurs de base</a></li>
+			
+		<li><a 
+		href="../../../programmeNSI/cours/themeB/typesConstruits.html"
+		title="Représentation des données : types construits">
+			B : types construits</a></li> 
+			
+		<li><a 
+	   href="../../../programmeNSI/cours/themeC/traitementDonneesEnTables.html"
+		title="Traitement de données en tables">
+			C : Traitement de données en tables</a></li>
+			
+		<li><a href="../../../programmeNSI/cours/themeD/web2.0.html"
+		title="Interactions entre l’homme et la machine sur le Web 2.0">
+			D : Web 2.0</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeE/systemeLinux.html">
+			E : architecture système</a></li>
+			
+		<li>
+<a href="../../../programmeNSI/cours/themeF/langagesProgrammation.html">
+			F : langages de programmation</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeG/algorithmique.html">
+			G : algorithmique</a></li>
+			
+		<li><a href="../../../programmeNSI/quiz/entrainementE3C.html">
+			Quiz d'entraînement</a></li>
+		<li><a href="../../../programmeNSI/ressources/ressource_0.html">
+			bonnes pratiques</a>
+		</li>  
+	</ul>
+</nav>
+	</header>
+<!--------------------------------------------------------------------->	
+	
+<!--------------------------------------------------------------------->
+	<section>
+	<!----------------------------------------------------------------->
+	<article>	
+		<h1>Formulaire de conversion de base à base</h1>
+		<p>Un nombre s'écrit comme une suite de symboles ; le plus à 
+		droite correspond aux unités ; c'est à dire au nombre qui est 
+		multiplié par base<sup>0</sup> = 1</p>
+		<p>Pour écrire un nombre en base n, il faut n symboles ; jusqu'à
+		la base 10, les symboles 0 à 9 sont utilisés, puis au delà les 
+		lettres de l'alphabet (sans tenir compte de la <dfn 
+		title="minuscule ou majuscule">casse</dfn>).</p>
+		-
+		<p>Les nombres s'écrivent donc sous la forme :</p>
+		<code>
+		nombre = symbole<sub>n</sub>.base<sup>n</sup>+
+				 symbole<sub>n-1</sub>.base<sup>n-1</sup>+
+				 symbole<sub>n-2</sub>.base<sup>n-2</sup>+ &hellip;
+				 symbole<sub>2</sub>.base<sup>2</sup>+		
+				 symbole<sub>1</sub>.base<sup>1</sup>+					 
+				 symbole<sub>0</sub>.base<sup>0</sup>		 
+		</code>
+		<p><br/><br/></p>
+	<form>
+		<fieldset>
+			<table><caption>Calculette de conversion de nombres</caption>
+				<tr>
+					<!-- le pattern est une expression régulière regexp
+				https://www.w3schools.com/tags/att_input_pattern.asp
+				la saisie n'est pas validée si le pattern n'est pas 
+				respecté, la bordure de l'input devient rouge -->
+					<td>
+						<label for="nombre">nombre à convertir
+						</label>
+					</td>
+					<td>
+		<input id="nombre" pattern="[0-9]{2,}"
+				title = "nombre entier composé de chiffres de 0 à 9"
+				placeholder = "votre nombre ici"					 
+				type="text"		onclick="rien();"		/>	
+					</td>
+				</tr>
+				<tr>
+					<!---->
+					<td>
+						<label for="baseInit">Base de départ (2 à 36)
+						</label>
+					</td>
+					<td>
+						<input id="baseInit" pattern="[0-9]{1,2}"
+								placeholder="10"
+								onchange="calcul()"
+								value = "10"
+								type="number"
+								min="2" max="36"/>	
+					</td>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="baseFinale">Base après conversion (2 à 36)
+						</label>
+					</td>
+					<td>
+						<!-- accepte des nombres de 1 à 2 chiffres -->
+						<input id="baseFinale" pattern="[0-9]{1,2}"
+								placeholder="16"
+								value ="16"
+								onchange="calcul()"
+								type="number"
+								min="2" max="36"/>	
+					</td>
+				</tr>				
+				<tr>
+					<td>
+						<label for="nombreBaseN" id="lblResultat">
+							Résultat de la conversion 
+						</label>
+					</td>					
+					<td><p id="nombreBaseN" >résultat</p>
+					</td>
+				</tr>	
+				<tr>
+					<td><input id="reset" type="reset" onclick="clear();">
+					</td>
+					<td>
+					<input id="calculer" type="button" value="calculer"
+							onclick="calcul();"/>	
+					<!--   <input type="" /> -->
+					</td>
+				</tr>					
+			</table>
+		</fieldset>
+	</form>
+<!--------------------------------------------------------------------->
+<!--            zone d'affichage							    	 -->
+<!--------------------------------------------------------------------->	
+	<hr/>
+	<h1>Valeur numérique d'un symbole utilisé en hexadécimal et au delà 
+(jusqu'à la base 36)</h2><div id="listeSymboles"></div>	
+	<p id="demo">-</p>
+	<details><summary>cliquer ici pour développer</summary>
+	<p><br/></p>
+	
+	<input 	id="symbole" pattern="[a-zA-Z0-9]{1}" onclick="aff();"
+			onchange="aff();"
+	title="erreur il ne faut rentrer q'une seule lettre ou chiffre !"/>
+	<input type="button" value="entrée" onclick="aff();" />
+	</details>
+</article></section>
+
+<!--------------------------------------------------------------------->
+<!--            zone de pieds de page								 -->
+<!--------------------------------------------------------------------->
+<footer>
+
+</footer>
+
+<!--------------------------------------------------------------------->
+<!--            zone javascript										 -->
+<!--------------------------------------------------------------------->
+<script>
+	 /* ici les commentaires sont en javascript ! */
+	 
+	 //			Définition des variables globales
+	 //         ---------------------------------
+	 // symboles utilisables dans les nombres en js
+	  var symboles = "0123456789abcdefghijklmnopqrstuvwxyz";
+	  
+	  // affichage de la valeur numérique des symboles
+function aff () {
+  var lettre = document.getElementById("symbole").value;
+  var pos = symboles.search(lettre.toLowerCase());
+  var affichage = "";
+  if (pos > -1) {
+	 affichage = "Le symbole " + lettre + " code le nombre " + pos; 
+  }
+  else
+  {
+	  affichage = "L'entrée ne doit comporter qu'un seul symbole de 0 à 9 ou de a à Z";
+	  }
+	document.getElementById("demo").innerHTML = affichage;
+}
+
+	// en réserve
+	function myFunction() {
+  var str = "re, greengreen1, greenred, Green, grengreengreengreen, gr, blue, yellow";
+  var patt1 = /(red|green){1,2}/g;
+  var result = str.match(patt1);
+  document.getElementById("demo").innerHTML = result;
+  
+  var obj = /e/.exec("The best things in life are free!");
+document.getElementById("demo").innerHTML +=
+"Found " + obj[0] + " in position " + obj.index + " in the text: " + obj.input ;
+//https://www.w3schools.com/js/tryit.asp?filename=tryjs_regexp_exec
+//https://www.w3schools.com/js/js_regexp.asp
+}
+</script>
+</body>
+</html>

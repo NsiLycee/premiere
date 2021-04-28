@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title> NSI en première : thème A </title>
+	<!-- Les deux lignes suivantes permettent d'insérer une icône à coté 
+	     de l'onglet de la page -->
+	<link rel="shortcut icon" href="icone.png" type="image/x-icon"/>
+	<link rel="icon" href="icone.png" type="image/x-icon"/>
+
+
+	<script src="./sommaire.js"></script>
+	<script language="JavaScript" src="../../../JS/moteurQuiz.js"></script>
+	<script language="JavaScript" src="../../../JS/affichages.js"></script>
+	<script src="fonctTypeBase.js"></script>
+
+	<meta name="author" content="Joël Dendaletche"/>
+	<meta name="created" content="2019-09-02"/>
+	<meta name="changed" content="2019-09-16"/>
+	<meta name="Company" 
+content="Lycée La Découverte Decazeville Aveyron Occitanie Terre"/>
+	<meta name="description" content="programme NSI première">
+	<meta name="keywords" content="Informatique">
+   <!-- la méta-donnée suivante rafraichit l'écran toute les minutes -->
+	<!-- <meta http-equiv="refresh" content="60"> -->
+
+	
+	<!-- feuille de style externe -->
+	<link rel="stylesheet" type="text/css" 
+	      href="../../../programme NSI/styleProgramme.css">
+    <link rel="stylesheet" type="text/css" 
+		  href="../../../CSS/style.css">
+    <link rel="stylesheet" type="text/css" 
+		  href="../../../CSS/numerotationTitres.css">                      
+    <link rel="stylesheet" type="text/css" 
+          href="../../../CSS/ressourcesCachees.css">
+	<link rel="stylesheet" type="text/css"
+	      href="../../../CSS/styleQuiz.css">
+	<link rel="stylesheet" type="text/css"
+	      href="../../../CSS/code.css">
+    <link rel="stylesheet" type="text/css" 
+          href="../../../CSS/simpleMenuHorizontal.css">
+	<!-- Définition du style local de la page : déconseillé ! -->
+	<style>
+	 /* Styles appliqués aux portions de code */
+
+	</style>
+
+</head>
+<!-- la balise body délimite les instructions qui permettront d'afficher 
+le contenu de la page web à l'écran -->
+<body onload="init();" onblur="titre(aurevoir);" 
+	  onfocus="titre(titrePage);">
+	<header>
+<!--------------------------------------------------------------------->
+<nav>
+	<ul class="menu">
+		<li><a href="../../../niveau_1.html">retour à la page NSI</a>
+		</li>
+
+		<li><a href="../../../programmeNSI/cours/themeA/typesBase.html"
+		title="Représentation des données : types et valeurs de base">
+			A : types et valeurs de base</a></li>
+			
+		<li><a 
+		href="../../../programmeNSI/cours/themeB/typesConstruits.html"
+		title="Représentation des données : types construits">
+			B : types construits</a></li> 
+			
+		<li><a 
+	   href="../../../programmeNSI/cours/themeC/traitementDonneesEnTables.html"
+		title="Traitement de données en tables">
+			C : Traitement de données en tables</a></li>
+			
+		<li><a href="../../../programmeNSI/cours/themeD/web2.0.html"
+		title="Interactions entre l’homme et la machine sur le Web 2.0">
+			D : Web 2.0</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeE/systemeLinux.html">
+			E : architecture système</a></li>
+			
+		<li>
+<a href="../../../programmeNSI/cours/themeF/langagesProgrammation.html">
+			F : langages de programmation</a></li>
+
+		<li><a href="../../../programmeNSI/cours/themeG/algorithmique.html">
+			G : algorithmique</a></li>
+			
+		<li><a href="../../../programmeNSI/quiz/entrainementE3C.html">
+			Quiz d'entraînement</a></li>
+		<li><a href="../../../programmeNSI/ressources/ressource_0.html">
+			bonnes pratiques</a>
+		</li> 
+		<li><a href="conversion.html"
+			target="_blank">
+			convertisseur base à base</a>
+		</li> 
+	</ul>
+</nav>
+	</header>
+<!--------------------------------------------------------------------->
+	<section>
+	<!----------------------------------------------------------------->
+	<article>
+
+<h1>Les types de base</h1>
+<h2>Écriture d’un entier positif dans une base b ≥ 2</h2>
+		<div class="niv2">
+	<!----------------------------------------------------------------->
+<h3>Généralités </h3>
+	<details><summary>écriture d'un nombre</summary>
+		<p>Un nombre s'écrit comme une suite de symboles ; le plus à 
+		droite correspond aux unités ; c'est à dire au nombre qui est 
+		multiplié par base<sup>0</sup> = 1</p>
+		<p>Pour écrire un nombre en base n, il faut n symboles ; jusqu'à
+		la base 10, les symboles 0 à 9 sont utilisés, puis au delà les 
+		lettres de l'alphabet (sans tenir compte de la <dfn 
+		title="minuscule ou majuscule">casse</dfn>).</p>
+		<p>Les nombres s'écrivent donc sous la forme :</p>
+		<code>
+		nombre = symbole<sub>n</sub>.base<sup>n</sup>+
+				 symbole<sub>n-1</sub>.base<sup>n-1</sup>+
+				 symbole<sub>n-2</sub>.base<sup>n-2</sup>+ &hellip;
+				 symbole<sub>2</sub>.base<sup>2</sup>+		
+				 symbole<sub>1</sub>.base<sup>1</sup>+					 
+				 symbole<sub>0</sub>.base<sup>0</sup>		 
+		</code>
+	</details>
+<h3>La base 10</h3>
+<p>Les nombres écrits en base 10 utilisent en occident 10 symboles arabes ;
+l'écriture naturelle des nombres se fait dans le même sens que l'écriture arabe : 
+de la droite vers la gauche, en considérant que le symbole de poids 
+faible est le premier que l'on devrait logiquement écrire. Par exemple :
+le nombre 125 désigne 5 unités + 2 dizaines + 1 centaine. <br/>Si vous
+n'êtes pas convaincus <a href="javascript:test();">cliquer ici</a></p>   <!--  enumeration('Dec')     -->
+		<!-- <button onclick="compter('Dec');">test</button> -->
+	<div id="demoDec"></div>
+	
+	<!----------------------------------------------------------------->
+	<h3>La base 2 : nombres binaires</h3>
+	<h4>Généralités</h4>
+		<details><summary>description d'un nombre binaire</summary>
+		<p>Un nombre binaire s'écrit comme une suite de chiffres 0 ou 1; 
+		le plus à droite correspond aux unités ; c'est à dire au nombre 
+		qui est multiplié par 2<sup>0</sup> = 1</p>
+		<p>Pour écrire un nombre en base 2, il faut 2 symboles.</p>
+		<p>Les nombres binaires s'écrivent donc sous la forme :</p>
+		<code>
+		nombre = symbole<sub>n</sub>.base<sup>n</sup>+
+				 symbole<sub>n-1</sub>.base<sup>n-1</sup>+
+				 symbole<sub>n-2</sub>.base<sup>n-2</sup>+ &hellip;
+				 symbole<sub>2</sub>.base<sup>2</sup>+		
+				 symbole<sub>1</sub>.base<sup>1</sup>+					 
+				 symbole<sub>0</sub>.base<sup>0</sup>		 
+		</code>
+		<p>Le bit <b><u>le plus à gauche</u></b> est dit <b><u>de poids 
+		fort</u></b> car il représente la composante la plus grande du 
+		nombre. <br/>Le bit le plus faible est à droite et correspond
+		aux unités.</p>
+	</details>		
+	<!----------------------------------------------------------------->
+	<h4>En python !</h4>
+		<details><summary>les fonctions bin et int</summary>
+	<p>La fonction bin(<mark>nombre</mark>) permet d'écrire un <mark>
+		nombre</mark> dans sa <b><u>représentation binaire</u></b> sous 
+		forme de chaîne de caractère ; par exemple :</p>
+	<p>La fonction int(argument1, argument2) est souvent utilisée uniquement avec le premier argument qui est
+	une chaîne de caractère représentant un nombre entier ; par exemple bin("125") renvoie le nombre entier 125.
+	Le deuxième argument est par défaut le nombre 10 car il précise la base du nombre représenté de
+	l'argument 1. Si on veut convertir un nombre écrit dans un chaîne de caractères en base N (N pouvant prendre des
+	valeurs de 2 à 36), int le converti en nombre décimal ; par exemple int("0b101",2) == int("5") == int("5", 6) égal 5 ;
+	int("coucou", 36) renvoie le nombre 767321022 qui s'écrit "coucou" en base 36 !. </p>
+	<pre>
+<code>
+bin(128)                                                                             <br/>
+'0b10000000'                                                                         <br/>
+bin(1+2+4+8+16+64)      # manque 32 donc manquera le 6ième 1 en partant du bit de poids faible<br/>
+'0b1011111'<br/>
+chaineBin = bin(254)    # chaineBin devient '0b11111110'    255 c'est 8 1 qui se succèdent<br/>
+int( chaineBin , 2 )    # converti chaineBin en décimal (254) ; 2 est la base de chaine Bin<br/>
+254<br/>
+bin( 0b101 - 5)         # l'argument de bin peut être une combinaison de nombres dans différentes bases.<br/>
+'0b0'<br/>
+bin(0b111 - 7 + 0xf)    # 0x est le préfixe d'un hexadécimal<br/>
+15
+</code>
+	</pre>
+	<p><small>N.B. ci-dessus sont représentées tour à tour, les instructions 
+	tapées dans la console python et leur interprétation après le retour
+	à la ligne (entrée ou retour chariot).</small></p>
+	</details>
+	<h4>Opérations bit à bit</h4>
+		<p>Python fournit six opérateurs de base pour agir directement sur les bits des nombres ; pour comprendre, il
+			vaut mieux travailler sur la représentation binaire des nombres :</p>
+		<details><summary>& | ^ ~ » « </summary>
+		<ul>
+			<li>& : 0b1010 & 0b1100 == 0b1000 ; correspond à la fonction logique ET (<i>AND</i>) ;</li>
+			<li>| : 0b1010 | 0b1100 == 0b1110 ; correspond à la fonction logique OU (<i>OR</i>) ;</li>
+			<li>^ : 0b1010 ^ 0b1100 == 0b0110 ; correspond à la fonction logique OU exclusif (<i>XOR</i>) ;/li>
+			<li>~ : ~0b000 == 0b111 correspond à la fonction logique non (<i>NOT</i>) ; </li>
+			<li>» : 0b1010 » 3 == 0b1,01 décale les chiffres de 3 positions vers la droite ;<br/>
+				cela revient dans cet exemple à diviser par 2<sup>3</sup> = 8 le nombre;</li>
+			<li>« : 0b1010 « 4 == 0b10100000 décale les chiffres de 4 positions vers la gauche ;<br/>
+				cela revient dans cet exemple à multiplier par 2<sup>4</sup> = 16 le nombre ;</li>
+		</ul>
+		</details>
+
+	<h5>opérateur (et = <i>and</i>) &amp; </h5>
+
+		<details><summary>opérateur & = et = <i>and</i></summary>
+		<p>Le bit du nombre obtenu est à 1 si les bits de même poids 
+		dans les deux nombres a et b sont à un.</p>
+		<details><summary>Exemples en python : à tester !</summary>
+<pre>    	<code>
+# la fonction bin(nombre) renvoie un str du nombre en binaire<br/>
+bin(0b1111 & 0b1000) # application au masquage (ou pochoir)<br/>
+'0b1000'<br/>
+bin(0xffff & 0xf1f4)<br/>
+'0xf0f0'<br/>
+bin(1+2+4+8+16+64) # manque 32 donc manquera le 6ième 1 en partant du bit de poids faible<br/>
+'0b1011111'<br/>
+#ça marche aussi en direct sur des nombres mais c'est moins évident !<br/>
+7 & 4<br/>
+4<br/>
+bin(7)<br/>
+'0b111'<br/>
+bin(4)<br/>
+'0b100'<br/>
+bin(7 & 4)<br/>
+'0b100'     #CQFD !<br/>
+</code></pre>
+		</details></details>
+    <h5>'|': ou.</h5>
+			<details><summary>opérateur | = ou = <i>or</i></summary>
+				<p>Cet opérateur sert à comparer les bits de même poids (ou rang) dans les deux nombres comparés bit à bit et renvoie 0
+					si et seulement si chaque bit est nul. </p>
+				<details><summary>Exemples en python : à tester !</summary>
+					<pre><code>
+a = 9<br/>
+bin(a)<br/>
+'0b1100'<br/>
+b = 7<br/>
+bin(b)<br/>
+'0b111'<br/>
+bin(a | b)<br/>
+'0b1111'<br/>
+a|b == 15<br/>
+True<br/>
+					</code></pre>
+				</details>
+			</details>
+    <h5>'^': ou exclusif.</h5>
+			<details><summary>opérateur ^ = xor = <i>xor</i></summary>
+				<p>L'opérateur xor effectue une comparaison logique entre les bits de même rang dans deux nombres et
+				applique la fonction xor qui est le ou exclusif ; si un des deux bits est à 1 et l'autre à 0, le
+					résultat comportera un bit à 1 à la même position, sinon 0  ; <br/></p>
+				<details><summary>Exemples en python : à tester !</summary>
+					<pre><code>
+a = 9<br/>
+bin(a)<br/>
+'0b1100'<br/>
+b = 7<br/>
+bin(b)<br/>
+'0b111'<br/>
+bin(a ^ b)<br/>
+'0b1110'<br/>
+a^b == 14<br/>
+True<br/>
+					</code></pre>
+				</details>
+			</details>
+    <h5>'~': inversion des bits .</h5>
+			<details><summary>opérateur ~ = non = <i>not</i></summary>
+				<p>Chaque bit d'un nombre dans sa représentation binaire est inversé, y compris le bit de poids fort
+				qui est le bit de signe ; les 0 deviennent des 1 et vis-versa.</p>
+				<details><summary>Exemples en python : à tester !</summary>
+					<pre><code>
+# l'inversion bit à bit est un complément à 1<br/>
+a = 8<br/>
+bin(a)<br/>
+'0b1000'<br/>
+b = ~a<br/>
+bin(b)<br/>
+'-0b1001'
+b<br/>
+-9<br/>
+# vous remarquerez qu'ici b = -a - 1 c'est à dire que -b = a + 1 d'où a = -1 - b = -(b + 1)<br/>
+b == -a-1 and -b == a+1 and a == -(b+1)<br/>
+True<br/>
+abs(~a+1) == a<br/>
+True<br/>
+# la fonction builtins abs renvoie la valeur absolue ; donc a = |~a + 1|<br/>
+#    ~a + 1 est une opération qui s'appelle "prendre le complément à 2 de a pour obtenir son opposé !<br/>
+#  devinette : que donne a + ~a + 1 ?
+<br/>
+					</code></pre>
+				</details>
+			</details>
+	<h5>'»': décalage de n bit(s) à droite (correspond à une division par 2<sup>n</sup>)</h5>
+			<details><summary>opérateur &gt;&gt; décalage vers la droite</summary>
+				<p>L'opération de s=décalage des bits vers la droite (ou la gauche) est une opération réalisée
+					directement en langage machine dans le <strong title="ALU = Arithmétic and Logic Unit en anglais">
+						<u>processeur logique et arithmétique</u></strong></p> ; c'est donc une opération très rapide
+				pour diviser un entier par une puissance de 2 !
+				<details><summary>Exemples en python : à tester !</summary>
+					<pre><code>
+# division par une puissance de 2 : ici 4<br/>
+a = 8<br/>
+bin(a)<br/>
+'0b1000'<br/>
+a >> 2<br/>
+2<br/>
+#au dela d'une certaine valeur de décalage, le nombre devient 0 ; c'est le résultat de la division entière ou euclidienne<br/>
+a >> 4 == 0<br/>
+True<br/>
+<br/>
+					</code></pre>
+				</details>
+			</details>
+    <h5>'«': décalage de n bit(s) à gauche (correspond à une multiplication par 2<sup>n</sup>)</h5>
+			<details><summary>opérateur &lt;&lt; décalage vers la gauche</summary>
+				<p>L'opération de s=décalage des bits vers la gauche (ou la droite) est une opération réalisée
+					directement en langage machine dans le <strong title="ALU = Arithmétic and Logic Unit en anglais">
+						<u>processeur logique et arithmétique</u></strong></p> ; c'est donc une opération très rapide
+				pour multiplier un entier par une puissance de 2 ! Mais cela peut servir aussi pour multiplier par
+				n'importe quel nombre avec un peu de méthode !
+				<details><summary>Exemples en python : à tester !</summary>
+					<pre><code>
+# multiplication par une puissance de 2 : ici 4<br/>
+a = 8<br/>
+bin(a)<br/>
+'0b1000'<br/>
+a << 2<br/>
+32<br/>
+bin(32)<br/>
+'0b100000'<br/>
+#multiplication par 5 = 4 + 1<br/>
+b = (a << 2) + a<br/>
+b == 5 * a<br/>
+True<br/>
+# Attention ! le décalage est moins prioritaire que l'addition !<br/>
+c = a << 2 + a    # va décaler les bits de a de 2 + 8 = 10 bits !<br/>
+bin(c)<br/>
+'0b10000000000000'<br/>
+					</code></pre>
+				</details>
+			</details>
+
+	</div>
+		<h3>La base 16 : les nombres hexadécimaux</h3>
+		<p>La base 16 est utilisée pour écrire de manière compacte des nombres utilisés en programmation, car ils sont
+		dans un grand nombre de cas des puissances de 2 ; par exemple, les niveaux de couleur dans le système
+			<abbr title="RGB est l'acronyme de red green blue">rgb</abbr> sont souvent codés sur 256 niveaux, soit de 0
+		à 255 ou en hexadécimal de 0x0 à 0xff (en python le préfixe 0x désigne un hexadécimal).</p>
+		<table id="tabConvHex">
+			<script> /* construction du tableau */
+				var texte = "<caption>Table de conversion 16 premiers nombres</caption><tr><th>décimal</th><th>binaire"+
+				"</th><th>hexadécimal</th></tr>";
+				(function () {
+					var li;
+					for (li=0; li < 16; li++) 	{
+						texte += "<tr><td>"+li+"</td>";
+						texte += "<td>"+li.toString(2)+"</td>";         // binaire
+						texte += "<td>"+li.toString(16)+"</td></tr>";   // hexadécimal
+												}
+					document.getElementById("tabConvHex").innerHTML = texte ;
+				} )();
+			</script>
+		</table>
+		<details><summary>exercices</summary>
+			<ol>
+			<li>convertir le binaire 0b10001000 en hexadécimal
+			<details><summary>réponse</summary>
+				<p>0x88</p>
+			</details></li>
+			<li>convertir le binaire 0b1111 1010 1011 1010 en hexadécimal
+			<details><summary>réponse</summary>
+				<p>0xfaba chaque groupe de 4 bits représente un nombre hexadécimal !</p>
+			</details></li>
+			<li>Une couleur peut s'écrire sous la forme d'un nombre à 3 symboles en base 256, le premier symbole
+				représente le niveau de rouge (de 0 à 255), le second le niveau de vert (de 0 à 255) et le dernier le
+				niveau de bleu (de ...), ou bien en utilisant la fonction CSS : rgb(200,255,200) qui code ici pour un
+				vert clair. Coder en hexadécimal la "couleur" blanche = rgb(255,255,255) ; la "couleur" noir =
+				rgb(0,0,0); un gris moyen = rgb(128,128,128) ; du rouge pur = rgb(255,0,0)
+			<details><summary>réponse</summary>
+				<ol>
+					<li>blanc = rgb(255,255,255) = #ffffff ;</li>
+					<li>noir = 	rgb(0,0,0) = #000000</li>
+					<li>gris médian = rgb(128,128,128) = #808080 ; 128 = 0b1000 0000 = 0x80 ;</li>
+					<li>rouge = rgb(255, 0,0) = #ff0000 ;</li>
+				</ol>
+				<table><tr><td>Base :</td><td><label for="compR">R</label>
+						<input id="compR" min="0" max="255" value="128" type="number"
+							   onchange="this.style.background='rgb('+this.value+',128,128)';"/></td></tr>
+					<tr><td>2<input type="radio" name="base"></td><td><label for="compV">V</label>
+						 <input id="compV" min="0" max="255" value="128"  type="number"
+								onchange="this.style.background='rgb(128,'+this.value+',128)';"/></td></tr>
+					<tr><td>16<input type="radio" name="base" checked></td><td><label for="compB">B</label>
+						<input id="compB" min="0" max="255" value="128"  type="number"
+							   onchange="this.style.background='rgb(128,128,'+this.value+')';"/></td></tr>
+					<tr><td ><input type="button" value="mélanger" onclick="affCouleur();"></td>
+						<td id="resultatMelange">-</td></tr>
+				</table>
+				<script>
+				function affCouleur() {
+					var R, G, B;
+					R = document.getElementById("compR").value;
+					document.getElementById("compR").style.background="rgb("+parseInt(R)+","+0+","+0+")";
+					G = document.getElementById("compV").value;
+					B = document.getElementById("compB").value;
+					document.getElementById("resultatMelange").innerHTML = "(R,G,B) = ("+R+","+G+","+B+")";
+					document.getElementById("resultatMelange").background="rgb("+R+","+G+","+B+")";
+					document.getElementById("resultatMelange").color="rgb("+parseInt(255-parseInt(R))+","+parseInt(255-parseInt(G))+","+parseInt(255-parseInt(B))+")";
+				}
+				</script>
+
+			</details></li>
+			</ol>
+		</details>
+		<h2>Représentation des nombres entiers négatifs : complément à 2</h2>
+
+	<div class="niv2">
+
+	</div>
+		<h2>Représentation des nombres en virgule flottante : type float</h2>
+
+	<div class="niv2">
+
+	</div>
+	</article>
+	<!----------------------------------------------------------------->
+	<aside>
+	
+	</aside>
+	</section>
+	<footer>
+		<h1>Ressources</h1>
+		<ul>
+			<li><a href="https://pixees.fr/informatiquelycee/n_site/nsi_prem.html" 
+			target="_blank">cours de première NSI sur pixees.fr</a></li>
+			<li><a href="https://pixees.fr/informatiquelycee/n_site/nsi_term.html" 
+			target="_blank">cours de terminale NSI sur pixees.fr</a></li>
+			<li><a href="https://cache.media.eduscol.education.fr/file/NSI/77/4/RA_Lycee_G_NSI_repd-entiers-naturels_1170774.pdf" 
+			target="_blank">représentation des entiers</a> (pdf du site 
+			eduscol)</li>			
+			<li><a href="http://python.jpvweb.com/python/mesrecettespython/doku.php?id=binaire" 
+			target="_blank">calculs binaires</a></li>			
+			<li><a href="" 
+			target="_blank">----------</a></li>			
+			<li><a href="" 
+			target="_blank">----------</a></li>
+		</ul>
+		<hr/>
+	</footer>
+
+</body>
+</html>

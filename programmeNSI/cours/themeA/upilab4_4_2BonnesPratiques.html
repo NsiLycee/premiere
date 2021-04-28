@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Bonnes pratiques d'écriture en Python</title>
+    	<style>
+	 /* Styles appliqués aux portions de code */
+		.attribut { color : black;
+			font-weight: bold; }
+		.balise { color : purple; }
+		.texte { color : blue ; }
+		.commentaire { color : green; }
+		.motClefPy { color : lightblue; }
+		div.codeHTML {
+			border : 2px solid black;
+			padding : 10px;
+			text-align: left;
+			}
+		.caracteristique {
+			color : red;
+			font-weight: bold;
+		}
+		.valeur {
+		color : orange;
+		}
+		section {
+			display: flex;
+		}
+		article {
+			flex : 4;
+		}
+		section nav {
+			flex : 1;
+		}
+		.15percent { width : 15%; }
+		code {
+			width 		:	80%					;
+			display 	: 	block           	;
+			border 		: 	groove 5px black	;
+			color		: 	white				;
+			background	:	black				;
+			padding		:	15px				;
+			}
+		.test {
+			font-size : 200%;
+			background : lightgray;
+			width 		: 20%;
+		}
+	</style>
+</head>
+<body>
+
+<h1>4.4.2. Code ou programme « propre »</h1>
+<p>QU’EST-CE QU’UN CODE « PROPRE »</p>
+<p>Jusqu’à présent nous avons appris de nouveaux éléments montrant ce qui était possible avec le langage Python.
+Parfois, il faut aussi parler de ce qui est possible mais doit être évité. La parallèle peut être fait avec
+l’apprentissage de la vie en société. C’est bien de savoir que l’on peut bouger, communiquer, et satisfaire ses besoins
+divers, encore faut-il connaître le code de la bonne conduite en société pour ne pas avoir des soucis avec les autres
+ou se faire ostraciser !</p>
+<p>De même, quand un programmeur écrit un code pour résoudre un problème, il faut d’abord que ce code soit correct,
+c’est-à-dire résolve le problème pour toutes les configurations possibles (données, contextes,…). Ensuite il vaut
+mieux que le code soit efficace en prenant le moins de temps possible et en occupant le moins de place mémoire lors de
+son exécution.</p>
+<p>Pour bien programmer, un autre critère essentiel est que le programme ou le code soit « propre » : un code est propre
+s’il a un certain nombre de qualités de lisibilité pour un programmeur, de structuration, s’il est bien commenté, ….
+Python édicte des règles à suivre au mieux lors de l’écriture du code pour que ce dernier soit propre. Libre à chaque
+programmeur de suivre ces règles ou pas. Mais dans ce dernier cas, ne vous étonnez pas que personne ne communique avec
+    vous vu les difficultés pour les autres de comprendre votre code !</p>
+<p>Plus globalement, les recommandations et améliorations pour le langage Python sont répertoriées dans des documents
+appelés PEPs (Python Enhancement Proposals) sur le site officiel https://www.python.org. Chaque PEP porte un numéro.
+Le document intitulé « PEP 8 – Style Guide for Python Code » contient un certain nombre de ces « règles de bonnes
+    pratiques ». Ne pas suivre ces règles peut aboutir à un programme <b>correct</b> et <b>efficace</b>, mais
+    probablement moins propre.
+Ces règles parlent de constantes globales, de convention de codage, de taille des fonctions, de conventions
+typographiques (endroits où l’on met des espaces ou des lignes blanches), … Nous en parlons dans ce module et le
+    suivant, mais donnons directement un exemple de code qui suit ces règles.</p>
+
+<h2>Constantes globales</h2>
+<p>Nous avons vu qu’un programme complet pouvait contenir des définitions de fonctions, du code, des commentaires, mais
+également des importations de fonctions prédéfinies ou de modules complets. Généralement, un programme utilise également
+des valeurs constantes, plus simplement appelées constantes dans le jargon informatique. Ces constantes peuvent être un
+« paramètre » du programme, par exemple le nombre maximum d’éléments à traiter ou une valeur approchée de pi (3.14159…).
+Reprenons le petit jeu proposé dans le module précédent en section 3.3, pour améliorer le code proposé. Si notre
+programme doit deviner un nombre entier entre 0 et 5 que nous avons choisi en utilisant la fonction randint du module
+random, il peut être intéressant de donner un nom aux valeurs minimales et maximales de l’intervalle, et donc de définir
+    des « constantes globales » :</p>
+<code>
+    VALEUR_MIN = 0     <span class="commentaire"># borne inférieure de l'intervalle</span> <br/>
+    VALEUR_MAX = 5     <span class="commentaire"># borne supérieure de l'intervalle</span>
+</code>
+
+<p>Ces constantes seront bien sûr utilisées ensuite tout au long du programme. Un des gros avantages de cette pratique
+est que si plus tard, le programmeur veut changer cet intervalle de valeurs, il lui suffit de corriger ces deux lignes
+    en début du code.</p>
+
+<h2>Structure d’un programme</h2>
+
+<p>Les règles de bonnes pratiques nous demandent qu’un programme complet soit formé dans l’ordre :</p>
+<ul>
+    <li>du docstring initial du programme contenant, le nom de l’auteur, la date d’écriture, une brève explication de
+        ce qu’il fait, des entrées lues et résultats affichés ;</li>
+
+    <li>des éventuels imports de modules ou de parties de modules ;</li>
+
+    <li>des définitions des constantes globales ;</li>
+
+    <li>des définitions des fonctions globales ;</li>
+
+    <li>et enfin du code du traitement principal.</li>
+</ul>
+<p>La découpe du code en fonctions est également importante pour sa clarté. Donnons-en un simple exemple.</p>
+<p><i>Code amélioré du petit jeu de devinette</i> : Continuons avec l’exemple du petit jeu proposé dans le module
+    précédent (section 3.3). Le code suivant vous montre un exemple complet où nous supposons que :</p>
+<ul>
+    <li>la valeur aléatoire est choisie dans l’intervalle [VALEUR_MIN, VALEUR_MAX] ;</li>
+    <li>l’utilisateur propose bien une valeur entière, mais peut se tromper et proposer une valeur en dehors de
+        l’intervalle.</li></ul>
+<p>Par ailleurs, par souci de clarté, nous avons découpé le code grâce à des fonctions :</p>
+<ul><li>    une fonction tirage qui s’occupe du tirage aléatoire ;</li>
+    <li>une fonction entree_utilisateur qui demande à l’utilisateur son choix et redemande si ce dernier ne propose pas
+        un nombre dans l’intervalle ;</li>
+    <li>une fonction affichage_resultat qui affiche à l’écran si l’utilisateur a ou non trouvé le nombre tiré
+        aléatoirement.</li>
+</ul>
+<p>L’exemple qui suit respecte bien l’ordre dans lequel les différents éléments de code doivent être placés : import,
+    définitions de constantes globales, de fonctions et finalement code principal.</p>
+<p>Nous noterons qu’il respecte également les autres règles prescrites dont nous parlerons plus loin.</p>
+<pre><code><span class="commentaire">
+"""
+Petit jeu de devinette (version 2)
+Auteur: Thierry Massart
+Date : 10 octobre 2018
+Petit jeu de devinette d'un nombre entier tiré aléatoirement
+par le programme dans un intervalle donné
+Entrée : le nombre proposé par l'utilisateur
+Résultat : affiche si le nombre proposé est celui tiré
+           aléatoirement
+"""
+
+# importation des modules</span>
+
+    import random   <span class="commentaire"># module le tirage des nombres aléatoires
+
+# Définition des constantes globales</span>
+
+    VALEUR_MIN = 0  <span class="commentaire"># borne inférieure de l'intervalle</span>
+    VALEUR_MAX = 5  <span class="commentaire"># borne supérieure de l'intervalle
+
+# Définition des fonctions</span>
+
+def entree_utilisateur(borne_min, borne_max):<span class="commentaire">
+    """
+    Lecture du nombre entier choisi par l'utilisateur
+    dans l'intervalle [borne_min, borne_max]
+    Entrées : bornes de l'intervalle
+    Résultat : choix de l'utilisateur
+    """</span>
+    message = "Votre choix de valeur entre {0} et {1} : "
+    ok = False   <span class="commentaire"># vrai quand le choix donné est valable</span>
+    while not ok: <span class="commentaire"># répétition tant que le choix n'est pas bon</span>
+        choix = int(input(message.format(borne_min, borne_max)))
+        ok = (borne_min <= choix and choix <= borne_max)
+    if not ok: <span class="commentaire"># entrée hors de l'intervalle</span>
+            print("Hors de l'intervalle ! Donnez une valeur valide")
+    return choix
+
+def tirage(borne_min, borne_max):<span class="commentaire">
+    """
+    Tirage aléatoire d'un entier dans [borne_min, borne_max]
+    """</span>
+    return random.randint(borne_min, borne_max)
+
+def affichage_resultat(secret, choix_utilisateur):<span class="commentaire">
+    """
+    Affiche le résultat
+    """</span>
+    if secret == choix_utilisateur:
+        print("gagné !")
+    else:
+        print("perdu ! La valeur était", secret)
+<span class="commentaire">
+# Code principal</span>
+
+mon_secret = tirage(VALEUR_MIN, VALEUR_MAX)
+choix_util = entree_utilisateur(VALEUR_MIN, VALEUR_MAX)
+affichage_resultat(mon_secret, choix_util)
+
+</code></pre>
+
+<h1>NOTES SUR FORMAT() ET LES F-STRINGS</h1>
+
+<h2>format()</h2>
+
+<p>Le code utilise la fonction (appelée méthode dans le jargon) <mark>format</mark> pour imprimer du texte lors d’un
+    input (ici pour demander le choix de l’utilisateur). Cette méthode peut servir, lors d’un print, à formater les
+    impressions, par exemple si l’on veut imprimer un float avec un certain nombre de chiffres après le point décimal.
+</p>
+<!-- largeur de 80 colonnes -->
+<!--0123456789012345678901234567890123456789012345678901234567890123456789012-->
+<!-- largeur de 120 colonnes -->
+<!--01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012-->
+<p>Notons que l’instruction Python <mark>"Votre choix de valeur entre {0} et {1} : ".format(10, 100)</mark> donne le
+    texte où les « paramètres » <mark>{0}</mark> et <mark>{1}</mark> dans le texte ont été remplacés par les valeurs
+    <mark>10</mark> et <mark>100</mark> donnés en paramètres dans la méthode format.</p>
+<p>Pour voir son effet plus précis, essayez par exemple, dans une console PyCharm ou de votre environnement Python 3 :
+<br/><br/>
+    <mark>print("pi vaut plus ou moins {0:7}".format(3.14))</mark>
+<br/><br/>
+    <mark>print("pi vaut plus ou moins {0:7.4}".format(3.14159265359))</mark>
+<br/><br/>
+    <mark>print("pi vaut plus ou moins {0:07.4}".format(3.14159265359))</mark>
+<br/>
+<p>Si vous désirez avoir une connaissance approfondie de son fonctionnement, reportez-vous au manuel python qui
+    malheureusement est souvent un peu ardu à lire.</p>
+
+<h2>Les f-strings</h2>
+<p>À partir de Python 3.6, la notion de f-string a été introduite pour remplacer avantageusement la méthode <mark>
+    format()</mark>. Voici deux exemples simples d’utilisation d’une f-string. Pour une description complète, nous vous
+    conseillons le <a href="https://www.python.org/dev/peps/pep-0498/">PEP-0498</a> (la source).</p>
+<p>Le premier reprend les trois <mark>print</mark> présentés avec la méthode <mark>format</mark> :</p>
+<pre><code>
+print(f"pi vaut plus ou moins {3.14:7}")
+print(f"pi vaut plus ou moins {3.14159265359:7.2}")
+print(f"pi vaut plus ou moins {3.14159265359:07.4}")
+</code></pre>
+<p>Le deuxième utilise des chaines affectées à des variables :</p>
+<pre><code>
+prenom = input('Donnez le prénom du personnage : ')
+sexe = input('Donnez le sexe du personnage (F/H) : ')
+if sexe == 'H':
+    pronom = 'il'
+else:
+    pronom = 'elle'
+print(f'{prenom} entre en scène ; {pronom} est le principal personnage de cette fiction.')
+</code></pre>
+<pre><code>
+Donnez le prénom du personnage : Alice
+Donnez le sexe du personnage (F/H) : F
+Alice entre en scène ; elle est le principal personnage de cette fiction.
+</code></pre>
+<p>Une f-string consiste donc en une chaîne de caractères qui commence par un <mark>f</mark> ou un <mark>F</mark>
+<b>avant</b> le guillemet ou le quote simple et qui contient, en plus de votre texte, des marqueurs <mark>{  }</mark>.
+Le marqueur va contenir, une expression que Python sait évaluer ainsi que des informations de formattage pour la valeur
+calculée.</p>
+
+<p>La syntaxe générale est la suivante :</p>
+<pre><code>
+f' &lt;texte&gt; { &lt;expression/variable&gt; : &lt;format&gt; } &lt;texte&gt; ... '
+</code></pre><
+<p>Pour des nombres à virgule, le format est sous cette forme (les crochets signifient que les indications sont
+optionnelles) :</p>
+<pre><code>
+[alignement][signe][largeur][groupage][+precision][type]
+</code></pre>
+<ul>
+    <li>alignement : détermine l’alignement du nombre<ul>
+
+        <li><mark>&gt;</mark> aligne à droite (valeur par défaut)</li>
+
+        <li><mark>&lt;</mark> aligne à gauche</li>
+
+        <li><mark>^</mark> centre</li>
+
+        <li><mark>=</mark> aligne le signe à gauche et le nombre à droite</li></ul></li>
+
+    <li>signe : détermine l’affichage du signe<ul>
+
+        <li><mark>-</mark> seul le signe <mark>-</mark> est affiché (valeur par défaut)</li>
+
+        <li><mark>+</mark> les signes <mark>+</mark> et <mark>-</mark> sont affichés</li></ul></li>
+
+    <li>largeur : détermine le nombre de caractères de la chaîne finale</li>
+
+    <li>groupage : détermine le symbole de séparation des milliers (par défaut il n’y a pas de séparation)<ul>
+
+        <li><mark>_</mark></li>
+
+        <li><mark>,</mark></li>     </ul></li>
+
+    <li>type : détermine le mode d’affichage du flottant<ul>
+
+        <li><mark>e</mark> ou <mark>E</mark> pour une notation scientifique</li>
+
+        <li><mark>f</mark> ou <mark>F</mark> pour une notation classique</li></ul></li>
+</ul>
+<pre><code>
+print('\ndes flottants')
+print(f'{3.14128: f}')
+print(f'{-0.7888:.2f}')
+
+print('\ndes entiers')
+print(f'{123:=+10}')
+print(f'{12998788:=+10}')
+</code></pre>
+<pre><code>
+des flottants
+ 3.141280
+-0.79
+
+des entiers
++      123
++ 12998788
+</code></pre>
+
+
+<h1>4.4.3. Quelques éléments supplémentaires</h1>
+<h2>ENCORE QUELQUES CONVENTIONS DE CODAGE</h2>
+
+<p>Rajoutons quelques règles de bonnes pratiques pour avoir un code « propre ». Nous avons déjà vu que parmi celles-ci :
+</p><ul>
+    <li>une convention habituelle en Python pour choisir un nom à une variable ou à une fonction est que ce nom soit
+        formé de lettres alphabétiques en minuscules, de chiffres ou du caractère souligné '_' et qu’elle évoque le
+        contenu qu’elle représente. Par exemple, resultat_final est un nom de variable correct pour recevoir un
+        résultat ;    </li>
+    <li>si on définit une constante, c’est-à-dire que l’on donne un nom à une valeur que l’on ne modifie pas tout au
+        long de l’exécution du programme, la convention pour donner un nom à cette constante est d’utiliser des
+        majuscules et le caractère souligné, par exemple DIM_MAX = 100 définit la constante DIM_MAX (on suppose que le
+        programmeur ne réassigne pas une autre valeur à DIM_MAX ailleurs dans le programme).</li>
+</ul>
+<p>En matière de bonnes pratiques, voici encore quelques éléments indispensables :</p>
+<p><strong>Indentation</strong> : La règle simple est d’ajouter 4 caractères pour chaque nouvelle indentation plutôt que
+    d’utiliser la tabulation. Un bon éditeur de script, par exemple celui fourni dans PyCharm, vous aidera grandement
+    pour cela en faisant la plupart du travail automatiquement.</p>
+<p><strong>Lignes de continuation</strong> : Les lignes doivent avoir moins de 79 caractères (72 pour les Doscstrings).
+    Les blocs de texte plus longs s’écrivent sur plusieurs lignes. Il se peut que le caractère de continuation
+    anti-slash (en anglais backslash) '\' en fin de ligne soit nécessaire, même si la plupart du temps, ce caractère de
+    continuation peut être évité quand l’interpréteur sait que l’instruction ou l’expression sur la ligne a une suite.
+</p>
+<p>Par exemple, ayant dans une console Python :</p>
+
+<pre><code>&gt;&gt;&gt; ma_variable_dont_le_nom_est_trop_long = 0</code></pre>
+
+<p>si nous voulons incrémenter cette variable, la ligne suivante donnera une erreur de syntaxe :</p>
+
+<pre><code>&gt;&gt;&gt; ma_variable_dont_le_nom_est_trop_long = ma_variable_dont_le_nom_est_trop_long +
+... 1
+File "&lt;ipython-input-3-be9f0e911bbc&gt;", line 1
+ma_variable_dont_le_nom_est_trop_long = ma_variable_dont_le_nom_est_trop_long +
+                                                                               ^
+SyntaxError: invalid syntax</code></pre>
+
+<p>Une solution simple est d’ajouter des parenthèses à l’expression à droite :</p>
+
+<pre><code>&gt;&gt;&gt; ma_variable_dont_le_nom_est_trop_long = (ma_variable_dont_le_nom_est_trop_long +
+...                                         1)
+</code></pre>
+<p>ou le caractère de continuation :</p>
+
+<pre><code>&gt;&gt;&gt; ma_variable_dont_le_nom_est_trop_long = ma_variable_dont_le_nom_est_trop_long + \
+    ...  1</code></pre>
+
+    <p>ou plus simplement utiliser l’opérateur d’incrémentation :</p>
+
+    <pre><code>&gt;&gt;&gt; ma_variable_dont_le_nom_est_trop_long += 1</code></pre>
+
+<p><strong>Lignes blanches</strong> : Les règles de bonnes pratiques conseillent de mettre deux lignes blanches avant
+    et entre chacune des définitions de fonction globales et une ligne blanche pour mettre en évidence une nouvelle
+    partie dans une fonction.</p>
+    <h2>DÉFINITION DE FONCTIONS IMBRIQUÉES</h2>
+
+<p>Une dernière remarque dans cette activité : en Python, une fonction fun_2 peut être définie à l’intérieur d’une
+    autre fonction fun_1 à condition que fun_2 soit locale à fun_1, c’est-à-dire utilisée uniquement lors du traitement
+    de fun_1. Par exemple, dans la fonction pgcd(x, y), on pourrait définir la fonction suivant (même si dans ce cas,
+    cela ne simplifie pas fort le code) comme suit :</p>
+<pre><code>
+def pgcd(x, y):
+    <span class="commentaire">""" calcule le plus grand commun diviseur de deux entier positifs """</span>
+
+    def suivant(x, y):
+    <span class="commentaire">""" calcule le couple de valeurs suivantes dans pgcd """</span>
+        return (y, x%y)
+
+    <span class="commentaire"># code de pgcd</span>
+    while y > 0:
+        x, y = suivant(x, y)
+    return x
+</code></pre>
+<p>La fonction suivant n’est utilisée que par pgcd : en dehors de l’exécution de pgcd, suivant n’existe pas. Notons
+    que certains langages de programmation connus, tels que les langages C, C++, Java, ne supportent pas les définitions
+    de fonctions imbriquées.</p>
+
+<h1>4.4.4. Petit manuel des règles de bonnes pratiques</h1>
+<h2>PETIT MANUEL À AVOIR À PORTÉE DE CLAVIER</h2>
+
+<p>Vous n’avez évidemment pas vu toutes les notions utiles pour écrire un programme Python. Et probablement vous n’avez
+pas intégré toutes les règles que nous venons de présenter. Ce n’est pas grave ! Pour vous aider, voici un petit manuel
+que vous pouvez télécharger en cliquant sur le lien Quelques bonnes pratiques de programmation (Python), qui donne les
+    règles de bonnes pratiques que nous voudrions que vous respectiez pour coder proprement vos programmes Python.</p>
+
+<p>Pourquoi ne pas imprimer cette page pour toujours l’avoir sous la main quand vous écrirez du code ?</p>
+
+<p>Ce manuel d’une page est découpé en cinq parties :</p><ol>
+
+    <li>traduction d’un problème en programme ;</li>
+
+    <li>programmation ;</li>
+
+    <li>nommage de variables, fonctions, etc. ;</li>
+
+    <li>documentation du code ;</li>
+
+    <li>structure globale d’un programme.</li>
+</ol>
+<p>Chaque partie de ce manuel est essentielle et doit être suivie pour veiller à obtenir le code le plus lisible
+    possible.</p>
+<ul>
+    <li>La traduction d’un problème en programme passe par une phase d’analyse et est suivie de codage où il faut
+        choisir les fonctions que nous désirons définir et utiliser.</li>
+
+    <li>La partie programmation parle de style de programmation et de quelques erreurs classiques à éviter.</li>
+
+    <li>Nous avons déjà parlé de conventions de nommage des variables, des fonctions, etc.</li>
+
+   <li> La documentation du code signifie que, dans vos programmes, vous devez mettre des commentaires (docstrings ou
+       commentaires en fin de ligne, …) pour que, si quelqu’un ou même vous, plus tard, relisez le code, il sera facile
+       de comprendre ce qu’il fait. La documentation est donc inutile pour l’ordinateur, et en particulier pour
+       l’interpréteur, mais est bien utile pour les pauvres humains que nous sommes qui essayons de comprendre ce
+       que fait un code !</li>
+
+    <li>Enfin, la dernière partie rappelle et illustre la structure globale d’un programme.
+</ul><p>Ce petit manuel est également donné ci-dessous : à vous de lire et d’apprendre l’ensemble des consignes !</p>
+<p>Une dernière bonne nouvelle : l’éditeur de script PyCharm intègre la plupart de ces règles et vous indique là où il
+    considère que vous ne les respectez pas.</p>
+
+
+<h1>4.4.5. La règle du return unique et les instructions dont on ne veut pas prononcer le nom</h1>
+<h2>RÈGLES POUR NE PAS ENTRER PAR LA PORTE ET SORTIR PAR LA FENÊTRE</h2>
+
+<p>Pour ceux, comme vous probablement, qui débutent l’apprentissage de la programmation, nous avons l’habitude de
+rajouter quelques « règles de bonnes pratiques » supplémentaires. Certaines de ces règles peuvent être assouplies pour
+    les programmeurs avertis qui n’ont plus besoin de « guide » pour bien coder.</p>
+<p>Ces règles obligent les codes à respecter l’ordre « normal » d’exécution. Par exemple, si le code contient une
+instruction « if », « while » ou « for » ou une séquence d’instructions, il nous semble important pour bien comprendre
+la logique du code, de ne pas interrompre ce code en plein milieu.</p>
+<p>Malheureusement la plupart des langages de programmation dits « impératifs » comme Python permet de déroger à
+cette règle en offrant au programmeur certaines instructions de « rupture de séquence ». Nous ne vous en avons pas
+parlé puisque nous ne voulons pas que vous les utilisiez ! Nous comparons souvent l’utilisation de ce type
+    d’instructions, à quelqu’un qui visite une maison et qui en sort par la fenêtre : ce n’est pas très poli !</p>
+<p>En fait au sein des fonctions, nous vous avons parlé d’une de ces instructions : l’instruction return. Elle permet
+de sortir d’une instance de fonction pour revenir au code appelant. Le fonctionnement de Python oblige de terminer
+l’exécution de toute fonction par un return explicite si l’on veut renvoyer une valeur précise, ou implicite si la
+fonction renvoie la valeur None. Il n’est donc pas question de proscrire l’instruction return, mais bien de la cadrer
+    de façon précise.</p>
+
+<p>La règle de bonne pratique que nous voulons que vous respectiez est la suivante :</p><ul>
+
+    <li>Une fonction de type None ne doit pas contenir de return.</li>
+
+    <li>Une fonction d’un type différent de None ne doit contenir qu’un seul return avec le résultat, et ce return doit
+être placé comme dernière instruction de cette fonction en dehors de toute instruction composée (if, while, for, …).</li>
+</ul>
+<p>Habituez-vous à respecter cette règle qui vous permet d’écrire du code plus « propre » : ce n’est pas si difficile !
+</p>
+<p>Et pourquoi ne pas reprendre vos codes UpyLaB précédents et s’ils ne suivent pas les règles de bonnes pratiques de
+    codage, les corriger ?</p>
+
+<h2>LE PEP 20 EN MODE MONTY PYTHON (PARTIE OPTIONNELLE)</h2>
+<p>Parmi les recommandations et améliorations pour le langage Python, répertoriées dans les PEPs (Python Enhancement
+    Proposals), nous trouvons le PEP 20. Le PEP 20 résume les 20 aphorismes (dont seulement 19 ont été rédigés)
+    utilisés par Guido van Rossum, le BDFL Python (Benevolent Dictator for Life) jusqu'en 2018, pour concevoir le
+    langage lui-même.</p>
+<p>(Note: Le dictionnaire Larousse définit aphorisme par : phrase, sentence qui résume en quelques mots une vérité
+    fondamentale. (Exemple : Rien n’est beau que le vrai.))</p>
+<p>La lecture du PEP 20 est assez hermétique pour les programmeurs débutants ; ne vous arrêtez donc pas à cela. Si vous
+    êtes quand même curieux de son contenu (en anglais) ouvrez une console Python et tapez la commande :</p>
+<pre><code>
+import this
+</code></pre>
+<p>qui vous dévoilera son contenu inspiré par l’humour absurde des Monty Python dont Guido van Rossum était féru.</p>
+
+</body>
+</html>
