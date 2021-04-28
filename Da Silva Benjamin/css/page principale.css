@@ -1,0 +1,44 @@
+body {
+			background: url("../image/fond/fond-decran-bleu-hd-13.jpg")  no-repeat fixed center ;
+						}
+						
+.pot {
+	width:34px;
+	height:50px;
+	}
+.pot-2 {
+	width:100px;
+	height:100px;
+	}
+.pot-3 {
+	width:50px;
+	height:50px;
+	}
+	
+.redstone {
+	width:50px;
+	height:50px;
+	}
+.creeper {
+	width:100px;
+	height:200px;
+	}
+.sorcière {
+	width:90px;
+	height:200px;
+	}
+.ghast {
+	width:180px;
+	height:200px;
+	}
+.tableau{
+	border-collapse: collapse;
+
+}
+	
+.tableau, td {
+	border: 1px solid black;
+
+}
+	
+	
