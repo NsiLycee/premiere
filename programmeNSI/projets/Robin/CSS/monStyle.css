@@ -1,0 +1,136 @@
+
+
+body {
+margin-left: 0;
+margin-top: 0;
+margin-right: 0;
+margin-bottom: 0;
+}
+
+header {
+    background-color: red;
+    padding: 30px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+}
+
+h2 {
+	color:red;
+	font-size: 25px;
+	text-align:center;
+}
+
+article {
+    background-color: yellow;
+    padding: 30px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+    margin:0px;
+}
+
+section {
+    background-color: yellow;
+    padding: 30px;
+    font-size: 22px;
+    font-style:bold;
+    color: black;
+}
+
+li{
+	color:red;
+}
+
+h3{
+	color:red;
+	text-decoration: underline;
+}
+
+a{
+  color:red;
+}
+
+footer {
+    background-color: red;
+    padding: 30px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
+table, td {
+  border: 6px solid black;
+  border-collapse: collapse;
+}
+
+
+
+/*Ce code vient de ce site http://www.frogweb.fr/menu-deroulant-horizontal/  */
+#menu-deroulant, #menu-deroulant ul{
+padding:0;
+margin:0;
+list-style:none;
+text-align:center;
+}
+#menu-deroulant li{
+display:inline-block;
+position:relative;
+border-radius:8px 8px 0 0;
+}
+#menu-deroulant ul li{
+display:inherit;
+border-radius:0;
+}
+#menu-deroulant ul li:hover{
+border-radius:0;
+}
+#menu-deroulant ul li:last-child{
+border-radius:0 0 8px 8px;
+}
+#menu-deroulant ul{
+position:absolute;
+z-index: 1000;
+max-height:0;
+left: 0;
+right: 0;
+overflow:hidden;
+-moz-transition: .8s all .3s;
+-webkit-transition: .8s all .3s;
+transition: .8s all .3s;
+}
+#menu-deroulant li:hover ul{
+max-height:15em;
+}
+/* background des liens menus */
+#menu-deroulant li:first-child{
+background-color: red;
+background-image:-webkit-linear-gradient(top, #65537A 0%, #2A2333 100%);
+background-image:linear-gradient(to bottom, #65537A 0%, #2A2333 100%);
+}
+/* background des liens sous menus */
+#menu-deroulant li:first-child li{
+background:red;
+}
+/* background des liens menus et sous menus au survol */
+#menu-deroulant li:first-child:hover, #menu-deroulant li:first-child li:hover{
+background:red;
+}
+/* les a href */
+#menu-deroulant a{
+text-decoration:none;
+display:block;
+padding:8px 32px;
+color:#fff;
+font-family:arial;
+}
+#menu-deroulant ul a{
+padding:8px 0;
+}
+#menu-deroulant li:hover li a{
+color:#fff;
+text-transform:inherit;
+}
+#menu-deroulant li:hover a, #menu-deroulant li li:hover a{
+color:#000;
+}

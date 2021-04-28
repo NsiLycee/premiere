@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html> <!-- cette balise indique où commence le code html de la page -->   <!-- -->
+<head> <!-- ceci est la balise qui délimite l'entête de la page qui traite les paramètres d'environnement de la page web -->
+	<!-- meta est une balise précisant une méta donnée ; une meta donnée est une donnée sur les données  -->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<meta name="author" content="Robin Alonzo"/>
+	<meta name="created" content="19/01/202"/>
+	<meta name="changed" content="date de révision"/>
+	<meta name="Company" content="Lycée La Découverte Decazeville 12300 Aveyron Occitanie France Terre"/>
+	<meta name="keywords" content="référencement, SEO, balise meta keywords" />
+
+	<!-- Définition du style de la page qui se trouve dans un fichier externe qui s'appelle monStyle.css -->
+	<link rel="stylesheet" href="css/monStyle.css" />
+	<link rel="shortcut icon" href="img/logo.ico" type="image/x-icon"/>
+    <link rel="icon" href="img/logo.ico" type="image/x-icon"/>
+
+    <title>Centre de secours de Champerret</title>
+
+    <script src="exemple.js"> </script> <!-- Cette ligne permet d'inclure un code en java script qui est dans le fichier exemple.js -->
+	<script> var moi = "Champerret" ; // ne pas oublier le point virgule 
+	
+	function afficheMonNom ( nom, nb )
+	{ //ceci defini le début du bloc d'instruction
+		var phrase = " " ;
+		for (var i=0 ; i<nb;i++) {
+			phrase += nom + " " ;
+		}
+		alert("Le centre de secours de" + phrase ) ; 
+	} // le + permet de concaténer deux textes = sting ou chaine de caractères 
+		
+		// ici j'utilise la foncton
+		afficheMonNom (moi, 1) ;
+	</script>
+	
+</head>
+
+<!-- Début du corps de page --> 
+<body> 
+	<!--Le menu déroulant vient de ce site http://www.frogweb.fr/menu-deroulant-horizontal/  -->
+<ul id="menu-deroulant">
+	<li><a href="#">Sommaire</a>
+		<ul>
+			<li><a href="index.html" target="_blank">Acceuil</a></li>
+			<li><a href="champerret.html" target="_blank">CS Champerret</a></li>
+			<li><a href="portroyal.html" target="_blank">CS Port Royal</a></li>
+		</ul>
+	</li>
+</ul>
+
+
+
+
+
+	<header>
+		<h1>Le Centre de Secours de Champerret</h1>
+		<img src="img/logodcpj.jpg" height="100" width="100" style="float:left";/>
+		<img src="img/logo.png" height="100" width="100" style="float:right";/>
+    </header>
+	
+    <section>
+			<h2><u>Sommmaire CS Champerret</u></h2>
+				<ol type="I">
+  					<li><a href="#véhicules">Les véhicules</a></li>
+  						<ol type="1">
+  							<li><a href="#fa29">Fourgon Appui 29</a></li>
+  							<li><a href="#spvl">SPVL 210</a></li>
+  						</ol>	
+  					<li><a href="#personnel">Le personnel</a></li>
+				</ol>
+				
+			<h2 id="véhicules"><u>Les véhicules</u></h2>
+				<h3 id="fa29">I.Le fourgon d'appui 29</h3>
+					<img src="img/fa29.png" height="auto" width="auto"/>		
+				<h3 id="spvl">II.SPVL 210</h3>
+					<img src="img/spvlchamp.png" height="auto" width="auto"/>
+					
+			<h2 id="personnel"><u>Le personnel de Champerret</u></h2>		
+                <table>
+                  <tr>
+                    <td>&nbsp;</td>
+                    <td>Damien Bourget</td>
+                    <td>Romain Torn</td>
+                    <td>Valentin Urbaniak</td>
+                  </tr>
+                  <tr>
+                    <td>Grade</td>
+                    <td>Capitaine </br><img src="img/capitaine.jpg" height="50" width="50"/></td> 
+                    <td>Capitaine </br><img src="img/capitaine.jpg" height="50" width="50"/></td>
+                    <td>Lieutenant </br><img src="img/lieutenant.jpg" height="50" width="50"/></td>
+                  </tr>
+                  <tr>
+                    <td>Fonction</td>
+                    <td>Commandant 3ème compagnie</br>
+    	                Officier PC 18ème compagnie</br>
+    	                OGC 3ème compagnie</br>
+                    </td>
+                    <td>
+    	                Officier du service santé</br>
+    	                OGC 3ème compagnie</br>
+                    </td>
+                    <td>
+    	                Officier RH 3ème compagnie</br>
+    	                OGC 3ème compagnie</br>
+                    </td>
+                </table>
+    </section>    	
+	<footer>
+		<p>Copyright &copy; 2020 Robin Alonzo</p>
+    </footer>
+</body>
+</html>
