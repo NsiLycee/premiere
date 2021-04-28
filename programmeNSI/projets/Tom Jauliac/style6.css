@@ -1,0 +1,24 @@
+body
+{
+    background-image: url("espace5.png");
+    background-attachment: fixed;
+}
+p,li,ul,a,  label,ol
+{
+    color: white;
+    font-family: sans-serif;
+}
+h1,h2,h3
+{
+    color: red;
+    font-family: sans-serif;
+}
+form {
+   	border : groove 10px orange;
+    padding : 10px;
+    font-family: sans-serif;
+}
+textarea {
+    width: 75%;
+    height: 150px
+}

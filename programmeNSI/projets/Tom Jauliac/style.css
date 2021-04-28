@@ -1,0 +1,19 @@
+p,li,a,ol,ul
+{
+    color: white;
+    font-family: sans-serif;
+} /* ecriture en blanche*/
+h1,h2
+{
+    color: red;
+    font-family: sans-serif;
+}/* titre en rouge*/
+
+/* On travaille sur la balise body, donc sur TOUTE la page */
+body
+{
+    background-color: black; /* Le fond de la page sera noir */
+}
+a{
+    color: green;
+}

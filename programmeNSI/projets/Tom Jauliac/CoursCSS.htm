@@ -1,0 +1,220 @@
+<!-- Created: 03/11/2020 by Tom Jauliac -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional/EN">
+<html>
+
+  <head>
+
+    <title>Créer un menu en CSS</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style6.css" />
+    <style>
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          background-color: white;
+        }
+
+        li a {
+          display: block;
+          color: #000;
+          padding: 8px 100px;
+          text-decoration: none;
+        }
+
+        li a:hover {
+          background-color: black;
+          color: white;
+        }
+        </style>
+
+    </head>
+
+    <script>
+
+        // ceci est une zone javascript /* commentaire long */
+        function afficherResultats ()
+        {	// entrées
+        	var prenom = document.getElementById("prenom").value;
+            var nom = document.getElementById("nom").value;
+            // sortie : affichage des informations du formulaire
+            document.getElementById("info").innerHTML = "Merci d'avoir pris du temps pour mon site " + prenom + "  " + nom + " !";
+        }
+    </script>
+
+    <body>
+
+    <header> <!-- cette balise est le haut de la page, l'en tête -->
+
+  <h2 id="haut de page">Liens menant aux différentes parties du cours :</h2>
+        <nav> <!-- ceci est une section ayant des liens vers les autres parties
+        du site web -->
+            <ul> <!-- cete balise introduit la liste -->
+                <li><a href="BouclesPython.htm">Boucles Python</a></li>
+                <li><a href="basespython.htm">Bases Python</a></li>
+                <li><a href="exopython.htm">Exercice Décomposition</a></li>
+                <li><a href="CoursCSS.htm">Création Menu CSS</a></li>
+                <li><a href="types indexables python.htm">Types Indexables Python</a></li>
+                <li><a href="jodenda.free.fr">Site JoeDenda</a></li>
+                <li><a href="https://www.w3schools.com/">w3schools</a></li>
+                <li><a href="index.htm">Retour à l'acceuil</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+  <h1>Présentation d'un cours sur la création de munu en CSS</h1>
+
+  <h1>Sommaire</h1>
+
+    <a href="#partie une"><b>Code HTML</b></a><br>
+    <a href="#partie deux"><b>Menu Vertical</b></a><br>
+    <a href="#partie trois"><b>Menu Horizontal</b></a><br>
+    &nbsp;&nbsp;&nbsp;<a href="#partie quatres"><b>Mode de rendu "en-ligne"</b></a><br>
+    &nbsp;&nbsp;&nbsp;<a href="#partie cinq"><b>Items flottants</b></a><br>
+
+  <h1 id="partie une">Code HTML</h1>
+
+    <p>Comme toujours, le choix des balises html doit être guidé par la nature du contenu qu'on souhaite y placer. Dans le cas d'un menu, la question est un peu délicate,<br> dans la mesure où il n'existe pas de balise spécifique pour désigner un ensemble de liens.<br>
+
+    Un point de vue largement répandu consiste à considérer le menu de navigation comme une liste de liens, et donc à utiliser la balise correspondant aux listes non ordonnées, < ul >.<br>
+
+    Par exemple, pour un menu comportant 5 items:<br><br>
+    <img src="cssmenu.jpg"><br><br>
+    Remarquez l'identifiant placé sur la balise < ul >. C'est tout ce dont on a besoin accéder aux différents éléments du menu et pour les modifier dans la feuille de style.<br>
+
+    S'il s'agit d'une liste de liens de navigation en HTML5, pensez à ajouter les balises < nav > et < /nav > autour de la liste < ul >.<br>
+
+    Capture d'écran du résultat:<br><br>
+    <img src="cssmenu2.jpg"><br></p>
+
+  <h1 id="partie deux">Menu Vertical</h1>
+
+    <p>On va limiter la largeur du menu à une valeur donnée (200px), supprimer les marges et padding par défaut ainsi que la puce des éléments:<br><br>
+    <img src="cssmenu3.jpg"><br><br>
+    Capture d'écran du résultat:<br><br>
+    <img src="cssmenu4.jpg"><br><br>
+    Il est nécessaire de supprimer les marges et les padding pour obtenir le même rendu dans tous les navigateurs. En effet, les valeurs par défaut de ces propriétés ne sont pas les mêmes dans Firefox, Opera ou IE.<br>
+
+    Par défaut, les éléments de liste ont un comportement de type bloc: ils s'empilent les uns sur les autres et occupent toute la largeur disponible. La disposition des éléments est donc déjà correcte.<br>
+
+    On va donner une bordure, une couleur de fond et une couleur de texte aux éléments < li >:<br><br>
+    <img src="cssmenu5.jpg"><br><br>
+    Capture d'écran du résultat:<br><br>
+    <img src="cssmenu6.jpg"><br><br>
+    N'oubliez pas de choisir des couleurs de fond et de texte compatibles, et ce même si vous avez prévu d'employer une image de fond !<br>
+
+    Pour que les éléments du menu réagissent comme des boutons au passage de la souris, il faut faire en sorte que les liens occupent tout l'espace à l'intérieur des < li >:<br><br>
+    <img src="cssmenu7.jpg"><br><br>
+    Au passage, on a modifié la police de caractères, l'alignement du texte, on a supprimé le soulignement des liens et on a ajouté des padding en haut et en bas pour "aérer" le menu, tout en positionnant le texte au milieu.<br>
+
+    Il ne reste plus qu'à faire en sorte que les liens réagissent au passage de la souris ou lorsqu'ils reçoivent le focus (pour ceux qui naviguent au clavier):<br><br>
+    <img src="cssmenu8.jpg"><br><br>
+    Capture d'écran du résultat:<br><br>
+    <img src="cssmenu9.jpg"><br><br>
+    Avec les anciennes versions d'Internet Explorer, les < li > sont parfois séparés par des espaces importants, sans raison apparente.<br>
+    Les causes de ce désagrément, ainsi que les solutions, sont décrites dans <a href="https://www.alsacreations.com/article/lire/626-impact-rendu-indentation-code.html">cet article</a>.
+    </p>
+
+  <h1 id="partie trois">Menu Horizontal</h1>
+
+    <p>Cette fois, il faut modifier le comportement par défaut des < li > : ils ne doivent plus s'empiler, mais se placer les uns à côté des autres. Il y a deux approches possibles pour y parvenir.</p>
+
+  <h2 id="partie quatres">Mode de rendu "en-ligne"</h2>
+
+    <p>On peut modifier le mode d'affichage pour que les < li > s'affichent comme des éléments de type "inline":<br><br>
+    <img src="cssmenu10.jpg"><br><br>
+    Les éléments du menu se comportent maintenant comme du texte "normal".<br>
+
+    Capture d'écran du résultat:<br><br>
+    <img src="cssmenu11.jpg"><br><br>
+    Cette méthode permet de réaliser facilement un menu de navigation aligné à droite ou centré, et évite de sortir les < li > du flux de la page (on verra plus loin quelques ennuis liés à la sortie de ces éléments du flux).<br>
+    De plus, la largeur des éléments du menu s'adapte automatiquement à la taille du texte.<br>
+
+    Malheureusement, en procédant de cette façon, on ne peut plus contrôler les hauteurs et largeurs des < li >, on ne peut agir que sur les padding et sur l'interlignage.<br>
+
+    Un exemple de menu centré:<br><br>
+    <img src="cssmenu12.jpg"><br><br>
+    On supprime les marges, padding et puces de la même manière que pour le menu vertical. La propriété <img src="cssmenu14.jpg">aura pour effet de centrer toutes les balises de type inline à l'intérieur de la liste.<br><br>
+    <img src="cssmenu13.jpg"><br><br>
+    On modifie le rendu des éléments de liste, et on ajoute couleur de fond, couleur du texte et bordures.<br><br>
+    <img src="cssmenu15.jpg"><br><br>
+    Attention, il ne faut pas utiliser display: block sur les liens, sinon ils vont étirer les éléments de liste sur toute la largeur disponible,<br> les obligeant à se superposer! On peut les agrandir en utilisant les valeurs de padding.<br><br>
+    <img src="cssmenu1.jpg"><br><br>
+    Le comportement réactif des liens est obtenu de la même façon que pour le menu vertical.<br>
+    <a href="https://www.alsacreations.com/xmedia/tuto/exemples/menunew/menu2.html">Voir le résultat</a>
+    </p>
+
+  <h2 id="partie cinq">Items flottants</h2>
+
+    <p>Une autre possibilité est de faire "flotter" les éléments avec la propriété CSS float :<br><br>
+    <img src="cssmenu17.jpg"><br><br>
+    Dans ce cas, les < li > restent de type bloc, et on peut encore les dimensionner. Par contre, ils sont sortis du flux de la page, et la propriété text-align n'aura plus d'effet sur eux.<br>
+    Cette méthode ne sera donc utile que lorsqu'on désire obtenir des éléments de menu de mêmes dimensions.<br>
+
+    Toujours à partir du même code XHTML, on peut construire un menu de ce type:<br><br>
+    <img src="cssmenu18.jpg"><br><br>
+    Suppression des marges, padding et puces. La routine ;)<br><br>
+    <img src="cssmenu19.jpg"><br><br>
+    On fait "flotter" les < li > et on leur donne une largeur. Attention à laisser suffisament d'espace pour que le texte du lien puisse être agrandi confortablement par l'utilisateur !<br>
+
+    Le rendu des liens se modifie exactement comme pour le menu vertical:<br><br>
+    <img src="cssmenu20.jpg"><br><br>
+    Si on insère du texte dans la page juste en dessous du menu et que celui-ci n'occupe pas toute la largeur, on observe que le texte vient se placer à côté du menu, au lieu de rester sagement en-dessous !<br>
+
+    C'est à cause des flottants: en utilisant la propriété float: left, on a sorti les < li > du flux de la page. Ils n'interviennent dès lors plus dans le calcul de la hauteur de la liste < ul >.<br> Comme celle-ci ne contient rien d'autre, sa hauteur est donc nulle. Oups.<br><br>
+
+    Il y a (au moins) 3 solutions:<br><br>
+
+    1) appliquer clear: left à l'élément qui suit directement le menu dans le code html.<br>
+    2) forcer la liste à occuper une hauteur suffisante :<br><br>
+    <img src="cssmenu21.jpg"><br><br>
+    mais il n'est pas toujours facile de déterminer la hauteur requise, et des problèmes vont apparaître si le visiteur agrandit suffisament la police de caractères pour obliger le texte des items du menu à passer sur 2 lignes.<br>
+    3) obliger la liste à englober les flottants dans le calcul de sa hauteur en créant un nouveau contexte de formatage.<br><br>
+    <iframe width="450" height="300" src="https://www.youtube.com/embed/5awFFO-T8zs" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><iframe width="450" height="300" src="https://www.youtube.com/embed/R8z8R7k2IzE" frameborder="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </p>
+
+    <h3>Votre avis met important !</h3>
+
+    <form >
+        <label for="prenom">Votre prénom :</label><br>
+        <input type="text" id="prenom" value=""><br>
+        <label for="nom">Votre nom de famille :</label><br>
+        <input type="text" id="nom" value=""><br><br>
+
+        <p>Que préférez-vous sur mon site ?</p>
+        <label for="redRadio">Le code ?</label>
+        <input type="radio" value="red" checked id="redRadio" /><br/>
+        <label for="greenRadio">L'esthétique ?</label>
+        <input type="radio" value="green" id="greenRadio" /><br/>
+        <label for="orangeRadio">Les informations ?</label>
+        <input type="radio" value="orange" id="orangeRadio" />
+
+        <p>
+       <label for="ameliorer">Comment pensez-vous que je pourrais améliorer mon site ?</label><br />
+       <textarea name="ameliorer" id="ameliorer"></textarea>
+        </p>
+
+        <label for="note">Si vous deviez mettre une note sur 10 :</label><br>
+        <input type="number" id="note"/>
+        <input type="button" value="Valider" onclick="afficherResultats();">
+
+    </form>
+
+    <p>Vous voulez changer la couleur ?</p>
+
+        <input type="color" oninput="document.getElementById('info').style.color = this.value;"/>
+        <p id="info">If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+  <aside>
+  <a href="#haut de page"><img src="boutton.png" width="120" height="55"></a>
+  </aside>
+
+    <footer><!-- balise pied de page -->
+        <p>Copyright Tom Jauliac - Tous droits réservés</p>
+    </footer>
+
+  </body>
+
+</html>

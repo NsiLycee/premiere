@@ -1,0 +1,17 @@
+p,li,a,ul,div,h3
+{
+    color: white;
+    font-family: sans-serif;
+} /* ecriture en blanche*/
+h1,h2
+{
+    color: red;
+    font-family: sans-serif;
+}/* titre en rouge*/
+
+/* On travaille sur la balise body, donc sur TOUTE la page */
+body
+{
+    background-image: url("espace2.jpg");
+    background-attachment: fixed; /* Le fond restera fixe */
+}

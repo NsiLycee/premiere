@@ -1,0 +1,117 @@
+  <!DOCTYPE html>
+<html>
+
+    <head><!-- balise englobant les métadonnées -->
+
+        <meta charset="utf-8" /> <!-- utf-8 est un codage servant à coder
+        l'ensemble des caractères -->
+        <title>Tom Jauliac - Le Site Web</title> <!-- ceci est un commentaire.
+        ici c'est le titre de mon onglet web -->
+        <link rel="stylesheet" href="style.css" /><!-- ceci est une partie
+         de code CSS, on peut inscrire une partie de code CSS directement entre les
+         balises <head>, soit en créant un fichier.css, ici style.css -->
+        <style>
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          background-color: white;
+        }
+
+        li a {
+          display: block;
+          color: #000;
+          padding: 8px 100px;
+          text-decoration: none;
+        }
+
+        li a:hover {
+          background-color: black;
+          color: white;
+        }
+        </style>
+
+    </head>
+
+        <body>
+
+        <header> <!-- cette balise est le haut de la page, l'en tête -->
+
+<h2>Liens menant aux différentes parties du cours :</h2>
+        <nav> <!-- ceci est une section ayant des liens vers les autres parties
+        du site web -->
+            <ul> <!-- cete balise introduit la liste -->
+                <li><a href="BouclesPython.htm">Boucles Python</a></li> <!-- ici il y a deux balise :
+                li sert a faire les différents poitns de la liste et
+                 <a href... sert a introduire un lien (d'un autre site,
+                 une autre page, un autre fichier) -->
+                <li><a href="basespython.htm">Bases Python</a></li>
+                <li><a href="exopython.htm">Exercice Décomposition</a></li>
+                <li><a href="CoursCSS.htm">Création Menu CSS</a></li>
+                <li><a href="types indexables python.htm">Types Indexables Python</a></li>
+                <li><a href="http://jodenda.free.fr">Site JoeDenda</a></li>
+                <li><a href="https://www.w3schools.com/">w3schools</a></li>
+            </ul>
+        </nav>
+
+        </header>
+
+         <article>
+            <h1><!-- laisse un "trou"--></h1>
+          <form>
+            <button onclick="var prénom = document.getElementById('inputprénom').value; alert('Bonne visite '+prénom+ ' !');">Un boutton</button>
+            <input placeholder="Saisissez votre prénom"
+            value = "" id="inputprénom" />
+          </form>
+
+          </article>
+
+        <section>
+            <h1>Tom Jauliac</h1><!-- ceci est la balise pour insérer un titre -->
+            <img src="image.jpg" width="430" height="320"
+         alt="Logo du site" id="logo"><!-- insersion d'image -->
+         <p style="color: white;">Shot on iPhone 12 Pro in Portrait Mode, zoom x2<br>
+         Salut, petite photo de moi sans masque pour embellir le site !</p>
+         <!-- ici on met la couleur blanche au paragraphe
+         directement en rajoutant "style" dans la balise, ici c'est inutile
+         à cause de CSS -->
+
+        </section>
+
+        <section> <!-- les balises sections servent à mettre en page les parties
+        de cette page web, bon ici il n'y en a qu'une -->
+            <aside> <!-- cette balise sert simplement à insérer du texte,
+            c'est une apartée -->
+                <h1>Prémice du site :</h1>
+                <p>C'est moi, Tom Jauliac ! J'ai 16 ans, je suis né un 1 Juin 2004.</br>
+                <!-- br est la balise servant à retourner à la ligne -->
+                Je suis en première NSI au lycée la Découverte Decazeville.<br>
+                Je met sur cette page et aussi en commentaire, les bases du
+                codage en html, en Python et CSS !<br>
+                Je suis pasionné par l'informatique, la programmation et les jeux vidéos, notamment dans l'optimisation et le bidouyage de pc :)<br>
+                <!-- https://python.developpez.com/tutoriels/graphique-2d/matplotlib/#LII-C
+                + matplotlib --></p>
+            </aside>
+
+            <article> <!-- cette balise à une fonction similaire à <aside>,
+            elle permet de présenter du contenu autonome -->
+                <h1>Salut, je suis un titre</h1>
+                <p>Ce site se composse de mes <u>cours de première NSI</u>,
+                <!-- balise pour souligner -->passant par différents
+                <b>langages informatiques</b><!-- balise pour mettre en gras -->
+                tel que l'<i>htlm</i> et le <i>Python</i> ou en encore
+                un peu de <i>CSS</i>, aussi du javascript<!-- balise pour mettre en italique --> !</p>
+            </article>
+
+        </section>
+
+        <footer><!-- balise pied de page -->
+            <p>Copyright Tom Jauliac - Tous droits réservés<br>
+            <a href="coordonnées.htm">Me contacter !</a></p><!-- balise pour
+            insérer le lien de site ou d'un fichier, ici c'est un fichier -->
+        </footer>
+
+    </body><!-- balise représentant le contenu pricipal du site -->
+
+</html>

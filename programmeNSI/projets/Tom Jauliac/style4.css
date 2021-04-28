@@ -1,0 +1,24 @@
+p
+{
+    width: 350px;
+    border: 1px solid black;
+    text-align: justify;
+    color:white;
+    font-family: sans-serif;
+}
+body
+{
+    background-image: url("espace3.jpg");
+    background-attachment: fixed;
+    /* Le fond restera fixe */
+}
+h1,h2
+{
+    color: red;
+    font-family: sans-serif;
+}/* titre en rouge*/
+li,a
+{
+    color:white;
+    font-family: sans-serif;
+}/* texte en blanc*/

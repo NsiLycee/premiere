@@ -1,0 +1,15 @@
+body
+{
+    background-image: url("espace.jpg");
+    background-attachment: fixed; /* Le fond restera fixe */
+}
+p,h1,a,li,td,tr,th
+{
+    color:white;
+    font-family: sans-serif;
+}
+h1,h2
+{
+    color: red;
+    font-family: sans-serif;
+}
