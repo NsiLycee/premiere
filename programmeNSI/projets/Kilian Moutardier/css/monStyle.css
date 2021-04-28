@@ -1,0 +1,29 @@
+/*Feuille de style */
+
+body {																		/*Modifier le corp. Ici je l'utilise pour mettre une image en fond*/
+  background: url("../img/fond/fondOnePiece.jpg") fixed center no-repeat;
+  background-size: cover;
+
+}
+p {																			/*Modifier ce qui ce trouve dans les paragraphes*/
+	  background-color: white ;
+      color: black				          						;			/*Ici je l'utilise pour changer la couleur du text*/
+      border: solid 5px silver	                        		;			/*Pour définir une bordure, sa taille, etc...*/
+      border-radius: 10px				                  		;
+      padding: 5px												;
+	  width: 90%;
+  }
+
+nav {																		/*nav me permet de crée des blocs*/
+	  float: left 												;			/*Ici je l'ai utilisé pour créer une colonne à gauche de mon site*/
+      width: 10%												;			/*Et je modifie ensuite ces attributs...*/
+      padding: 20px												;
+      height:6300px;
+
+}
+
+nav ul {																	/*nav ul me permet de créer une liste non ordonnée dans ma colonne à gauche*/
+      list-style-type: none										;			
+      padding: 0px												;
+}
+
