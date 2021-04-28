@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- Ceci est un commentaire : il faut en mettre partout pour expliciter votre code -->
+<html> <!-- cette balise indique où commence le code html de la page -->   <!-- -->
+<head> <!-- ceci est la balise qui délimite l'entête de la page qui traite les paramètres d'environnement de la page web -->
+<!-- "Meta" est une balise présisant une meta donnée; une meta donnée est une donnée sur les données -->
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<meta name="author" content="Eric Lantuejoul"/>
+	<meta name="created" content="19/09/2019"/>
+	<meta name="changed" content="date de révision"/>
+	<meta name="Company" content="Lycée La Découverte Decazeville 12300 Aveyron Occitanie France Terre"/>
+	
+	<!-- Définition du style de la page qui se trouve dans un fichier externe qui s'appelle style programme css -->
+	<style> body {
+  background-color: lightblue;
+} </style>
+	<title>FC Barcelone</title>
+	<!-- inclusion de code en javascript pour rendre la page dynamique, 
+	          la construire, il se trouve dans le fichier exemple.js ... -->
+	<script src="exemple.js"></script>
+	<script> 
+		var moi = "FC Barcelone"; //ne pas oublier le ; 
+	// ici c'est la définition de la fonction 
+	function afficheMonNom ( nom, nb )
+	{ // ceci défini le début du bloc d'instruction }
+		var phrase = "";
+		for (var i=0;i<nb;i++) {
+			phrase += nom + "  ";
+		}
+		alert( "Gardiens du FC Barcelone" + phrase );
+	} // ceci défini la fin du bloc d'instruction
+	
+	// ici j'utilise la fonction
+	afficheMonNom (moi); 
+	
+
+	
+	</script>
+	<link rel="SHORTCUT ICON" href="favicon.ico" />
+</head>
+
+<!-- Début du corps de page --> 
+<body>
+<a  href="index.html"> Page principale </a>
+<h1 style="color:red;" title="Ceci est un titre de niveau 1 ; sa balise est ">Gardiens</h1>
+	<hr/>  <!-- balise orpheline horizontal row --> 
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQt7A2GHmxcXGICUIfyZs7Abq5WDVK80PmVQRUM3LinqNq4lzwn">
+	<h3 style="color:red;"> <a href="https://fr.wikipedia.org/wiki/Marc-Andr%C3%A9_ter_Stegen"><u>Marc-André ter Stegen (ALL)</u></a></h3>
+	<hr/>
+	<br/>
+	
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRoKIq1YTE4SoUl-_z81r8whbRWb8Fm9B_bFpQth1_H2Mq_bymz">
+	<h3 style="color:red;"> <a href="https://fr.wikipedia.org/wiki/Neto_(football,_1989)"><u>Norberto Murara Neto (BRE)</u></a></h3>
+	<hr/>
+	<br/>
+	
+	<img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIQEA8PDxAPDQ8NDw0NDw8ODw8PDQ4PFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQFysdHR0rLSsrLS4tLSsrLSstKy0rKystLS0tKy0rKy0tLTgtKy03NysrKzcrLTcrLSstNy0rLf/AABEIAKgBKwMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAABAgADBAUGBwj/xAA6EAACAgECAggFAwMDAwUAAAABAgADEQQSBSEGEyIxQVFSYQcUMnGRFYGhI2LRQrHBcoKyFjNDc6L/xAAZAQEBAAMBAAAAAAAAAAAAAAAAAQIDBAX/xAAlEQEAAgICAQUBAAMBAAAAAAAAAQIDERIhUQQTMUFhcVKRoSL/2gAMAwEAAhEDEQA/APJ8w5kxJiEHdHDRAsbbAO6SBRHAgLBmWbYNkABpC8O2ArAHWmQNIFjbZQu6TMhgxALGQmQiAwHUwMYqmOgyf3mMgow8T/2j6jM9KF79mRy5Atn92/wInAdALre14ttJ9PPlOv1HQC1yNtqEH3cBR9hyM12vp1Y8O4aBeG0Hsm8UWEHarjdUW9G44IP5moYYJB7wSP3Hj7ieq8H6AaakA2htW4Ax1p/pqf7V8P3nn/S/hg0ustqGQhIdAe8K3MA/zLW22ObFx7agtJugxComzbnMICI4YCV2WCNippXnEYmKBBBt0gMBEGIDyZggkQ5aRXlRhWTSrWMkWWM4xHwKyZA8UiSXQUGPK4ytKLFhIg3w7oAEsEqL+UgMKvyJCZjk4jdYBCLGErJitdmIWlFgaE2ykmRRAskWSKGkDWGLmRpAYBzLqO8fcSmWVHx8Qcj7iFh3PAuGGo1lkGHcDcCGBJ8OU7Limg1b1EaVhWoHMizq3b7Ng4mk6P8AFq9VQSyN1qBK35ZqTaOTDnyzOk0Cs5C7iByyPAzktPfb06cddNZpOF6oaa+p77LrbFzWbLGYKPFd3Ij7iefdMeHvp7aa7NuTSrAq7WAgnu3Mc5nqHGeI0VWoDrl0x5Kazt7QzzPcTn8TzL4g6jfrXUHK1qqrn35zbj+Wn1GuLnt0VmgxAZucRWJghaACECMokxDAJi4g3Rg0QA0GYSYpMghlisJVGAgEwZkzFzJAbMkAhlAYSYjMIpMy0oSRcyZgHMbdK8wEyaNGd8wbYmYweUQco+YhMggWiNiVgyxTCBmAQtFjSixkEmMxtkaRJDNzwDozqdacaevKg4axjtqU+7H/AInsvRboFptJUgvqp1WoD5a5lJAY9wUE9wliNsL5Iq4z4bcNsrqta5WRdSAawwwSoH1Ym1PFvlW22ggZ5OOYx7zseJVKbOWAy55csEeQnLcdoBB3LkeI8Zy5qTEu70uauSmqz3DXa7jOic5+ZqUNzsX5dHJ/c+M8747rhfqLrR9Lt2eWOyBgTp7ei76uq4aKoNYjIzAsFLL37VB7z7Th9RQ9TGuxWrdCQyOCHU+4m3HXrbXmyzM8fBjFCmIHh6ybNNI4hCxN8O+A2JMRMmQ5gTEBhEAzCI0UR3590AUxpQkEkmZNIkbEXMO6NKMbEq3Rw8aAIikRzEYzILiMDEMmYBJkxEjCAMSYhxIBIABDiGQwFhkhxLoJky0NFAjARAvqM7HoP0MbiBNljGrTIcFh9dp8VT/M1nQvotbxK7YuUpTnbbjsr/aP7j4T3mjSUaaitKcola9Uqd3Id+4eeY+2F51E96NwvQ1aatKqEFddYwB3n7k+JmcbRj8H8TR36/Hj/mYacUO8DPInbN/F5c5o22ut04LF7HVVfuA7T58wBNLxLSqy4RmJwe02Bn2xNwuj3AuHBXmSM90oq04JPgFBY/aJrFo1LKmS2O3KvTVdHdL1SsCWBLDGPPHfD036Jpr9O1jBF1dSk1XJ3vgZ2t5g/wATa11K2VB55OMeMxNTaq1XOjg9RXY7gtk8gfDymPGIrpn717Xm2vl88spGQeRBII8QQcQR7LdxLeslvyc/8xZrl6UIBJGEmJBA0O6KVkECxY2RKswboF9ZEZ5jb8Qm2NAsIpEm6DMAQEQ5hzACrHCyKRLciBib5IdsbESExBiWBY22NCrbCBLNsm2BURIJZtk2wEAkjYkxATEYCHEZUJIABJPIAAkk+QEAATveg3w5s1wW/Uk6fSnBU4xZcPEr5D3M3Hw/+HnJdZxFOzgNVpmByT4NYPL2npWu1IAVVAUAbQFwABjkMeUyrXbmy54rGoU0aajRUDT6dAtVY7u9ifNj4maviGqOMkkgdkknnjGQYNVrVUEswHvmcZr+k4ZLK6j11gOCfIA4B/3m6KxDzsmS1lnEON7N2TzL4XzxjmZrrOJWWKVTJYnLbT2lHhNI+jLkG2zFjZI3EhOfhLzobqe1sbHeGpbv+4myrTwift0PD9Xrh2q2YlcdhmG1hnmCSJ0On4rqm3b68ZGDWh5D7tjnON4bx+wdg27c9/WLtP5xynW8I4ijKSXBPM4U55ATKYg5WiNf9ZZ1Niqrqh3MeQzjBE5npfxaxNLqKwrVu3ZsJIOd3fj2nTWalRUpJ/1ZGOefGcf8QtYrUFQRvZ0BHjgc5oyUi0b8Ov0mXhbj/l083CyYluyHq5oeqrEIbEfq4DXAUtBG2QbYCmLLCsUiAhEgjYkxAEkOJMQFkJhxIRAQmTEbbDiA2IQI4SQrAAEcYiSGBZiLtkUx8iBUVg2yxosBcQYjESAQFxPRfgxwZbdVZqrFDLpEATPd1rnkcew5zz7E95+E/DBRw1LCMPqna8n+36VH+8sQ15bah1esu2gnPM/7Ty/ph0uWiw1g7nAI2jv9vtOz4zqtiPYT2UUs32HOfPWv1TXW2XN9Vrs/PwyeQ/YYE2TPGOnDjx+9bv4hncV6Q3X8ixRO4Kpx+T4zK6E4OqFZ7rUYf9w5ic/N50IGeIaQeduP/wAmYRad7dd8VfbmsRrp1+oPVWBGVChXI6xTtJB5jdNrotcqDs7SD31sRZWfse8TpuK6XNOMqVrzinaCz88/V4GcfxLgOnDbsW6YMA3IEp/E6q2ifl5E1msdE6R9TdQUpWldRcyVbe2CoZsEnzGPGcwldun31LursLv2KVJTIO3bnwTGD+86jTUhB/R1Hh47Tn8xrODLaVNpYjOcrYULef0nnMbVme4ltx54iNTHTUtq7Tp60brlZStrYUgZA5KDjuyO6c7xxmLqHfrGChifAE+E9Hop0wUinBasEnLMxAA8yZ5frNRvssc89zsf2zNNomHZ6e1b26j4UBIwSDfEa2a3at2RSkqbURPmYFjLEZYRZmDMBCIplhiGAskMEAYgxGEkAYkxGhxATEOI+2ELAB1AiGyUCPAfdDmVRoDQiJiGA4MdRKgZarwDiHbBvl+kpa10rrUvZYwRFH1MxPcIFS1kkKO9iFH3JxPpjR1CnTUUDl1VFSY9woz/ADmcCOjum4HpDrdXSNZqkCthv/bRyQAq+Rye/vl3DvilotSCbq79JggFjtsQE+OR4S1mGnPS/HqGP8UOKCrTGlT/AFNUdmB4Vj62/HL955Cwnt3SnotRrQjGwVuRhNSG3KitzQOvpJxz8Mzxvi+gs011mnuXZZU2GHgfJl8wRggy2nZgpxr+sSb/AKBVluI6THhYWP2CmaDM9T+F/R1qmsv1NZVragaQR2lUnvPlnykhlltqrvdbwlrh/TtQMf8AQ4wMYxkEc5rdPp9TWGovVmC/SVC3VFfIZ5zYXab6bRfXSEBVlYDcR4nOZiWanUV7bQSVHYLAh1cf6WyPCbq99PLtqO9f6aPiXDKbDiulFfPbyr1n8dwmm1QroUruDbDyw5ODjwnT8U469iMN1VQGAx2Zc5nPafh5tDMXJrDYUFcb/EmbYnTnvETPUtBfrUWq6zmCAVAyRliP5nEtYZ3nSjQAcPa1TuCaiscvInE4FjOfJPb1PRViKb8h1hgLwGLNbsNmMpiQwMhHEcOJhGMDAzMiKZj7oesgWExcxd0IMBhDiQSwCBXiTdHzBkQF3w9ZATJiBUojYlO6TfAtjiUh4esgXSESnfAbDGxYYmYu6TMB907T4VahatY2odVbqKjsNjBVR25bufjjynET1X4Va7h9FRbbu4g5ZHFrZXv7PVqeX45yR+MbTqO27+NGqu1PDtMtCGxLblstasbxsVSRyHPG7HP2njvBxl6tNjtW31KxOO4uM8j7TpuMdINbpL76WfrGN1mpTeOVtbnIK+WO7A8pl9HePtdZXqLkq7Nm5ewvLHjN1McT19tNs00jfzD3g6Gh6+pUoMKE7GN3IY7vGeFfFnRNXdV1gAeoGjcO6yrmyHz5dr7ZM7fi/XENq9I2+ojcy0k/Nac45kLz3rnnywQJ5n034xZqepN9i22YLblzjqxyXv8AE5P4mqI02cty1nRTT1267SV3HbU19e8+HLmB+QJ9D8Q1ACMFAB593cPCeBdBNGLtfQGGVrLXMPZBn/fE9qW0k5Ayxydh+i0f2nwYeU2Uhy+rv3EMgDaq5Wlmxz3pubn4Z8po9Vq9RUxwK6qzna6A9UAf9Dr5e/hL9SGdkKstKqCmyxySOfjiXU6Gwg51FJGCCuHIxNsREOGbTPUfTTUauzrA7M71r2NTWhy61nx2+I9xKbjp6rNga40ujmt0uJQ8s7R5GLxE01NimyzU3V52rQpU1+YDk939vOaV+MuyNbbTvrZwCyEJZU+cZZPP3EvTGIs3HEdAdRw7U14Clqutr3lVO5eYHuZ47t/zE1nELHufNtjKXcAF27snHKXqwIB7uXP2I75z2tt6+DFOOut7VEQgRmi7pi3nCwYiF4Q0CERY2YJJC5gjGLAZTGzFEMBt0nWGLDiUNvk3QQ4gMDGzFxGBgUBJCk3P/p+zyhPALPKa+dfK6aYJBsm5/QbIf0OzyjnXyaaUJGCTb/otnlD+j2eUvOvlNNMRBibr9Fs8jJ+jP5GOdfJppsTouh3H69A11rVb7XQLVZgE1DPawD3EjxmL+jP5QfpD+mOdfJMbdD0ouTV6Oq64BLmDW0sn11DdgBvMHHP7TluGXWmlmBwEvSp9oG7BBO775A/My30F5UKSSq8gD4DOcRtPpbqq7qkUBdSALCQWJwc5GTyMs5fvbXGOIjU9thwrpUdK28dYxUjbiwAn2PLunOcU1pvutuI29a7Pt8Fye4S9uEWeUrPCbfTJF4j7ZxGnRfDbiFdWpsSxQTfXsR/FCDkj2BE9KXWlQc7rqW55TBsQ+Y8547w3S3U212gHNbq33HiPxPVNPsOMgruAYFCVbBHfy8pvxXiY0871tJ5RLG4pxatrFNjPZyOHGKiPZge8+8v0nEdC3Ye9wuO1n6j7LzMbWcLsbb/WyuOz1la2oQf5lug4fdWRz0+P/q27v+ls4B+4m7lDiiJiW34NqNIGC6fRsy+sAZz+8wul3RtXo1dyo+nNqMzLWAUyoyGbyP2mfoNKWflqLutHfUDXQ6jzAwdw9wY/FeFmyq0De1vVWhS1jtuJX6WG3mPaYTLox963DkOgHRjQ6jQgW0VWWOq2G1lHWOe84bvA9pyHxO6O/I6oGqoVaa9A1Wz6dwHaX2M6HoBqHps01b9hUzU4PhyInY/FDgzarh5dMO1IS4KcgooOGceP7TnraNaepHcvnzcYMzZnhVnpMn6VZ6TG4ZtaDGBmceGP6TFbhz+kybgYeZCZkHQWek/zJ8jZ6D/Mu4GOYpmQdHZ6T+DF+Us9B/mNwKoZd8q/ob8RhpH9J/BjcDHEOZkfKv6TCNK3pMbgYwMbdMj5VvSfxJ8q3pP4jYxSZATMk6RvSYflW9Jger9SPKTqh5CbY6CVnQzy+Ms2s6keQk6keQmxOjMVtEZNSNeKV8hD1K+QmYNIZDpzGpGH1C+Q/EnUL5CZRpMC0mQY3y6+QgOmXyEzfl29JiNUR4R2MY6dfIQfLL5CZWyDbG58jG+VXyEnyiekfiZO2HbG/wBViHRp6R+JttBSroF7inIEd48ph7Zfo7djffkZv9Pk43/rn9Rj50/jZ6dtmUsG5TzIH/mv+JkmspgqQ6NzB70ceXsZYK+sUEd47j4gxaWKbuzuHfZT6v708jPWeTpbRXVbheSsO6pzjB80bvX9ps9Klicg5sx/8d2N+P7X7z++Zr/kkuXdWd48idtqnyj0m9MLzuA7lsyto/6XHL8ySzrOnLdKuEAWtsDV9YetTAAIJPMGbroZobNmpFrtarVMg388DB7vabHVPXcChwt1XbZTjrFHiDt5ZmmbjY2MNPYMMOrddjbx7hjywfbJnHk/8bepincfrRDSoORXu5eHhJ8tX6RLdkm2cPOfLdpX8pX6RD8lV6R/Es2yYjnPk0r+Qq9I/Ah/TqvSPwJZJHuSaV/plPpH8SDhVPpEtxJzl9yTSs8Jp9I/AkHB6fSP4lmTGDGPck0q/RafSP4g/RafSPwJeGPnJvMvuCn9Eq9I/iT9Dq9Il/WmEXGPcXTHPAqvSPxJ+g1ekfiZXXmN8wZfcTTMLRVfMkkKfMbdJJCJyk2CGSXSkNYjhAPKSSNBs+wlNtIPlJJE/Aq+TEVtFJJJxgJ8lEbSGSSTjAjaMyzQaXDhn2hKxvbd3cu4fmSSZYqxNoas0zFJWaHjA619q2dWGxvZCiM3jtB5498TfFA4DofcHyPvJJPXeNTti2aZsmyomqxfrQDKsPVjxEmo4i71MrM1RYYV6zlHPpDeBPkcQSSSyieMxpoeHcWbrqqqkbbW7LZuQrdsxzIUdnB7vE8oeIaN6m7SkK+WQlSuRnux4SSTiy4a+1v9erbLM5I/kMcLJtkknn6b02mDBkkklEwZMmSSBMmQEySQoho2ZJIRICZJIEhkklVMGTnJJA//2Q==">
+	<h3 style="color:red;"> <a href="https://fr.wikipedia.org/wiki/I%C3%B1aki_Pe%C3%B1a"><u>Iñaki Peña (ESP)</u></a></h3>
+	<br/>
