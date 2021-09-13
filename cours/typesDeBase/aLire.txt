@@ -1,0 +1,4 @@
+Cette partie traite des types :
+entiers dans différentes bases
+flottants  = nombres décimaux
+...
