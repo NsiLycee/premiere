@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <title>clicker coverteur</title>
+        <link href='https://fonts.googleapis.com/css?family=Alike Angular' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Allison' rel='stylesheet'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alike Angular&effect=neon|outline|emboss|shadow-multiple|fire-animation">
+        <link rel="stylesheet" href="../styles/style.css">
+        <style>  /* c'est mieux dans un fichier externe !*/    </style>
+     <script src="https://www.w3schools.com/lib/w3.js">
+        // pour gérer les inclusions de codes HTML externes</script> 
+      <script>
+      </script>
+    </head>
+<!-- ___________________________________________________________________________________________________-->
+<body>
+
+  <header>
+      <h1>Jeu des bases</h1>
+      <details><summary>Règles</summary>
+        <article id="regles">
+          <h2>Commencer une partie :</h2><img id="loupe" src="loupe.png" alt="zoommer"  />
+          <p>Le but est de cliquer sur les zones d'affichage de nombres seulement lorsque deux nombres sont identiques</p>
+          <h2>Pourquoi faut-il fournir un login et mp ?</h2>
+          <p>Si vous jouez sur le même ordinateur, cela permettra de mémoriser les parties et de pouvoir reprendre une partie suspendue.</p>
+        </article>
+      </details>
+      <h2>Quels sont les nombres identiques ?</h2>
+  </header>
+
+  <main>
+    <!-- ________________________________________________________-->
+    <section>
+        
+        <div id="tabDevinette"></div>
+          
+    </section>
+    <!-- ________________________________________________________-->
+    <aside id="demo">
+    </aside>
+
+  </main>
+<!-- ___________________________________________________________________________________________________-->
+<script>
+function $(id) { return document.getElementById(id)}
+
+
+
+$("demo").innerHTML = "erreur !";
+
+class Nombre  {
+  constructor(n) {
+    this.n = n;
+  }
+
+  format(base) {
+    return this.n.toString(base) + "<sub>("+ base + ")</sub>";
+  }
+}
+
+class Tableau {
+  constructor(largeur, hauteur, idConteneur, contenu) {
+    this.nCo = largeur;
+    this.nLi = hauteur;
+    this.idParent = idConteneur;
+    this.content = contenu;
+    // création de la vue
+    let compteur = 0;
+        
+    // instanciation du bloc table
+    this.tab = document.createElement("table");
+    document.getElementById(idConteneur).appendChild(this.tab);
+
+    for(let li = 0; li < largeur; li++) {
+      let ligne = document.createElement("tr");
+      for(let co = 0; co < hauteur; co++) {
+        let cellule = document.createElement("td");
+        cellule.innerHTML = ( contenu[compteur] != null ) ? contenu[compteur] : "<p><mark>Vide</mark></p>";
+        //cellule.innerHTML = contenu[compteur];
+        compteur++;
+        ligne.appendChild(cellule);
+      }
+      this.tab.appendChild(ligne);
+    }
+  }
+  
+  remove () {
+    document.getElementById("idConteneur").removeChild(this.tab);
+  }
+}
+
+var contenuTableau = ["<p>Nombre1</p>","<span id='nb1'>0b010010001</span>","<p>Nombre2</p>","<span id='nb1'>0x15bac2</span>","<p>Nombre3</p>","<span id='nb1'>1256</span>"];
+
+var tab = new Tableau(3,2,"tabDevinette",contenuTableau);
+
+class Partie {
+  constructor(login, mp) {
+    this.login = login;
+    this.mp = mp;
+    this.niveau = 0;
+    this.nivErreur = 0.01;
+    this.nombre = new Nombre(Partie.tirageNombre ());
+    this.nombres = [this.nombre,this.nombre,Math.floor(this.nombre*(1+this.nivErreur))];
+
+    Partie.afficheNombres ();
+  }
+  
+  static tirageNombre () {
+      return Math.floor(Math.random()*(2*this.niveau+10)+6);
+  }
+  
+  static afficheNombres () {
+    let contenuTableau = ["","","",""];
+
+    //let mausvaisNombre = new Nombre(this.nombre.n) ; //Math.floor(this.nombre.n * (1+this.nivErreur)));
+
+  }
+  afficheLogin (idSortie) {
+  		document.getElementById(idSortie).innerHTML = "<table><tr><td><label for='inpLog'>Login :</label></td><td><input id='inpLog' value='" + 
+                            this.login + "'/></td></tr><tr><td><label for='inpPW'>Mot de passe :</label></td><td><input type='password' id='inpPW' value='" + 
+                              this.mp + "' /></td></tr><tr><td colspan='2'><input type='button' value='valider' onclick='alert("+"mlkh"+");' /></td></tr></table>";
+  }
+}
+
+maPartie = new Partie("Aldodo", "fbgnh55");
+maPartie.afficheLogin("demo");
+
+//----------------------------------------- ZOOM DES REGLES -------------------------------------------------------------
+$("loupe").title = "cliquer pour zoomer"; // initialement
+$("loupe").style.width = "3%";
+$("loupe").style.float = "right"; 
+
+$("loupe").addEventListener("click", function () { zoomer('regles',"P"); $("loupe").title = "double cliquer pour dé-zoomer";} )
+$("loupe").addEventListener("dblclick", function () { dezoomer("regles", "P");$("loupe").title = "cliquer pour zoomer";})
+                 
+function zoomer(id, tagName) {
+  let enfants = document.getElementById(id).children;
+  for (let enfant of enfants) (enfant.tagName == tagName ? enfant.style.fontSize = "400%" : enfant.style.fontSize = "500%");
+}
+function dezoomer(id) {
+  let enfants = document.getElementById(id).children;
+  for (let enfant of enfants) (enfant.tagName == tagName ? enfant.style.fontSize = "100%" : enfant.style.fontSize = "16.5px");
+}
+
+</script>
+
+</body>
+</html>
