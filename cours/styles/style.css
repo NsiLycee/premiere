@@ -1,0 +1,58 @@
+/*
+
+    Feuille de style pour les pages de cours de première
+
+*/
+
+:root {
+    --nivGris : 20;
+    --col     : rgb(calc(255 - var(--nivGris)),calc(255 - var(--nivGris)),calc(255 - var(--nivGris)));
+    --bac     : rgb(var(--nivGris),var(--nivGris),var(--nivGris));
+}
+
+body {
+    font-family: 'Alike Angular';
+    font-size: 22px;
+    color : var(--col);
+    background-color: var(--bac);
+}
+div {
+    font-family: "Alike Angular", sans-serif;
+    font-size: 30px;
+}
+main {
+    display: flex;
+    padding : 2%;
+}
+section {
+    flex : 3;
+    padding : 2%;
+    border : groove orange 10px;
+    border-radius : 15px;
+}
+article {
+    padding : 1%;
+    border : inset 15px rgb(255, 174, 0);
+    border-radius : 25%;
+    font-size: 50%;
+    text-align: center;
+}
+aside {
+    flex : 1;
+}
+
+/* style des tableaux */
+
+table {
+    /* centrage */
+    margin-left: auto;
+    margin-right: auto;
+    
+    border : solid 2px var(--col);
+    /*border-collapse: collapse;*/
+    border-spacing: 10px 30px ; /* espacement horizontal et vertical des cellules */
+}
+td {
+    border : double 5px yellow;
+    padding: 15px;
+}
