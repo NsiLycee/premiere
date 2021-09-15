@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <title>clicker coverteur</title>
+        <title>cliqueur converteur</title>
         <link href='https://fonts.googleapis.com/css?family=Alike Angular' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Allison' rel='stylesheet'>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alike Angular&effect=neon|outline|emboss|shadow-multiple|fire-animation">
@@ -137,7 +137,7 @@ function zoomer(id, tagName) {
   let enfants = document.getElementById(id).children;
   for (let enfant of enfants) (enfant.tagName == tagName ? enfant.style.fontSize = "400%" : enfant.style.fontSize = "500%");
 }
-function dezoomer(id) {
+function dezoomer(id, tagName) {
   let enfants = document.getElementById(id).children;
   for (let enfant of enfants) (enfant.tagName == tagName ? enfant.style.fontSize = "100%" : enfant.style.fontSize = "16.5px");
 }
