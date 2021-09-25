@@ -43,7 +43,10 @@ content="Lycée La Découverte Decazeville Aveyron Occitanie Terre"/>
 	<!-- Définition du style local de la page : déconseillé ! -->
 	<style>
 	 /* Styles appliqués aux portions de code */
-
+	o { // barre en haut pour symboliser la négation en écriture booléenne
+   -webkit-text-decoration-line: overline; /* Safari */
+   text-decoration-line: overline; 
+}
 	</style>
 
 </head>
@@ -108,22 +111,22 @@ le contenu de la page web à l'écran -->
 		<div class="niv2">
 	<!----------------------------------------------------------------->
 <h3>Généralités </h3>
-	<details><summary>écriture d'un nombre</summary>
+	<details><summary>écriture d'un nombre en base b</summary>
 		<p>Un nombre s'écrit comme une suite de symboles ; le plus à 
 		droite correspond aux unités ; c'est à dire au nombre qui est 
-		multiplié par base<sup>0</sup> = 1</p>
-		<p>Pour écrire un nombre en base n, il faut n symboles ; jusqu'à
+		multiplié par b<sup>0</sup> = 1</p>
+		<p>Pour écrire un nombre en base b, il faut <strong>b symboles</strong> ; jusqu'à
 		la base 10, les symboles 0 à 9 sont utilisés, puis au delà les 
 		lettres de l'alphabet (sans tenir compte de la <dfn 
 		title="minuscule ou majuscule">casse</dfn>).</p>
 		<p>Les nombres s'écrivent donc sous la forme :</p>
 		<code>
-		nombre = symbole<sub>n</sub>.base<sup>n</sup>+
-				 symbole<sub>n-1</sub>.base<sup>n-1</sup>+
-				 symbole<sub>n-2</sub>.base<sup>n-2</sup>+ &hellip;
-				 symbole<sub>2</sub>.base<sup>2</sup>+		
-				 symbole<sub>1</sub>.base<sup>1</sup>+					 
-				 symbole<sub>0</sub>.base<sup>0</sup>		 
+		nombre = 
+				 symbole<sub>n-1</sub>.b<sup>n-1</sup>+
+				 symbole<sub>n-2</sub>.b<sup>n-2</sup>+ &hellip;
+				 symbole<sub>2</sub>.b<sup>2</sup>+		
+				 symbole<sub>1</sub>.b<sup>1</sup>+					 
+				 symbole<sub>0</sub>.b<sup>0</sup>		 
 		</code>
 	</details>
 <h3>La base 10</h3>
@@ -146,12 +149,11 @@ n'êtes pas convaincus <a href="javascript:test();">cliquer ici</a></p>   <!--  
 		<p>Pour écrire un nombre en base 2, il faut 2 symboles.</p>
 		<p>Les nombres binaires s'écrivent donc sous la forme :</p>
 		<code>
-		nombre = symbole<sub>n</sub>.base<sup>n</sup>+
-				 symbole<sub>n-1</sub>.base<sup>n-1</sup>+
-				 symbole<sub>n-2</sub>.base<sup>n-2</sup>+ &hellip;
-				 symbole<sub>2</sub>.base<sup>2</sup>+		
-				 symbole<sub>1</sub>.base<sup>1</sup>+					 
-				 symbole<sub>0</sub>.base<sup>0</sup>	<br/><hr/>
+		nombre = symbole<sub>n-1</sub>.2<sup>n-1</sup>+
+				 symbole<sub>n-2</sub>.2<sup>n-2</sup>+ &hellip;
+				 symbole<sub>2</sub>.2<sup>2</sup>+		
+				 symbole<sub>1</sub>.2<sup>1</sup>+					 
+				 symbole<sub>0</sub>.2<sup>0</sup>	<br/><hr/>
 			Par exemple : <br/>
 			le nombre binaire 0010110.011 est égal à la somme (de gauche à droite) :<br/>
 			S = 0 x 2 <sup>6</sup> + 0 x 2 <sup>5</sup> + 1 x 2 <sup>4</sup> + 0 x 2 <sup>3</sup> +
@@ -163,7 +165,7 @@ n'êtes pas convaincus <a href="javascript:test();">cliquer ici</a></p>   <!--  
 		</code>
 		<p>Le bit <b><u>le plus à gauche</u></b> est dit <b><u>de poids 
 		fort</u></b> car il représente la composante la plus grande du 
-		nombre. <br/>Le bit le plus faible est à droite et correspond
+			nombre. <br/><strong>Le bit le plus faible est à droite</strong> et correspond
 		aux unités.</p>
 	</details>		
 	<!----------------------------------------------------------------->
@@ -176,7 +178,7 @@ n'êtes pas convaincus <a href="javascript:test();">cliquer ici</a></p>   <!--  
 	une chaîne de caractère représentant un nombre entier ; par exemple bin("125") renvoie le nombre entier 125.
 	Le deuxième argument est par défaut le nombre 10 car il précise la base du nombre représenté de
 	l'argument 1. Si on veut convertir un nombre écrit dans un chaîne de caractères en base N (N pouvant prendre des
-	valeurs de 2 à 36), int le converti en nombre décimal ; par exemple int("0b101",2) == int("5") == int("5", 6) égal 5 ;
+	valeurs de 2 à 36), int le converti en nombre décimal ; par exemple int("101",2) == int("0b101",2) == int("5") == int("5", 6) égal 5 ;
 	int("coucou", 36) renvoie le nombre 767321022 qui s'écrit "coucou" en base 36 !. </p>
 	<pre>
 <code>
@@ -428,7 +430,36 @@ bin(c)<br/>
 		<h2>Représentation des nombres entiers négatifs : complément à 2</h2>
 
 	<div class="niv2">
-
+	<!----------------------------------------------------------------->
+		<h3>Un choix judicieux </h3>
+		<p>Il y a plusieurs solutions permettant de coder les nombres négatifs.</p>
+		<details><summary>au moins deux possibilités existent</summary>
+			<p>Le bit de poids fort (le plus à droite) servira de bit codant le signe (0 = + et 1 = -) mais il y a deux façons de l'utiliser :</p>
+			<ul>
+				<li>par exemple sur un octet (<i>byte</i>) la première position (à gauche) code le signe, il reste donc 7 positions pour coder des nombres de 0 à 127. 
+				Le problème dans ce cas, est qu'il y a deux façons d'écrire 0 : 0b0000 0000 = +0 et 0b1000 0000 = -0 ; ce codage est redondant ;</li>
+				<li>l'autre solution en apparence plus complexe, consiste à calculer l'opposé d'un entier en prenant son complément à 2 ; cela consiste à
+					inverser tout ses bits avec la fonction logique NON(A) notée <o>A</o> ou &not;A puis ajouter 1 au résultat ; 
+					un nombre négatif aura donc un bit de signe à 1 mais c'est l'ensemble des bits qui seront modifiés par rapport au codage de son opposé 
+					(positif). Par exemple :
+					<code>
+					0000 1000 == 16 son opposé sera 1111 0111 + 1 = 1111 1000<br/>
+					En python :
+						~16 donnera -17 et donc ~16 + 1 = -16 car ~ inverse chaque bit ; ~ est la fonction Non appliquée à chaque bits du nombre
+					</code>
+					C'est cette solution qui a été conservée car elle offre plusieurs avantages :
+					<dl>
+						<dt>il n'y qu'un seul zéro ;</dt>
+						<dt>l'addition ou la soustraction deviennent simples : une soustraction est l'addition d'un premier nombre à l'opposé 
+						du second terme : A - B = A + (-B) ; 12 - 4 = 12 + (-4) = 12 + (~4 +1)</dt>
+						<dt>le plus petit nombre écrit sur un octet sera -128 car tous les nombre positifs seront noté de 0000 0000 = 0 à 0111 1111 = 127<br/>
+						leur complément à deux ira de -1 = 1111 1111 à -128 = 1000 0000 car -127 = ~(0111 1111) + 1 = 1000 0000 + 1 = 1000 0001 auquel on soustrait 1
+							pour obtenir -128 soit 1000 0000
+						</dt>
+					</dl>
+				</li>
+			</ul>
+		</details>
 	</div>
 		<h2>Représentation des nombres en virgule flottante : type float</h2>
 
