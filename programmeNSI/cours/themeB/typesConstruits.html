@@ -147,18 +147,28 @@ le contenu de la page web à l'écran -->
 <hr/>
 		<h3>Syntaxe :</h3>
 <code><pre>
-dictionnaire = {}   # dictionnaire vide lors d'une initialisationdictionnaire["premier"] = "first"    # crée l'item ("premier" : "first") ou donne la valeur "first" à l'item pré-existant de clef "premier"print(dictionnaire)    affiche     {"premier" : "first", "second" : "second", "troisième" : "third"}   # trois items# taille du dictionnaire :len(dictionnaire)   affiche ici   3
+dictionnaire = {}   # dictionnaire vide lors d'une initialisation 
+dictionnaire["premier"] = "first"    # crée l'item ("premier" : "first") ou donne la valeur "first" à l'item pré-existant de clef "premier"
+print(dictionnaire)   # affiche     {"premier" : "first"}
+dictionnaire["second"] = "second"
+print(dictionnaire)   # affiche     {"premier" : "first", "second" : "second"}
+dictionnaire["Troisième"] = "third"
+print(dictionnaire)   # affiche     {"premier" : "first", "second" : "second", "troisième" : "third"}   # trois items# taille du dictionnaire :len(dictionnaire)   affiche ici   3
+# modification possible d'un item
+dictionnaire["Troisième"] = "3th"
+print(dictionnaire)   # affiche     {"premier" : "first", "second" : "second", "troisième" : "3th"}
 </pre></code>
 		
 		<h2>Méthodes associées à l'objet dict</h2>
 		<p>Trois méthodes permettent de construire des itérateurs sur le dictionnaire :</p>
 		<p>Les méthodes d'un objet sont des fonctions permettant soit d'obtenir (<i>get</i>) des
 			informations sur l'objet, soit de modifier un ou plusieurs attributs de l'objet.</p>
-		<p>Trois méthodes sont particulièrement utiles pour accéder aux éléments d'un dictionnaire ; elles permettent de construire un itérateur utilisable dans une boucle for</p>
+		<p>Trois méthodes sont particulièrement utiles pour accéder aux éléments d'un dictionnaire ; 
+			elles permettent de construire un itérateur utilisable dans une boucle for ; un itérateur est une sorte de liste à usage unique</p>
 		<ul>
 	<li>dict.keys() : "liste" des clefs </li>
-	<li>dict.values() : "liste des valeurs </li>
-	<li>dict.items() : "liste des items : (clef, valeur) de type tuple </li>
+	<li>dict.values() : "liste" des valeurs </li>
+	<li>dict.items() : "liste" des items : (clef, valeur) de type tuple </li>
 		</ul>
 	<h2>Construction et accès aux items, clefs et valeurs</h2>
 <p>Un dictionnaire peut se construite par comprehension ; c'est à dire que l'on peut le construire en une seule étape (ligne de code) 
@@ -208,19 +218,31 @@ for clef, valeur in d.items() :
     print("(Clef : valeur) = ({}:{}) ". format(clef, valeur)	)	
 		</pre></code>
 		</details>
-
+<hr/>
 		<h1 title="travaux pratiques">TP</h1>
 <p>Codage de César : coder une fonction qui renvoie le texte en entrée codé par un décalage de n dans l'alphabet.</p>
 
-<h2>1. Outils PYTHON à utiliser</h2>
-		<p>Les fonctions <i>builtins</i></p>
+<h2>Outils PYTHON à utiliser</h2>
+		<p>Les fonctions <i title="fonctions de base de Python">builtins</i></p>
 		
-		
-ord('a') -> 79  (unicode)
+		<ul>
+			<li> ord('a)  renvoie le code unicode du caractère a, soit 97;<br/>
+				 ord('b')  renvoie le code unicode du caractère b, soit 98;<br/>
+				ord('c')  renvoie le code unicode du caractère c, soit 99;<br/>
+				 ord('d')  renvoie le code unicode du caractère d, soit 100;<br/>
+				 ord('A')  renvoie le code unicode du caractère A, soit 65;<br/>
+				<strong>N.B. :</strong> l'ordre alphabétique est préservé et cela permet 
+				de classer les mots entre eux par ordre alphabétique : ("fille" < "mère" == True).
+			</li>
+			<li> chr(97) renvoie le caractère 'a' ; <br/>
+				chr(97 + i) renvoie les caractères de  'a' à 'z' si i &#x2208; [0 ; 25].
+				chr(ord('a') + i)  renvoie la même chose de manière plus explicite (97 n'évoque rien à priori !)<br/>
+				chr(ord('a') + (i + decalage) % 26) renvoie un des 26 caractères, cela dépend des valeurs de i et de decalage.
+			</li>
+			<li></li>
+			
+		</ul>		
 
-ord('z') -> 79 + 25 = 104
-
-chr(104) -> 'z'
 
 code = { chr(79 + i) : chr(79 + (i+n)%26)   for i in range(26) }     qu'est ce que cela fait ?
 
