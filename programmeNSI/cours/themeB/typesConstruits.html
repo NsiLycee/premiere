@@ -140,7 +140,7 @@ le contenu de la page web à l'écran -->
 
 
 		<h1>Cours sur les dictionnaires</h1>
-		<h2>1. définition et propriétés de base</h2>
+		<h2>Définition et propriétés de base</h2>
 		<p>Un dictionnaire en python est un <stong><u>type construit</u></strong> qui se définit par une collection 
 			d'<dfn title="élément d'une liste ; c'est à dire le contenu d'une ligne précédée d'un tiret">
 			items</dfn> constitué d'une clef (<i>key</i>) associée à une valeur (<i>value</i>).</p>
@@ -150,25 +150,64 @@ le contenu de la page web à l'écran -->
 dictionnaire = {}   # dictionnaire vide lors d'une initialisationdictionnaire["premier"] = "first"    # crée l'item ("premier" : "first") ou donne la valeur "first" à l'item pré-existant de clef "premier"print(dictionnaire)    affiche     {"premier" : "first", "second" : "second", "troisième" : "third"}   # trois items# taille du dictionnaire :len(dictionnaire)   affiche ici   3
 </pre></code>
 		
-		<h2>2. méthodes associées à l'objet dict</h2>
+		<h2>Méthodes associées à l'objet dict</h2>
 		<p>Trois méthodes permettent de construire des itérateurs sur le dictionnaire :</p>
 		<p>Les méthodes d'un objet sont des fonctions permettant soit d'obtenir (<i>get</i>) des
 			informations sur l'objet, soit de modifier un ou plusieurs attributs de l'objet.</p>
+		<p>Trois méthodes sont particulièrement utiles pour accéder aux éléments d'un dictionnaire ; elles permettent de construire un itérateur utilisable dans une boucle for</p>
 		<ul>
-	<li>dict.keys()</li>
-	<li>dict.values()</li>
-	<li>dict.items()</li>
+	<li>dict.keys() : "liste" des clefs </li>
+	<li>dict.values() : "liste des valeurs </li>
+	<li>dict.items() : "liste des items : (clef, valeur) de type tuple </li>
 		</ul>
-	<h2>3. construction et accès aux items, clefs et valeurs</h2>
-Un dictionnaire peut se construite par comprehension ; c'est à dire que l'on peut le construire en une seule étape (ligne de code) 
-	en écrivant un mini programme entre ses accolades
+	<h2>Construction et accès aux items, clefs et valeurs</h2>
+<p>Un dictionnaire peut se construite par comprehension ; c'est à dire que l'on peut le construire en une seule étape (ligne de code) 
+	en écrivant un mini programme entre ses accolades :<p>
+		
 
-Construction classique :
-d = dict()  # d = {}   initialisationliste_clefs = ["un", "deux"]liste_valeurs = [1,2]for i in range(len(liste_clefs)) :    
-
-
-
-
+		<h3>Construction classique :</h3>
+		<code><pre>
+d = dict()  # d = {}   initialisation
+liste_clefs = ["un", "deux"]
+liste_valeurs = [1,2]
+for i in range(len(liste_clefs)) :  
+    d[liste_clefs[i]] = liste_valeurs[i]
+    print("Le dictionnaire, après l'ajout de l'item ({}:{}) devient {}"
+    		.format(liste_clefs[i]] , liste_valeurs[i], d)
+		</pre></code>
+		
+<h3>Construction par comprehension :</h3>
+		<code><pre>
+liste_clefs = ["un", "deux", "trois"]
+liste_valeurs = [1,2,3]	
+d = [ liste_clefs[i]] : liste_valeurs[i] for i in range(len(liste_clefs)) ]  # pas d'initialisation préalable !
+		</pre></code>
+		<h3>Accès à une valeur par la clef</h3>
+		
+		<p>d["un"] renvoie la valeur 1</p>
+		<p>d["deux"] renvoie la valeur 2</p>
+		<p>d["quatre"] est simplement créé comme ceci <br/>d["quatre"] = 4</p>
+		
+		
+		<h3>Accès aux clefs, valeurs et items par une boucle</h3>
+		<details><summary>Accès aux clefs</summary>
+		<code><pre>
+for clef in d.keys() :
+    print("Clef = ", clef)
+		</pre></code>
+		</details>
+		<details><summary>Accès aux valeurs</summary>
+		<code><pre>
+for valeur in d.values() :
+    print("valeur = ", valeur)		
+		</pre></code>
+		</details>
+		<details><summary>Accès aux items</summary>
+		<code><pre>
+for clef, valeur in d.items() :
+    print("(Clef : valeur) = ({}:{}) ". format(clef, valeur)	)	
+		</pre></code>
+		</details>
 
 		<h1 title="travaux pratiques">TP</h1>
 <p>Codage de César : coder une fonction qui renvoie le texte en entrée codé par un décalage de n dans l'alphabet.</p>
