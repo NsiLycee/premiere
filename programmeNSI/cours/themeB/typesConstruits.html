@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title> NSI en première </title>
+	<title>types construits : NSI en première </title>
 	<!-- Les deux lignes suivantes permettent d'insérer une icône à coté 
 	     de l'onglet de la page -->
 	<link rel="shortcut icon" href="icone.png" type="image/x-icon"/>
@@ -139,7 +139,56 @@ le contenu de la page web à l'écran -->
 	<article>
 
 
-en construction
+		<h1>Cours sur les dictionnaires</h1>
+		<h2>1. définition et propriétés de base</h2>
+		<p>Un dictionnaire en python est un <stong><u>type construit</u></strong> qui se définit par une collection 
+			d'<dfn title="élément d'une liste ; c'est à dire le contenu d'une ligne précédée d'un tiret">
+			items</dfn> constitué d'une clef (<i>key</i>) associée à une valeur (<i>value</i>).</p>
+<hr/>
+		<h3>Syntaxe :</h3>
+<code><pre>
+dictionnaire = {}   # dictionnaire vide lors d'une initialisationdictionnaire["premier"] = "first"    # crée l'item ("premier" : "first") ou donne la valeur "first" à l'item pré-existant de clef "premier"print(dictionnaire)    affiche     {"premier" : "first", "second" : "second", "troisième" : "third"}   # trois items# taille du dictionnaire :len(dictionnaire)   affiche ici   3
+</pre></code>
+		
+		<h2>2. méthodes associées à l'objet dict</h2>
+		<p>Trois méthodes permettent de construire des itérateurs sur le dictionnaire :</p>
+		<p>Les méthodes d'un objet sont des fonctions perm</p>
+<ul>
+	<li>dict.keys()</li>
+dict.values()
+dict.items()
+3. construction et accès aux items, clefs et valeurs
+Un dictionnaire peut se construite par comprehension ; c'est à dire que l'on peut le construire en une seule étape en écrivant un mini programme entre ses accolades
+
+Construction classique :
+d = dict()  # d = {}   initialisationliste_clefs = ["un", "deux"]liste_valeurs = [1,2]for i in range(len(liste_clefs)) :    
+
+
+
+
+
+TP
+Codage de César : coder une fonction qui renvoie le texte en entrée codé par un décalage de n dans l'alphabet
+
+OUTILS PYTHON
+
+ord('a') -> 79  (unicode)
+
+ord('z') -> 79 + 25 = 104
+
+chr(104) -> 'z'
+
+code = { chr(79 + i) : chr(79 + (i+n)%26)   for i in range(26) }     qu'est ce que cela fait ?
+
+Traducteur automatique :
+
+dic = {"un": "one", "arbre" :"tree"}
+
+texte = "un arbre"
+
+mots = texte.split(' ')
+
+traduire le texte mot à mot
 	
 	</article>
 	<!----------------------------------------------------------------->
