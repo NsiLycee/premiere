@@ -152,13 +152,16 @@ dictionnaire = {}   # dictionnaire vide lors d'une initialisationdictionnaire["p
 		
 		<h2>2. méthodes associées à l'objet dict</h2>
 		<p>Trois méthodes permettent de construire des itérateurs sur le dictionnaire :</p>
-		<p>Les méthodes d'un objet sont des fonctions perm</p>
-<ul>
+		<p>Les méthodes d'un objet sont des fonctions permettant soit d'obtenir (<i>get</i>) des
+			informations sur l'objet, soit de modifier un ou plusieurs attributs de l'objet.</p>
+		<ul>
 	<li>dict.keys()</li>
-dict.values()
-dict.items()
-3. construction et accès aux items, clefs et valeurs
-Un dictionnaire peut se construite par comprehension ; c'est à dire que l'on peut le construire en une seule étape en écrivant un mini programme entre ses accolades
+	<li>dict.values()</li>
+	<li>dict.items()</li>
+		</ul>
+	<h2>3. construction et accès aux items, clefs et valeurs</h2>
+Un dictionnaire peut se construite par comprehension ; c'est à dire que l'on peut le construire en une seule étape (ligne de code) 
+	en écrivant un mini programme entre ses accolades
 
 Construction classique :
 d = dict()  # d = {}   initialisationliste_clefs = ["un", "deux"]liste_valeurs = [1,2]for i in range(len(liste_clefs)) :    
@@ -167,11 +170,13 @@ d = dict()  # d = {}   initialisationliste_clefs = ["un", "deux"]liste_valeurs =
 
 
 
-TP
-Codage de César : coder une fonction qui renvoie le texte en entrée codé par un décalage de n dans l'alphabet
+		<h1 title="travaux pratiques">TP</h1>
+<p>Codage de César : coder une fonction qui renvoie le texte en entrée codé par un décalage de n dans l'alphabet.</p>
 
-OUTILS PYTHON
-
+<h2>1. Outils PYTHON à utiliser</h2>
+		<p>Les fonctions <i>builtins</i></p>
+		
+		
 ord('a') -> 79  (unicode)
 
 ord('z') -> 79 + 25 = 104
