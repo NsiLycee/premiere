@@ -199,7 +199,7 @@ d = [ liste_clefs[i]] : liste_valeurs[i] for i in range(len(liste_clefs)) ]  # p
 		<p>d["quatre"] est simplement créé comme ceci <br/>d["quatre"] = 4</p>
 		
 		
-		<h3>Accès aux clefs, valeurs et items par une boucle</h3>
+		<h3>Accès aux clefs, valeurs et items à l'aide d'une boucle</h3>
 		<details><summary>Accès aux clefs</summary>
 		<code><pre>
 for clef in d.keys() :
@@ -213,14 +213,20 @@ for valeur in d.values() :
 		</pre></code>
 		</details>
 		<details><summary>Accès aux items</summary>
+			<ul><li>Première façon :
 		<code><pre>
 for clef, valeur in d.items() :
     print("(Clef : valeur) = ({}:{}) ". format(clef, valeur)	)	
-		</pre></code>
+		</pre></code></li>
+		<li>Deuxièm façon :
+		<code><pre>
+for item in d.items() :
+    print("(Clef : valeur) = ({}:{}) ". format(item[0], item[1])	)	
+		</pre></code></li>		
 		</details>
 <hr/>
 		<h1 title="travaux pratiques">TP</h1>
-<p>Codage de César : coder une fonction qui renvoie le texte en entrée codé par un décalage de n dans l'alphabet.</p>
+<h2>Codage de César : coder une fonction qui renvoie le texte en entrée codé par un décalage de n dans l'alphabet.</h2>
 
 <h2>Outils PYTHON à utiliser</h2>
 		<p>Les fonctions <i title="fonctions de base de Python">builtins</i></p>
@@ -246,15 +252,26 @@ for clef, valeur in d.items() :
 
 code = { chr(79 + i) : chr(79 + (i+n)%26)   for i in range(26) }     qu'est ce que cela fait ?
 
-Traducteur automatique :
+<hr/>
+			<h2>Traducteur automatique :</h2>
 
+<pre><code>
 dic = {"un": "one", "arbre" :"tree"}
 
 texte = "un arbre"
 
 mots = texte.split(' ')
-
-traduire le texte mot à mot
+</code></pre>
+Traduire le texte mot à mot
+<details><summary>Solution proposée</summary>
+<pre><code>
+words = []
+for mot in mots :
+    words.append(dic[mot])
+text = " ".join(words)   # concatène les éléments de words en les séparant par un " "
+On obtient : "one tree"
+</code></pre>
+</details>
 	
 	</article>
 	<!----------------------------------------------------------------->
