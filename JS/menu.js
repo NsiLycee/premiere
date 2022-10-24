@@ -3,9 +3,6 @@
     Mise en place des menus
 
 */
-var menu = document.getElementsByTagName("NAV");
-
-menu.innerHTML = "";  // efface le menu builtin
 
 // jeu de données
 menu_data = {
@@ -65,3 +62,22 @@ menu_data = {
 		innerText : "bonnes pratiques"
   }
 }
+// création des items du menu
+function createMenu () {
+	var menu = document.getElementsByTagName("NAV")[0];
+	menu.innerHTML = "";  // efface le menu builtin
+	
+	let liste = document.createElement("ul");
+	for (let item = 0 ; item < menu_data.length ; item++) {
+		let li = document.createElement("li");
+		let lien = document.createElement("a");
+		lien.href = menu_data[item].href;
+		lien.title = menu_data[item].title;
+		lien.innerText = menu_data[item].innerText;
+		li.appendChild(lien);
+		liste.appendChild(li);
+	}
+	menu.appendChild(liste);
+}
+
+createMenu ();
