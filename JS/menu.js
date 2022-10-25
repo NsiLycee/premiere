@@ -55,12 +55,12 @@ menu_data = {
     href:"../../../programmeNSI/ressources/ressource_0.html",
     title : "",
 		innerText : "bonnes pratiques"
-  },
+  } /*,
   10 : {
     href:"../../../programmeNSI/ressources/ressource_0.html",
     title : "",
 		innerText : "bonnes pratiques"
-  }
+  }*/
 }
 // création des items du menu
 function createMenu () {
