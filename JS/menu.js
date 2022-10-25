@@ -68,6 +68,7 @@ function createMenu () {
 	menu.innerHTML = "";  // efface le menu builtin
 	
 	let liste = document.createElement("ul");
+	liste.classList.add("menu");
 	for (let n_item in menu_data) {
 		let li = document.createElement("li");
 		let lien = document.createElement("a");
