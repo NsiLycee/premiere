@@ -68,12 +68,12 @@ function createMenu () {
 	menu.innerHTML = "";  // efface le menu builtin
 	
 	let liste = document.createElement("ul");
-	for (let item = 0 ; item < menu_data.length ; item++) {
+	for (let n_item in menu_data) {
 		let li = document.createElement("li");
 		let lien = document.createElement("a");
-		lien.href = menu_data[item].href;
-		lien.title = menu_data[item].title;
-		lien.innerText = menu_data[item].innerText;
+		lien.href = menu_data[n_item].href;
+		lien.title = menu_data[n_item].title;
+		lien.innerText = menu_data[n_item].innerText;
 		li.appendChild(lien);
 		liste.appendChild(li);
 	}
